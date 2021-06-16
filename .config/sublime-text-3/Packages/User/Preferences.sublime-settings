@@ -1,0 +1,65 @@
+{
+	"added_words":
+	[
+		"Odometry",
+		"odometry",
+		"holonomic",
+		"gearset",
+		"namespace",
+		"lib7842",
+		"param",
+		"isteps",
+		"waypoint",
+		"errno",
+		"auton",
+		"Autons",
+		"accel",
+		"vel",
+		"segfault",
+		"hermite",
+		"tparam",
+		"hermites"
+	],
+	"auto_complete": false,
+	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro.sublime-color-scheme",
+	"font_face": "Fira Code",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 9,
+	"ignored_packages":
+	[
+		"Gitignored File Excluder",
+		"Markdown",
+		"Rust",
+		"SublimeLinter",
+		"SublimeLinter-pug-lint",
+		"Vintage"
+	],
+	"lsp_format_on_save": true,
+	"material_theme_accent_orange": true,
+	"material_theme_arrow_folders": true,
+	"material_theme_bright_scrollbars": true,
+	"material_theme_compact_sidebar": true,
+	"material_theme_contrast_mode": true,
+	"material_theme_small_statusbar": true,
+	"material_theme_small_tab": true,
+	"material_theme_tabs_autowidth": true,
+	"monokai_pro_sidebar_lighter": true,
+	"monokai_pro_sidebar_row_padding": 2,
+	"paths":
+	{
+		"linux":
+		[
+			"/home/theol/.npm-global"
+		]
+	},
+	"show_full_path": false,
+	"spell_check": true,
+	"theme": "Monokai Pro.sublime-theme",
+	"theme_font_options":
+	[
+		"subpixel_antialias"
+	]
+}

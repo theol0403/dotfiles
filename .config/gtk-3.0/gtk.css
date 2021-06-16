@@ -1,0 +1,32 @@
+/* UNITE windowDecorations */
+@import url('/home/theol/.local/share/gnome-shell/extensions/unite@hardpixel.eu/styles/gtk3/buttons-right/maximized.css');
+/* windowDecorations UNITE */
+VteTerminal, vte-terminal {
+   padding: 10px;
+}
+
+.terminator-terminal-window notebook tab {
+  min-height: 0;
+  padding: 7px;
+}
+
+.terminator-terminal-window notebook tab button {
+  min-height: 0;
+  min-width: 0;
+  padding: 0px;
+}
+
+.terminator-terminal-window notebook {
+    border: none;
+}
+
+.terminator-terminal-window paned separator { background-color: @theme_bg_color; }
+
+
+notebook.tilix-background tab {
+  min-height: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+

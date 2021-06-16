@@ -1,0 +1,274 @@
+{
+  "C_Cpp.enhancedColorization": "Disabled",
+  "C_Cpp.errorSquiggles": "Disabled",
+  "C_Cpp.intelliSenseEngine": "Disabled",
+  "C_Cpp.updateChannel": "Insiders",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "nickfode.latex-formatter"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "background.filepath": "/home/theol/Downloads/848687.png",
+  "background.opacity": 0.96,
+  "cSpell.allowCompoundWords": true,
+  "cSpell.dictionaries": [
+    "misc",
+    "softwareTerms"
+  ],
+  "cSpell.enableFiletypes": [
+    "bibtex",
+    "bibtex-style",
+    "diff",
+    "doctex",
+    "editorconfig",
+    "ignore",
+    "jupyter",
+    "latex-expl3",
+    "makefile",
+    "objective-cpp",
+    "pdf",
+    "properties",
+    "search-result",
+    "shellscript",
+    "tex",
+    "viml"
+  ],
+  "cSpell.enabled": true,
+  "cSpell.ignoreRegExpList": [
+    "@param *i"
+  ],
+  "cSpell.includeRegExpList": [
+    "CStyleComment",
+    "string"
+  ],
+  "cSpell.language": "en,en-US,en-GB",
+  "cSpell.numSuggestions": 6,
+  "cSpell.userWords": [
+    "CRTP",
+    "accel",
+    "auton",
+    "autons",
+    "bezier",
+    "errno",
+    "gearset",
+    "holonomic",
+    "intaking",
+    "isteps",
+    "lib7842",
+    "namespace",
+    "odometry",
+    "opcontrol",
+    "param",
+    "pilons",
+    "segfault",
+    "vel",
+    "waypoint"
+  ],
+  "clangd.arguments": [
+    "--all-scopes-completion",
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=bundled",
+    "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--limit-results=6",
+    "--suggest-missing-includes",
+    "--pch-storage=memory",
+    "-j=8",
+    "--cross-file-rename",
+    "--ranking-model=decision_forest",
+    "--inlay-hints=true"
+  ],
+  "clangd.checkUpdates": true,
+  "clangd.onConfigChanged": "restart",
+  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/12.0.0/clangd_12.0.0/bin/clangd",
+  "clangd.semanticHighlighting": true,
+  "comment-divider.languagesMap": {
+    "moonscript": [
+      "--"
+    ]
+  },
+  "debug.inlineValues": true,
+  "debug.javascript.autoAttachFilter": "disabled",
+  "debug.onTaskErrors": "abort",
+  "doxdocgen.generic.briefTemplate": "{text}",
+  "doxdocgen.generic.includeTypeAtReturn": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.accessibilitySupport": "off",
+  "editor.autoClosingBrackets": "beforeWhitespace",
+  "editor.cursorSurroundingLines": 8,
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11.6,
+  "editor.formatOnSave": true,
+  "editor.gotoLocation.multipleDeclarations": "gotoAndPeek",
+  "editor.gotoLocation.multipleDefinitions": "gotoAndPeek",
+  "editor.gotoLocation.multipleReferences": "gotoAndPeek",
+  "editor.inlayHints.fontFamily": "JetBrains Mono",
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.parameterHints.cycle": true,
+  "editor.peekWidgetDefaultFocus": "editor",
+  "editor.quickSuggestions": {
+    "comments": true,
+    "other": true,
+    "strings": true
+  },
+  "editor.renderControlCharacters": true,
+  "editor.renderLineHighlight": "all",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Monokai Pro]": {
+      "enabled": true
+    }
+  },
+  "editor.smoothScrolling": true,
+  "editor.suggest.filterGraceful": false,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.wrappingStrategy": "advanced",
+  "errorLens.delay": 10,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
+  "errorLens.followCursor": "activeLine",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.incrementalNaming": "smart",
+  "extensions.autoUpdate": true,
+  "git.autoStash": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.detectSubmodules": false,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.terminalAuthentication": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.details": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.repositories.files.layout": "list",
+  "keyboard.dispatch": "keyCode",
+  "kite.enableOptionalCompletionsTriggers": true,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+  "latex-workshop.latex.autoClean.run": "onFailed",
+  "latex-workshop.message.error.show": false,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "ltex.language": "en-CA",
+  "ltex.statusBarItem": true,
+  "macros": {
+    "accept": [
+      "acceptSelectedSuggestion",
+      "editor.action.triggerSuggest"
+    ]
+  },
+  "markdown.preview.scrollEditorWithPreview": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "notebook.cellToolbarVisibility": "hover",
+  "notebook.globalToolbar": true,
+  "notebook.lineNumbers": "on",
+  "notebook.undoRedoPerCell": true,
+  "prettier.proseWrap": "always",
+  "problems.decorations.enabled": false,
+  "projectManager.git.baseFolders": [
+    "~/Documents/github"
+  ],
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.memory.keepLibraryAst": true,
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.showStartPage": false,
+  "rust-analyzer.inlayHints.maxLength": 5,
+  "scm.providerCountBadge": "auto",
+  "screencastMode.fontSize": 32,
+  "screencastMode.verticalOffset": 10,
+  "search.maintainFileSearchCache": true,
+  "search.quickOpen.history.filterSortOrder": "recency",
+  "search.showLineNumbers": true,
+  "security.workspace.trust.enabled": false,
+  "tabnine.experimentalAutoImports": true,
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.experimentalLinkProvider": false,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.splitCwd": "workspaceRoot",
+  "vscode-neovim.highlightGroups.highlights": {
+    "Conceal": "vim",
+    "Directory": "vim",
+    "IncSearch": {
+      "backgroundColor": "theme.editor.findMatchBackground",
+      "borderColor": "theme.editor.findMatchBorder"
+    },
+    "Search": {
+      "backgroundColor": "theme.editor.findMatchHighlightBackground",
+      "borderColor": "theme.editor.findMatchHighlightBorder"
+    },
+    "Substitute": "vim",
+    "Visual": {
+      "backgroundColor": "theme.editor.selectionBackground"
+    }
+  },
+  "vscode-neovim.highlightGroups.unknownHighlight": "vim",
+  "vscode-neovim.logLevel": "debug",
+  "vscode-neovim.logPath": "/tmp/vscode.log",
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.revealCursorScrollLine": true,
+  "vscode-neovim.textDecorationsAtTop": true,
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  "window.menuBarVisibility": "toggle",
+  "window.newWindowDimensions": "maximized",
+  "window.title": "${activeEditorShort}${separator}${rootName}",
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.commandPalette.preserveInput": true,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.limit.enabled": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "workbench.list.automaticKeyboardNavigation": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.preferredDarkColorTheme": "Monokai Pro",
+  "workbench.quickOpen.preserveInput": true,
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.expandMode": "singleClick",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.silentNotifications": false
+}

@@ -1,0 +1,22 @@
+[user]
+	name = Theo Lemay
+	email = theol0403@gmail.com
+[core]
+	eol = lf
+	excludesfile = /home/theol/.gitignore
+	autocrlf = false
+[pull]
+	ff = only
+[gc]
+	autoDetach = false
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = smerge
+[init]
+	defaultBranch = master
+[credential]
+	helper = store
+[color]
+	ui = true

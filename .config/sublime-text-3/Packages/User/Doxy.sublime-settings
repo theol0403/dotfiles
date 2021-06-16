@@ -1,0 +1,56 @@
+// Settings in here override those in "${packages}/DoxyDoxygen/Doxy.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"distance_for_bottom_line_over_top_line": 2,
+	"doxygen_discard_param_directions": true,
+	"group_tabs_sizes_by": "section",
+
+	"min_spaces_between_columns": [ 1, 1 ],
+	"preferred_tabs_sizes": [ 1 ],
+
+	"brief_mode": "remove",
+	"preferred_line_length": "100",
+
+	"block_layout": {
+        "Doxygen": [
+            {
+                "tags": [
+                    "@defgroup         {file_base_name:doxy_upper();} {file_base_name:doxy_words();}",
+                    "",
+                    "@brief            This file implements {file_base_name:doxy_words();}.",
+                    "",
+                    "@author           {user_name:doxy_capitalize();}",
+                    "@date             {now:%Y}",
+                    ""
+                ],
+                "context": [
+                    { "key": "row",      "operator": "equal",          "operand": "0" },
+                    { "key": "kind",     "operator": "equal",          "operand": "" }
+                ]
+            },
+            {
+                "tags": [
+                    "@_brief"
+                ],
+                "context": [
+                    { "key": "kind",                                             "operator": "regex_match",  "operand": "^(?:var|constant)$" },
+                    { "key": "language",                                         "operator": "regex_match",  "operand": "^(?:json)$" }
+                ]
+            },
+            {
+                "tags": [
+                    "",
+                    "@brief",
+                    "",
+                    "@param",
+                    "@tparam",
+                    "@return",
+                    ""
+                ],
+                "context": [
+                    { "key": "kind",                                             "operator": "not_equal",  "operand": "" }
+                ]
+            }
+        ]
+    }
+}

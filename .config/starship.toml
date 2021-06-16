@@ -1,0 +1,15 @@
+scan_timeout = 10
+
+[character]
+success_symbol = "[➜](bold green)"
+vicmd_symbol = "[🠜](blue)"
+error_symbol = "[✗](bold red)"
+
+[time]
+disabled = true
+
+[python]
+python_binary = "python3"
+
+[git_status]
+disabled = true

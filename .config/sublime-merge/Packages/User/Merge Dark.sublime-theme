@@ -1,0 +1,10 @@
+{
+	"extends": "Merge.sublime-theme",
+	"variables":
+	{
+		"dark_gray-lightest": "rgb(45, 42, 46)", // commits
+		"dark_gray-light": "rgb(34, 31, 34)", // locations
+		"dark_gray-medium": "rgb(34, 31, 34)", // header
+		"repository_tab_bar_bg": "rgb(45, 42, 46)", // tabs
+	},
+}
