@@ -53,7 +53,7 @@
 		"linux":
 		[
 			"/home/theol/.npm-global"
-		]
+		],
 	},
 	"show_full_path": false,
 	"spell_check": true,
@@ -61,5 +61,5 @@
 	"theme_font_options":
 	[
 		"subpixel_antialias"
-	]
+	],
 }

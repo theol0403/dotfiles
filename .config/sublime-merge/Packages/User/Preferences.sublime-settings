@@ -1,8 +1,10 @@
 {
 	"expand_merge_commits_by_default": true,
-	"hardware_acceleration": "opengl",
+	"hardware_acceleration": "none",
 	"translate_tabs_to_spaces": true,
-	"theme": "Merge Dark.sublime-theme",
+	/*"theme": "Merge Dark.sublime-theme",*/
 	"hide_menu": true,
 	"gtk_client_side_window_decorations": false,
+	/*"theme": "Merge Dark.sublime-theme",*/
+	"theme": "Merge Dark.sublime-theme",
 }

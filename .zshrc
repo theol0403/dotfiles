@@ -7,7 +7,7 @@
 
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
 alias oni2=~/Applications/Onivim2-x86_64.AppImage
-export PATH=$HOME/Downloads/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux/gcc-arm-none-eabi-10-2020-q4-major/bin/:$PATH
+export PATH=$HOME/Downloads/gcc-arm-none-eabi-10.3-2021.07/bin/:$PATH
 
 export TARGET=arm-none-eabi
 # export PREFIX=/home/theol/Downloads/theo-gcc-new
@@ -28,17 +28,45 @@ KEYTIMEOUT=1
 setopt HIST_IGNORE_ALL_DUPS
 bindkey -v
 
+if [[ ${(t)key} != association ]]; then
+  unset key
+  typeset -gA key=()
+  [[ ${(t)key_info} == association ]] &&
+      key=( "${(@kv)key_info}" )
+fi
+
+: ${key[Control-Space]:=$'\0'}
+: ${key[Tab]:=$'\t'}
+: ${key[Shift-Tab]:=${(v)key[(I)(#i)Backtab]:-$'\e[Z'}}
+: ${key[Return]:=$'\r'}
+: ${key[Up]:=$'\e[A'}
+: ${key[Alt-Up]:=$'\e\e[A'}
+: ${key[Down]:=$'\e[B'}
+: ${key[Alt-Down]:=$'\e\e[B'}
+: ${key[Right]:=$'\e[C'}
+: ${key[Left]:=$'\e[D'}
+: ${key[End]:=$'\e[F'}
+: ${key[Home]:=$'\e[H'}
+: ${key[PageUp]:=$'\e[5~'}
+: ${key[PageDown]:=$'\e[6~'}
+: ${key[Delete]:=$'\C-[[3~'}
+
+znap eval starship 'starship init zsh --print-full-init'
+# znap prompt
+
 znap eval zoxide 'zoxide init zsh'
+znap eval beet 'beet completion'
 
 znap source zdharma/fast-syntax-highlighting
 znap source zsh-users/zsh-completions
 znap source xPMo/zsh-toggle-command-prefix
 
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-znap source jeffreytse/zsh-vi-mode
+# znap source jeffreytse/zsh-vi-mode
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+# zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 zstyle ':autocomplete:*' min-input 4
 # zstyle ':autocomplete:*' list-lines 6
@@ -61,17 +89,16 @@ bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-
 ZSH_AUTOSUGGEST_STRATEGY=(histdb_top completion match_prev_cmd history)
 ZSH_AUTOSUGGEST_USE_ASYNC=yes
 znap source zsh-users/zsh-autosuggestions
 autoload -Uz add-zsh-hook
 bindkey '^ ' autosuggest-accept
 
-
+# plugins=(docker)
 znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
-VSCODE=code
-znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge}
+VSCODE=code-insiders
+znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge,docker-compose}
 
 znap compdef _rustup  'rustup completions zsh'
 znap compdef _cargo   'rustup completions zsh cargo'
@@ -87,9 +114,9 @@ order by places.dir != '$(sql_escape $PWD)', count(*) desc limit 1"
     suggestion=$(_histdb_query "$query")
 }
 
-znap source marlonrichert/zsh-edit
-znap source marlonrichert/zsh-hist
-bindkey "^Z" undo
+# znap source marlonrichert/zsh-edit
+# znap source marlonrichert/zsh-hist
+# bindkey "^Z" undo
 
 # bindings
 bindkey $key[Home] beginning-of-line
@@ -97,10 +124,7 @@ bindkey $key[End] end-of-line
 bindkey -M vicmd $key[Home] beginning-of-line
 bindkey -M vicmd $key[End] end-of-line
 bindkey '^H' backward-kill-word
-: ${key[Delete]:=$'\C-[[3~'}
 bindkey $key[Delete] delete-char
-
-znap eval starship 'starship init zsh'
 
 setopt autocd
 

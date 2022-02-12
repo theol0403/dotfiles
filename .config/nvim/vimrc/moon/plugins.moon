@@ -8,35 +8,37 @@ use 'tpope/vim-unimpaired'             -- [space [e
 use 'inkarkat/vim-ReplaceWithRegister'
 use 'tommcdo/vim-exchange'             -- cx v_X cxc
 use 'tommcdo/vim-lion'
-use 'AndrewRadev/switch.vim'           -- gs switches value
+-- use 'AndrewRadev/switch.vim'           -- gs switches value
 use 'matze/vim-move'                   -- alt-arrows move lines around
 use 'AndrewRadev/splitjoin.vim'
 
 -- --------------------------------- motion ------------------------------------
 
-use 'rhysd/clever-f.vim'
-g.clever_f_smart_case = 1
-nmap {'override'}, ';', '<Plug>(clever-f-repeat-forward)'
-nmap {'override'}, ',', '<Plug>(clever-f-repeat-back)'
+-- use 'rhysd/clever-f.vim'
+-- g.clever_f_smart_case = 1
+-- nmap {'override'}, ';', '<Plug>(clever-f-repeat-forward)'
+-- nmap {'override'}, ',', '<Plug>(clever-f-repeat-back)'
 -- nnoremap <silent> <ESC> :call clever_f#_reset_all()<CR><ESC>
 
-use 'unblevable/quick-scope' -- guide for f/t
-g.qs_ignorecase = 1
-g.qs_max_chars = 200
+-- use 'unblevable/quick-scope' -- guide for f/t
+-- g.qs_ignorecase = 1
+-- g.qs_max_chars = 200
 
-use 'justinmk/vim-sneak' -- <space>s <space>S {operator}z v_s v_Z
-g["sneak#use_ic_scs"] = 1
-g["sneak#s_next"] = 1
-vmap 'z', '<Plug>Sneak_s'
-omap 'z', '<Plug>Sneak_s'
+-- use 'justinmk/vim-sneak' -- <space>s <space>S {operator}z v_s v_Z
+-- g["sneak#use_ic_scs"] = 1
+-- g["sneak#s_next"] = 1
+-- vmap 'z', '<Plug>Sneak_s'
+-- omap 'z', '<Plug>Sneak_s'
 
 -- use_nvim 'easymotion/vim-easymotion'
 -- use_vscode 'theol0403/vim-easymotion', as:'vsc-easymotion'
 -- -- use 'haya14busa/vim-easyoperator-line' -- operator on range of lines {op}<space>l{start}{end}
 -- g.EasyMotion_smartcase = 1
 
-use 'phaazon/hop.nvim'
+-- use 'phaazon/hop.nvim'
 -- vim.api.nvim_set_keymap('n', '$', "<cmd>lua require'hop'.hint_words()<cr>", {})
+
+use 'ggandor/lightspeed.nvim'
 
 -- ------------------------------ text objects ---------------------------------
 
@@ -60,7 +62,7 @@ omap 'a/', '<Plug>(textobj-comment-a)'
 xmap 'i/', '<Plug>(textobj-comment-i)'
 omap 'i/', '<Plug>(textobj-comment-i)'
 
-use 'machakann/vim-sandwich', config: -> vim.cmd [[runtime macros/sandwich/keymap/surround.vim]] 
+use 'machakann/vim-sandwich', config: -> vim.cmd [[runtime macros/sandwich/keymap/surround.vim]]
 -- ys{motion}{type}, ds{type}, cs{type}, v_S{type}, yss (line), css (auto), d - auto separator
 xmap 'id', '<Plug>(textobj-sandwich-auto-i)'
 xmap 'ad', '<Plug>(textobj-sandwich-auto-a)'
@@ -80,6 +82,8 @@ g.matchup_surround_enabled = 1
 -- --------------------------- syntax and language -----------------------------
 
 use_nvim 'phanviet/vim-monokai-pro'
+-- use_nvim 'tanvirtin/monokai.nvim'
+use_nvim 'sainnhe/sonokai'
 use_nvim 'sheerun/vim-polyglot'
 use_nvim 'jackguo380/vim-lsp-cxx-highlight'
 use_nvim 'kana/vim-smartinput'
@@ -94,11 +98,12 @@ use_nvim 'myusuf3/numbers.vim' -- enable/disable relative based on mode
 use_nvim 'markonm/traces.vim' -- live substitute preview
 use_nvim 'dietsche/vim-lastplace'
 use_nvim 'inkarkat/vim-CursorLineCurrentWindow', setup: -> vim.opt.cursorline = true
-use_nvim 'szw/vim-maximizer' -- TODO: assign binding
+-- use_nvim 'szw/vim-maximizer' -- TODO: assign binding
 use_nvim 'karb94/neoscroll.nvim', config: -> require('neoscroll').setup()
 use_nvim 'nvim-treesitter/nvim-treesitter', run:':TSUpdate'
-use_nvim 'folke/which-key.nvim'
+-- use_nvim 'folke/which-key.nvim'
 use_nvim 'vim-utils/vim-husk' -- boosts command mode
+use_nvim 'wfxr/minimap.vim'
 
 use_nvim 'dominikduda/vim_current_word'
 g['vim_current_word#highlight_only_in_focused_window'] = 1

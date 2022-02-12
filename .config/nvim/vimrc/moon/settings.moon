@@ -31,7 +31,7 @@ g.mapleader=" "
 nmap '<leader>w', '<c-w>'
 
 -- Y behaves like D, A, I, etc.
-nmap 'Y', 'y$'
+nmap {'override'}, 'Y', 'y$'
 -- swap soft eol
 noremap '0', '^'
 noremap '^', '0'
@@ -84,6 +84,21 @@ if is_nvim!
 	opt.termguicolors = true
 	opt.fillchars = [[stl:─,stlnc:─,vert:│]]
 
+	-- monokai = require('monokai')
+	-- palette = monokai.pro
+
+	-- monokai.setup {palette: palette, custom_hlgroups: {
+	-- 	StatusLine: {
+	-- 		fg: palette.orange
+	-- 	}}}
+
+	-- cmd [[
+	--       let g:sonokai_style = 'shusia'
+        -- let g:sonokai_enable_italic = 1
+        -- let g:sonokai_disable_italic_comment = 0
+        -- colorscheme sonokai
+	-- ]]
+
 	cmd [[colorscheme monokai_pro]]
 	cmd [[hi Normal guibg=NONE ctermbg=NONE]]
 	cmd [[hi NonText guibg=NONE ctermbg=NONE]]
@@ -99,6 +114,7 @@ if is_nvim!
 
 	-- Resize splits when vim changes size (like with tmux opening/closing)
 	cmd [[au VimResized * wincmd =]]
+
 	
 -- ------------------------- vscode specific config ----------------------------
 elseif is_vscode!
@@ -135,3 +151,36 @@ elseif is_vscode!
 	cmd 'unmap H'
 	cmd 'unmap M'
 	cmd 'unmap L'
+
+cmd [[
+    let g:lightspeed_last_motion = ''
+    augroup lightspeed_last_motion
+    autocmd!
+    autocmd User LightspeedSxEnter let g:lightspeed_last_motion = 'sx'
+    autocmd User LightspeedFtEnter let g:lightspeed_last_motion = 'ft'
+    augroup end
+    map <expr> ; g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_;_sx" : "<Plug>Lightspeed_;_ft"
+    map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug>Lightspeed_,_ft"
+		]]
+
+
+cmd 'highlight default TheoTest ctermfg=red ctermbg=NONE cterm=bold,underline guifg=red guibg=NONE gui=bold,underline'
+
+nnoremap 'gp', ->
+	vim.api.nvim_buf_set_extmark 0, vim.api.nvim_create_namespace('theo'), 0, 3, {
+		virt_text: {{'u', "TheoTest"}}
+		virt_text_pos: 'overlay'
+		hl_mode: 'combine'
+		priority: 65534
+	}
+
+
+nnoremap 'gi', ->
+	vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace('theo'), 0, -1)
+
+cmd [[function! SynGroup()                                                            
+    let l:s = synID(line('.'), col('.'), 1)                                       
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+map gm :call SynGroup()<CR>
+]]

@@ -50,11 +50,6 @@
 (package! company-tabnine)
 (package! tree-sitter)
 (package! tree-sitter-langs)
-(package! eldoc-box)
-;; (unpin! lsp-mode)
-(package! lsp-mode :pin "0a298c43e845001a829bb1c489fb3a35d5a07f6b")
-(unpin! lsp-ui)
-(unpin! lsp-treemacs)
 
 (package! scroll-on-jump
   :recipe
@@ -74,27 +69,26 @@
   :recipe (:host github :repo "tarao/evil-plugins"
            :files ("evil-little-word.el")))
 
-(package! olivetti)
+(package! org-pretty-table
+  :recipe (:host github :repo "Fuco1/org-pretty-table"))
 
-;; (package! org-pretty-table
-;;   :recipe (:host github :repo "Fuco1/org-pretty-table"))
+(package! org-fragtog)
+(package! org-appear :recipe (:host github :repo "awth13/org-appear"))
+(package! org-pretty-tags)
 
-;; (package! org-fragtog)
-;; (package! org-appear :recipe (:host github :repo "awth13/org-appear"))
-;; (package! org-pretty-tags)
+;; (package! centered-window-mode
+;;   :recipe (:host github :repo "anler/centered-window-mode"
+;;            :files ("centered-window.el")))
 
-(package! centered-window-mode
-  :recipe (:host github :repo "anler/centered-window-mode"
-           :files ("centered-window.el")))
-
-(package! git-gutter :recipe (:host github :repo "theol0403/git-gutter"))
+;; (package! git-gutter :recipe (:host github :repo "theol0403/git-gutter"))
 ;; (package! git-gutter :recipe (:local-repo "~/Documents/github/git-gutter" :build (:not compile)))
 
 (package! rotate)
 
 (package! solaire-mode :disable t)
 
-(package! webkit-color-picker)
+(package!
+ webkit :recipe (:host github :repo "akirakyle/emacs-webkit"))
 
 ;; (package! keycast)
 ;; (package! gif-screencast)
@@ -111,3 +105,14 @@
 (package! doom-themes :recipe (:host github :repo "theol0403/emacs-doom-themes"))
 
 (package! monokai-pro-theme)
+
+(package! vterm :recipe (:build (:not native-compile)))
+
+(package! evil-textobj-syntax)
+
+(package! beacon :recipe (:host github :repo "Malabarba/beacon"))
+
+(package! good-scroll)
+(package! cdlatex)
+(package! auctex)
+(package! corfu)

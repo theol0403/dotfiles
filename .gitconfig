@@ -20,3 +20,15 @@
 	helper = store
 [color]
 	ui = true
+[maintenance]
+	repo = /home/theol/Documents/zshplugins/fast-syntax-highlighting
+	repo = /home/theol/Documents/zshplugins/ohmyzsh
+	repo = /home/theol/Documents/zshplugins/zsh-autocomplete
+	repo = /home/theol/Documents/zshplugins/zsh-autosuggestions
+	repo = /home/theol/Documents/zshplugins/zsh-completions
+	repo = /home/theol/Documents/zshplugins/zsh-edit
+	repo = /home/theol/Documents/zshplugins/zsh-hist
+	repo = /home/theol/Documents/zshplugins/zsh-histdb
+	repo = /home/theol/Documents/zshplugins/zsh-history-substring-search
+	repo = /home/theol/Documents/zshplugins/zsh-toggle-command-prefix
+	repo = /home/theol/Documents/zshplugins/zsh-vi-mode
