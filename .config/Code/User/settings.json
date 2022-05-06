@@ -2,7 +2,6 @@
   "C_Cpp.enhancedColorization": "Disabled",
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.intelliSenseEngine": "Disabled",
-  "C_Cpp.updateChannel": "Insiders",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -21,10 +20,7 @@
   "background.filepath": "/home/theol/Downloads/848687.png",
   "background.opacity": 0.96,
   "cSpell.allowCompoundWords": true,
-  "cSpell.dictionaries": [
-    "misc",
-    "softwareTerms"
-  ],
+  "cSpell.dictionaries": ["misc", "softwareTerms"],
   "cSpell.enableFiletypes": [
     "bibtex",
     "bibtex-style",
@@ -44,13 +40,8 @@
     "viml"
   ],
   "cSpell.enabled": true,
-  "cSpell.ignoreRegExpList": [
-    "@param *i"
-  ],
-  "cSpell.includeRegExpList": [
-    "CStyleComment",
-    "string"
-  ],
+  "cSpell.ignoreRegExpList": ["@param *i"],
+  "cSpell.includeRegExpList": ["CStyleComment", "string"],
   "cSpell.language": "en,en-US,en-GB",
   "cSpell.numSuggestions": 6,
   "cSpell.userWords": [
@@ -92,13 +83,10 @@
   "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
   "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/12.0.0/clangd_12.0.0/bin/clangd",
-  "clangd.semanticHighlighting": true,
   "comment-divider.languagesMap": {
-    "moonscript": [
-      "--"
-    ]
+    "moonscript": ["--"]
   },
-  "debug.inlineValues": true,
+  "debug.inlineValues": "auto",
   "debug.javascript.autoAttachFilter": "disabled",
   "debug.onTaskErrors": "abort",
   "doxdocgen.generic.briefTemplate": "{text}",
@@ -108,7 +96,7 @@
   "editor.autoClosingBrackets": "beforeWhitespace",
   "editor.cursorSurroundingLines": 8,
   "editor.find.autoFindInSelection": "multiline",
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 11.6,
   "editor.formatOnSave": true,
@@ -152,10 +140,7 @@
   },
   "editor.wrappingStrategy": "advanced",
   "errorLens.delay": 10,
-  "errorLens.enabledDiagnosticLevels": [
-    "error",
-    "warning"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
   "errorLens.followCursor": "activeLine",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -186,10 +171,7 @@
   "ltex.language": "en-CA",
   "ltex.statusBarItem": true,
   "macros": {
-    "accept": [
-      "acceptSelectedSuggestion",
-      "editor.action.triggerSuggest"
-    ]
+    "accept": ["acceptSelectedSuggestion", "editor.action.triggerSuggest"]
   },
   "markdown.preview.scrollEditorWithPreview": false,
   "notebook.cellToolbarLocation": {
@@ -202,9 +184,7 @@
   "notebook.undoRedoPerCell": true,
   "prettier.proseWrap": "always",
   "problems.decorations.enabled": false,
-  "projectManager.git.baseFolders": [
-    "~/Documents/github"
-  ],
+  "projectManager.git.baseFolders": ["~/Documents/github"],
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.memory.keepLibraryAst": true,
   "python.formatting.provider": "black",
@@ -223,7 +203,6 @@
   "terminal.integrated.splitCwd": "workspaceRoot",
   "vscode-neovim.highlightGroups.unknownHighlight": "vim",
   "vscode-neovim.logLevel": "debug",
-  "vscode-neovim.logPath": "/tmp/vscode.log",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.revealCursorScrollLine": true,
@@ -261,7 +240,7 @@
     "*": true,
     "yaml": false,
     "plaintext": true,
-    "markdown": false
+    "markdown": true
   },
   "vscode-neovim.highlightGroups.highlights": {
     "Directory": "vim",
@@ -279,12 +258,8 @@
     "Conceal": "vim",
     "Substitute": "vim"
   },
-  "editor.minimap.enabled": false,
-  "vscode-neovim.logOutputToConsole": true,
   "latex-workshop.latex.build.forceRecipeUsage": false,
-  "settingsSync.ignoredExtensions": [
-    "asvetliakov.vscode-neovim"
-  ],
+  "settingsSync.ignoredExtensions": ["asvetliakov.vscode-neovim"],
   "settingsSync.keybindingsPerPlatform": false,
   "codesnap.showWindowControls": false,
   "codesnap.containerPadding": "0em",
@@ -292,81 +267,21 @@
   "codesnap.shutterAction": "copy",
   "codesnap.transparentBackground": true,
   "workbench.colorTheme": "Monokai Pro",
-  "vscode-neovim.highlightGroups.ignoreHighlights": [
-    "SpecialKey",
-    "EndOfBuffer",
-    // "TermCursor",
-    // "TermCursorNC",
-    "NonText",
-    "ErrorMsg",
-    "MoreMsg",
-    "ModeMsg",
-    "LineNr",
-    // "CursorLineNr",
-    "Question",
-    "StatusLine",
-    "StatusLineNC",
-    "VertSplit",
-    "Title",
-    "VisualNC",
-    "WarningMsg",
-    "WildMenu",
-    "^Diff",
-    "Sign",
-    "SignColumn",
-    "^Spell",
-    "^Pmenu",
-    "^Tab",
-    // "^Cursor",
-    "ColorColumn",
-    "QuickFixLine",
-    "Whitespace",
-    "NormalNC",
-    "Normal",
-    "NormalFloat",
-    "MsgSeparator",
-    "MsgArea",
-    "^RedrawDebug",
-    // "Cursor",
-    // "lCursor",
-    "MatchParen",
-    "^Nvim",
-    "Operator",
-    "Delimiter",
-    "Identifier",
-    "SpecialChar",
-    "Number",
-    "Type",
-    "String",
-    "Error",
-    "Comment",
-    "Constant",
-    "Special",
-    "Statement",
-    "PreProc",
-    "Underlined",
-    "Ignore",
-    "Todo",
-    "Character",
-    "Boolean",
-    "Float",
-    "Function",
-    "Conditional",
-    "Repeat",
-    "Label",
-    "Keyword",
-    "Exception",
-    "Include",
-    "Define",
-    "Macro",
-    "PreCondit",
-    "StorageClass",
-    "Structure",
-    "Typedef",
-    "Tag",
-    "SpecialComment",
-    "Debug",
-    "Folded",
-    "FoldColumn"
-  ]
+  "jupyter.askForKernelRestart": false,
+  "github.copilot.advanced": {},
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "push:command"
+  ],
+  "vscode-neovim.logOutputToConsole": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\student\\scoop\\apps\\neovim-nightly\\current\\bin\\nvim.exe"
 }

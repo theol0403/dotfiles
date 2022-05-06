@@ -2,7 +2,6 @@ require 'common'
 
 -- -------------------------------- settings -----------------------------------
 
-opt.confirm = true
 opt.timeoutlen = 3000
 opt.whichwrap\append '<,>,h,l' -- allow movement between end/start of line
 opt.shiftwidth = 2
@@ -15,6 +14,7 @@ opt.linebreak = true -- if text should be wrapped at certain characters
 opt.shortmess\append 'a' -- abbreviate messages
 opt.splitbelow = true
 opt.splitright = true
+opt.hlsearch = true
 
 -- highlightyank
 cmd [[au TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=500}]]
@@ -73,7 +73,7 @@ if is_nvim!
 	-- settings
 	opt.number = true
 	opt.relativenumber = true
-	opt.wildmode = 'list:longest:lastused,full:lastused'
+	-- opt.wildmode = 'list:longest:lastused,full:lastused'
 	opt.mouse = 'ar'
 	opt.scrolloff = 3
 	opt.undofile = true
@@ -92,14 +92,14 @@ if is_nvim!
 	-- 		fg: palette.orange
 	-- 	}}}
 
-	-- cmd [[
-	--       let g:sonokai_style = 'shusia'
-        -- let g:sonokai_enable_italic = 1
-        -- let g:sonokai_disable_italic_comment = 0
-        -- colorscheme sonokai
-	-- ]]
+	cmd [[
+	      let g:sonokai_style = 'shusia'
+        let g:sonokai_enable_italic = 1
+        let g:sonokai_disable_italic_comment = 0
+        colorscheme sonokai
+	]]
 
-	cmd [[colorscheme monokai_pro]]
+	-- cmd [[colorscheme monokai_pro]]
 	cmd [[hi Normal guibg=NONE ctermbg=NONE]]
 	cmd [[hi NonText guibg=NONE ctermbg=NONE]]
 	cmd [[hi LineNr ctermfg=246 ctermbg=NONE cterm=NONE guifg=#959394 guibg=NONE gui=NONE]]
@@ -126,13 +126,13 @@ elseif is_vscode!
 	cmd [[hi QuickScopePrimary guifg=NONE guisp='#afff5f' gui=underline ctermfg=NONE cterm=underline]]
 	cmd [[hi QuickScopeSecondary guifg=NONE guisp='#5fffff' gui=underline ctermfg=NONE cterm=underline]]
 
-	cmd [[
-	augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * RelativeNumber
-	autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * Number 
-	augroup END
-	]]
+	-- cmd [[
+	-- augroup numbertoggle
+	-- autocmd!
+	-- autocmd BufEnter,FocusGained,InsertLeave,WinEnter * RelativeNumber
+	-- autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * Number 
+	-- augroup END
+	-- ]]
 
 	nnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("."), line("."), 0)<CR>'
 	xnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("v"), line("."), 0)<CR><ESC>'
@@ -161,26 +161,7 @@ cmd [[
     augroup end
     map <expr> ; g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_;_sx" : "<Plug>Lightspeed_;_ft"
     map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug>Lightspeed_,_ft"
+		map gs <Plug>Lightspeed_omni_s
 		]]
 
 
-cmd 'highlight default TheoTest ctermfg=red ctermbg=NONE cterm=bold,underline guifg=red guibg=NONE gui=bold,underline'
-
-nnoremap 'gp', ->
-	vim.api.nvim_buf_set_extmark 0, vim.api.nvim_create_namespace('theo'), 0, 3, {
-		virt_text: {{'u', "TheoTest"}}
-		virt_text_pos: 'overlay'
-		hl_mode: 'combine'
-		priority: 65534
-	}
-
-
-nnoremap 'gi', ->
-	vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace('theo'), 0, -1)
-
-cmd [[function! SynGroup()                                                            
-    let l:s = synID(line('.'), col('.'), 1)                                       
-    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-map gm :call SynGroup()<CR>
-]]

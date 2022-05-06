@@ -7,7 +7,7 @@
 
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
 alias oni2=~/Applications/Onivim2-x86_64.AppImage
-export PATH=$HOME/Downloads/gcc-arm-none-eabi-10.3-2021.07/bin/:$PATH
+export PATH=$HOME/Downloads/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux/gcc-arm-none-eabi-9-2019-q4-major/bin/:$PATH
 
 export TARGET=arm-none-eabi
 # export PREFIX=/home/theol/Downloads/theo-gcc-new
@@ -52,7 +52,7 @@ fi
 : ${key[Delete]:=$'\C-[[3~'}
 
 znap eval starship 'starship init zsh --print-full-init'
-# znap prompt
+znap prompt starship
 
 znap eval zoxide 'zoxide init zsh'
 znap eval beet 'beet completion'
