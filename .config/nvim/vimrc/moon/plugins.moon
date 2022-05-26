@@ -24,9 +24,13 @@ use 'AndrewRadev/splitjoin.vim'
 -- g.qs_ignorecase = 1
 -- g.qs_max_chars = 200
 
-use 'ggandor/lightspeed.nvim'
--- use 'ggandor/leap.nvim'
--- require('leap').set_default_keymaps()
+use 'ggandor/lightspeed.nvim', config: ->
+  require'lightspeed'.setup {
+    ignore_case: true,
+    match_only_the_start_of_same_char_seqs: true,
+    safe_labels: {""}
+  }
+-- use 'ggandor/leap.nvim', config: -> require('leap').set_default_keymaps()
 
 -- ------------------------------ text objects ---------------------------------
 
