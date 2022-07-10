@@ -29,7 +29,6 @@ cmd [[au CursorHold,CursorHoldI * set nohls | set tw=100]]
 -- -------------------------------- mappings -----------------------------------
 
 g.mapleader=" "
-nmap '<leader>w', '<c-w>'
 
 -- Y behaves like D, A, I, etc.
 nmap {'override'}, 'Y', 'y$'
@@ -70,6 +69,7 @@ if is_nvim!
 	map 'k', 'gk'
 	nnoremap '<leader>z', ':MaximizerToggle<CR>'
 	vnoremap '<leader>z', ':MaximizerToggle<CR>gv'
+	nmap '<leader>w', '<c-w>'
 
 	-- settings
 	opt.number = true
@@ -146,7 +146,7 @@ elseif is_vscode!
 	nnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("."), line("."), 0)<CR>'
 	xnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("v"), line("."), 0)<CR><ESC>'
 
-	noremap '\'', '<Cmd>call VSCodeNotifyVisual("whichkey.show", 1)<CR>'
+	noremap {'override'}, '<leader>', '<Cmd>call VSCodeNotifyVisual("whichkey.show", 1)<CR>'
 
 	-- nnoremap 'gt', '<Cmd>call VSCodeNotify("workbench.action.showAllEditors")<CR>'
 	-- nnoremap 'gT', '<Cmd>call VSCodeNotify("workbench.action.showAllEditorsByMostRecentlyUsed")<CR>'
@@ -157,9 +157,11 @@ elseif is_vscode!
 	-- nnoremap ']e', '<Cmd>call VSCodeNotify("editor.action.marker.next")<CR>'
 	-- nnoremap '[e', '<Cmd>call VSCodeNotify("editor.action.marker.prev")<CR>'
 
-	cmd 'unmap H'
-	cmd 'unmap M'
-	cmd 'unmap L'
+	vim.keymap.set('n', 'gws', ->
+		line_start = vim.fn.line('w0')
+		line_end = vim.fn.line('w$')
+		print('S:' .. line_start .. ' E:' .. line_end))
+
 
 cmd [[
     let g:lightspeed_last_motion = ''
