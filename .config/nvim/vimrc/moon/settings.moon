@@ -2,7 +2,7 @@ require 'common'
 
 -- -------------------------------- settings -----------------------------------
 
-opt.timeoutlen = 3000
+opt.timeoutlen = 500
 opt.whichwrap\append '<,>,h,l' -- allow movement between end/start of line
 opt.shiftwidth = 2
 opt.ignorecase = true
@@ -46,12 +46,12 @@ inoremap {'override'}, '<C-W>', '<C-G>u<C-W>'
 -- terminal
 tnoremap '<Esc>', [[<C-\><C-n>]]
 -- arrow key movement
-nmap '<C-Left>', 'B'
-nmap '<C-Right>', 'W'
-nmap '<S-Left>', 'b'
-nmap '<S-Right>', 'w'
-nmap '<Down>', 'j'
-nmap '<Up>', 'k'
+-- nmap '<C-Left>', 'B'
+-- nmap '<C-Right>', 'W'
+-- nmap '<S-Left>', 'b'
+-- nmap '<S-Right>', 'w'
+-- nmap '<Down>', 'j'
+-- nmap '<Up>', 'k'
 -- copy to clipboard
 vmap '<C-Ins>', '"+y'
 nmap '<C-Ins>', '"+yy'
@@ -60,6 +60,9 @@ inoremap '<C-R><C-R>', '<C-R>"'
 inoremap '<C-R>\'', '<C-R>+'
 -- delete word
 imap '<C-BS>', '<C-w>'
+
+imap 'jk', '<Esc>'
+imap 'kj', '<Esc>'
 
 -- ------------------------- neovim specific config ----------------------------
 if is_nvim!
@@ -146,7 +149,7 @@ elseif is_vscode!
 	nnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("."), line("."), 0)<CR>'
 	xnoremap 'gz', '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("v"), line("."), 0)<CR><ESC>'
 
-	noremap {'override'}, '<leader>', '<Cmd>call VSCodeNotifyVisual("whichkey.show", 1)<CR>'
+	noremap '<leader>', '<Cmd>call VSCodeNotifyVisual("vspacecode.space", 1)<CR>'
 
 	-- nnoremap 'gt', '<Cmd>call VSCodeNotify("workbench.action.showAllEditors")<CR>'
 	-- nnoremap 'gT', '<Cmd>call VSCodeNotify("workbench.action.showAllEditorsByMostRecentlyUsed")<CR>'
@@ -157,12 +160,6 @@ elseif is_vscode!
 	-- nnoremap ']e', '<Cmd>call VSCodeNotify("editor.action.marker.next")<CR>'
 	-- nnoremap '[e', '<Cmd>call VSCodeNotify("editor.action.marker.prev")<CR>'
 
-	vim.keymap.set('n', 'gws', ->
-		line_start = vim.fn.line('w0')
-		line_end = vim.fn.line('w$')
-		print('S:' .. line_start .. ' E:' .. line_end))
-
-
 cmd [[
     let g:lightspeed_last_motion = ''
     augroup lightspeed_last_motion
@@ -170,8 +167,11 @@ cmd [[
     autocmd User LightspeedSxEnter let g:lightspeed_last_motion = 'sx'
     autocmd User LightspeedFtEnter let g:lightspeed_last_motion = 'ft'
     augroup end
-    map <expr> ; g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_;_sx" : "<Plug>Lightspeed_;_ft"
-    map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug>Lightspeed_,_ft"
+    " map <expr> ; g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_;_sx" : "<Plug>Lightspeed_;_ft"
+    " map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug>Lightspeed_,_ft"
+    map <expr> ; g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_;_sx" : "<Plug>(clever-f-repeat-forward)"
+    map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug>(clever-f-repeat-back)"
+
 		map gs <Plug>Lightspeed_omni_s
 		]]
 

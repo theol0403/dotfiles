@@ -5,20 +5,23 @@ require 'common'
 use 'tpope/vim-repeat'
 use 'tpope/vim-commentary'             -- gc{motion} gcc gcgc dgc
 use 'tpope/vim-unimpaired'             -- [space [e
-use 'inkarkat/vim-ReplaceWithRegister'
 use 'tommcdo/vim-exchange'             -- cx v_X cxc
 use 'tommcdo/vim-lion'
 -- use 'AndrewRadev/switch.vim'           -- gs switches value
 use 'matze/vim-move'                   -- alt-arrows move lines around
 use 'AndrewRadev/splitjoin.vim'
+use 'mg979/vim-visual-multi'
+
+use 'gbprod/substitute.nvim', config: ->
+  vim.keymap.set("n", "gr", "<cmd>lua require('substitute').operator()<cr>", { noremap: true })
+  vim.keymap.set("n", "grr", "<cmd>lua require('substitute').line()<cr>", { noremap: true })
+  vim.keymap.set("n", "gR", "<cmd>lua require('substitute').eol()<cr>", { noremap: true })
+  vim.keymap.set("x", "gr", "<cmd>lua require('substitute').visual()<cr>", { noremap: true })
 
 -- --------------------------------- motion ------------------------------------
 
--- use 'rhysd/clever-f.vim'
--- g.clever_f_smart_case = 1
--- nmap {'override'}, ';', '<Plug>(clever-f-repeat-forward)'
--- nmap {'override'}, ',', '<Plug>(clever-f-repeat-back)'
--- nnoremap <silent> <ESC> :call clever_f#_reset_all()<CR><ESC>
+use 'rhysd/clever-f.vim'
+g.clever_f_smart_case = 1
 
 -- use 'unblevable/quick-scope' -- guide for f/t
 -- g.qs_ignorecase = 1
@@ -28,7 +31,8 @@ use 'ggandor/lightspeed.nvim', config: ->
   require'lightspeed'.setup {
     ignore_case: true,
     match_only_the_start_of_same_char_seqs: true,
-    safe_labels: {""}
+    safe_labels: {""},
+    exit_after_idle_msecs: { labeled: nil, unlabeled: 5000 }
   }
 -- use 'ggandor/leap.nvim', config: -> require('leap').set_default_keymaps()
 
@@ -68,6 +72,14 @@ use 'andymass/vim-matchup'
 g.matchup_matchparen_deferred = 1
 g.matchup_transmute_enabled = 0
 g.matchup_surround_enabled = 1
+
+use 'monaqa/dial.nvim', config: ->
+  vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), {noremap: true})
+  vim.api.nvim_set_keymap("n", "<C-x>", require("dial.map").dec_normal(), {noremap: true})
+  vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_visual(), {noremap: true})
+  vim.api.nvim_set_keymap("v", "<C-x>", require("dial.map").dec_visual(), {noremap: true})
+  vim.api.nvim_set_keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), {noremap: true})
+  vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), {noremap: true})
 
 -- --------------------------- syntax and language -----------------------------
 
@@ -128,6 +140,10 @@ use_nvim 'karb94/neoscroll.nvim', config: -> require('neoscroll').setup()
 use_nvim 'dominikduda/vim_current_word'
 g['vim_current_word#highlight_only_in_focused_window'] = 1
 g['vim_current_word#highlight_delay'] = 100
+
+use 'winston0410/cmd-parser.nvim'
+use 'winston0410/range-highlight.nvim'
+require'range-highlight'.setup{}
 
 -- ---------------------------------- latex ------------------------------------
 
