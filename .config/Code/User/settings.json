@@ -151,7 +151,6 @@
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.revealCursorScrollLine": true,
   "vscode-neovim.textDecorationsAtTop": true,
-  "window.customMenuBarAltFocus": false,
   "window.enableMenuBarMnemonics": false,
   "window.newWindowDimensions": "maximized",
   "window.title": "${activeEditorShort}${separator}${rootName}",
@@ -215,7 +214,6 @@
     "switch:command",
     "push:command"
   ],
-  "vscode-neovim.logOutputToConsole": true,
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1,
     "asvetliakov.vscode-neovim": 1
@@ -227,7 +225,6 @@
   "nrf-connect.enableTelemetry": false,
   "nrf-connect.welcome.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
-  "window.menuBarVisibility": "toggle",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.highlightGroups.ignoreHighlights": [
     "SpecialKey",
@@ -352,14 +349,22 @@
     }
   ],
   "task.quickOpen.skip": true,
-  "vscode-neovim.logLevel": "debug",
   "workbench.colorTheme": "Monokai Pro",
   "dart.renameFilesWithClasses": "prompt",
   "dart.flutterHotReloadOnSave": "manualIfDirty",
   "dart.previewFlutterUiGuides": true,
-  "window.commandCenter": true,
+  // "window.commandCenter": true,
   "terminal.integrated.shellIntegration.enabled": true,
   "markdown.experimental.validate.enabled": true,
   "git.mergeEditor": true,
-  "window.titleBarStyle": "custom"
+  // "window.titleBarStyle": "custom",
+  // "window.customMenuBarAltFocus": false,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
+  "editor.scrollBeyondLastLine": false
 }

@@ -3,11 +3,10 @@
 #     tmux
 # fi
 
-# cd ${PROOT:-~}
-
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
 alias oni2=~/Applications/Onivim2-x86_64.AppImage
 export PATH=$HOME/Downloads/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux/gcc-arm-none-eabi-9-2019-q4-major/bin/:$PATH
+export PATH=$PATH:~/Documents/github/flutter/bin/
 
 export TARGET=arm-none-eabi
 # export PREFIX=/home/theol/Downloads/theo-gcc-new
@@ -61,7 +60,7 @@ znap source zdharma/fast-syntax-highlighting
 znap source zsh-users/zsh-completions
 znap source xPMo/zsh-toggle-command-prefix
 
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 # znap source jeffreytse/zsh-vi-mode
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -96,9 +95,9 @@ autoload -Uz add-zsh-hook
 bindkey '^ ' autosuggest-accept
 
 # plugins=(docker)
-znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
-VSCODE=code-insiders
-znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge,docker-compose}
+# znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
+# VSCODE=code-insiders
+# znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge,docker-compose}
 
 znap compdef _rustup  'rustup completions zsh'
 znap compdef _cargo   'rustup completions zsh cargo'

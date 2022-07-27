@@ -8,7 +8,7 @@ use 'tpope/vim-unimpaired'             -- [space [e
 use 'tommcdo/vim-exchange'             -- cx v_X cxc
 use 'tommcdo/vim-lion'
 -- use 'AndrewRadev/switch.vim'           -- gs switches value
-use 'matze/vim-move'                   -- alt-arrows move lines around
+use_nvim 'matze/vim-move'                   -- alt-arrows move lines around
 use 'AndrewRadev/splitjoin.vim'
 use 'mg979/vim-visual-multi'
 
@@ -85,7 +85,8 @@ use 'monaqa/dial.nvim', config: ->
 
 -- use_nvim 'phanviet/vim-monokai-pro'
 -- use_nvim 'tanvirtin/monokai.nvim'
-use_nvim 'sainnhe/sonokai'
+-- use_nvim 'sainnhe/sonokai'
+use_nvim 'Yazeed1s/minimal.nvim'
 
 use_nvim 'kana/vim-smartinput'
 use_nvim 'leafo/moonscript-vim'

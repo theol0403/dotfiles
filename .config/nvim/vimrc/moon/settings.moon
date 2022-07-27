@@ -96,25 +96,27 @@ if is_nvim!
 	-- 		fg: palette.orange
 	-- 	}}}
 
-	cmd [[
-	      let g:sonokai_style = 'shusia'
-        let g:sonokai_enable_italic = 1
-        let g:sonokai_disable_italic_comment = 0
-        colorscheme sonokai
-	]]
+	-- cmd [[
+	--       let g:sonokai_style = 'shusia'
+        -- let g:sonokai_enable_italic = 1
+        -- let g:sonokai_disable_italic_comment = 0
+        -- colorscheme sonokai
+	-- ]]
+
+	cmd [[colorscheme minimal-base16]]
 
 	-- cmd [[colorscheme monokai_pro]]
-	cmd [[hi Normal guibg=NONE ctermbg=NONE]]
-	cmd [[hi NonText guibg=NONE ctermbg=NONE]]
-	cmd [[hi LineNr ctermfg=246 ctermbg=NONE cterm=NONE guifg=#959394 guibg=NONE gui=NONE]]
+	-- cmd [[hi Normal guibg=NONE ctermbg=NONE]]
+	-- cmd [[hi NonText guibg=NONE ctermbg=NONE]]
+	-- cmd [[hi LineNr ctermfg=246 ctermbg=NONE cterm=NONE guifg=#959394 guibg=NONE gui=NONE]]
 
-	-- fix c++ number hl
-	cmd [[hi link LspCxxHlGroupEnumConstant Number]]
-	cmd [[hi link LspCxxHlGroupNamespace Function]]
+	-- -- fix c++ number hl
+	-- cmd [[hi link LspCxxHlGroupEnumConstant Number]]
+	-- cmd [[hi link LspCxxHlGroupNamespace Function]]
 
-	cmd [[hi StatusLineNC ctermbg=NONE guibg=NONE guifg=#696769]]
-	cmd [[hi StatusLine ctermbg=NONE guibg=NONE guifg=#FC9867 gui=NONE cterm=NONE ctermfg=5]]
-	cmd [[hi VertSplit ctermbg=NONE guibg=NONE,bright]]
+	-- cmd [[hi StatusLineNC ctermbg=NONE guibg=NONE guifg=#696769]]
+	-- cmd [[hi StatusLine ctermbg=NONE guibg=NONE guifg=#FC9867 gui=NONE cterm=NONE ctermfg=5]]
+	-- cmd [[hi VertSplit ctermbg=NONE guibg=NONE,bright]]
 
 	-- Resize splits when vim changes size (like with tmux opening/closing)
 	cmd [[au VimResized * wincmd =]]
