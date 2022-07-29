@@ -18,6 +18,9 @@ use 'gbprod/substitute.nvim', config: ->
   vim.keymap.set("n", "gR", "<cmd>lua require('substitute').eol()<cr>", { noremap: true })
   vim.keymap.set("x", "gr", "<cmd>lua require('substitute').visual()<cr>", { noremap: true })
 
+use 'echasnovski/mini.nvim', config: ->
+  require('mini.ai').setup()
+
 -- --------------------------------- motion ------------------------------------
 
 use 'rhysd/clever-f.vim'
@@ -34,6 +37,7 @@ use 'ggandor/lightspeed.nvim', config: ->
     safe_labels: {""},
     exit_after_idle_msecs: { labeled: nil, unlabeled: 5000 }
   }
+nmap {'override'}, 's', '<Plug>Lightspeed_omni_s'
 -- use 'ggandor/leap.nvim', config: -> require('leap').set_default_keymaps()
 
 -- ------------------------------ text objects ---------------------------------
@@ -56,16 +60,19 @@ omap 'a/', '<Plug>(textobj-comment-a)'
 xmap 'i/', '<Plug>(textobj-comment-i)'
 omap 'i/', '<Plug>(textobj-comment-i)'
 
-use 'machakann/vim-sandwich', config: -> vim.cmd [[runtime macros/sandwich/keymap/surround.vim]]
--- ys{motion}{type}, ds{type}, cs{type}, v_S{type}, yss (line), css (auto), d - auto separator
-xmap 'id', '<Plug>(textobj-sandwich-auto-i)'
-xmap 'ad', '<Plug>(textobj-sandwich-auto-a)'
-omap 'id', '<Plug>(textobj-sandwich-auto-i)'
-omap 'ad', '<Plug>(textobj-sandwich-auto-a)'
+-- use 'machakann/vim-sandwich', config: -> vim.cmd [[runtime macros/sandwich/keymap/surround.vim]]
+-- -- ys{motion}{type}, ds{type}, cs{type}, v_S{type}, yss (line), css (auto), d - auto separator
+-- xmap 'id', '<Plug>(textobj-sandwich-auto-i)'
+-- xmap 'ad', '<Plug>(textobj-sandwich-auto-a)'
+-- omap 'id', '<Plug>(textobj-sandwich-auto-i)'
+-- omap 'ad', '<Plug>(textobj-sandwich-auto-a)'
 
-use 'wellle/targets.vim'
--- I - inner inner, A - around space, n l - next & seek multi line, inside separators, a - argument
-g.targets_gracious = 1
+use 'kylechui/nvim-surround', config: ->
+  require('nvim-surround').setup({})
+
+-- use 'wellle/targets.vim'
+-- -- I - inner inner, A - around space, n l - next & seek multi line, inside separators, a - argument
+-- g.targets_gracious = 1
 
 use 'andymass/vim-matchup'
 -- % forwards, g% backwards, ]% next surrounding, z% jump inside, % - text object
