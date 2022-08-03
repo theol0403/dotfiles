@@ -132,13 +132,13 @@ elseif is_vscode!
 	cmd [[hi QuickScopePrimary guifg=NONE guisp='#afff5f' gui=underline ctermfg=NONE cterm=underline]]
 	cmd [[hi QuickScopeSecondary guifg=NONE guisp='#5fffff' gui=underline ctermfg=NONE cterm=underline]]
 	
-	cmd [[
-		highlight OperatorSandwichBuns guifg='#aa91a0' gui=underline ctermfg=172 cterm=underline 
-		highlight OperatorSandwichChange guifg='#edc41f' gui=underline ctermfg='yellow' cterm=underline
-		highlight OperatorSandwichAdd guibg='#b1fa87' gui=none ctermbg='green' cterm=none
-		highlight OperatorSandwichDelete guibg='#cf5963' gui=none ctermbg='red' cterm=none
-		call operator#sandwich#set('all', 'all', 'highlight', 0)
-	]]
+	-- cmd [[
+	-- 	highlight OperatorSandwichBuns guifg='#aa91a0' gui=underline ctermfg=172 cterm=underline 
+	-- 	highlight OperatorSandwichChange guifg='#edc41f' gui=underline ctermfg='yellow' cterm=underline
+	-- 	highlight OperatorSandwichAdd guibg='#b1fa87' gui=none ctermbg='green' cterm=none
+	-- 	highlight OperatorSandwichDelete guibg='#cf5963' gui=none ctermbg='red' cterm=none
+	-- 	call operator#sandwich#set('all', 'all', 'highlight', 0)
+	-- ]]
 
 	-- cmd [[
 	-- augroup numbertoggle
@@ -178,6 +178,7 @@ cmd [[
 		]]
 
 
-if is_vscode! 
--- 	require 'patch_lightspeed'
-	vim.cmd [[hi LightspeedCursor gui=reverse]]
+vim.keymap.set('n', 'gws', ->
+		line_start = vim.fn.line('w0')
+		line_end = vim.fn.line('w$')
+		print('S:' .. line_start .. ' E:' .. line_end))
