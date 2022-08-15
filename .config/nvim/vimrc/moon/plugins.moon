@@ -144,7 +144,7 @@ use_nvim 'myusuf3/numbers.vim' -- enable/disable relative based on mode
 use_nvim 'markonm/traces.vim' -- live substitute preview
 use_nvim 'dietsche/vim-lastplace'
 use_nvim 'inkarkat/vim-CursorLineCurrentWindow', setup: -> vim.opt.cursorline = true
-use_nvim 'karb94/neoscroll.nvim', config: -> require('neoscroll').setup()
+-- use_nvim 'karb94/neoscroll.nvim', config: -> require('neoscroll').setup()
 -- use_nvim 'vim-utils/vim-husk' -- boosts command mode
 
 -- use_nvim 'folke/which-key.nvim'
