@@ -23,8 +23,8 @@ use 'echasnovski/mini.nvim', config: ->
 
 -- --------------------------------- motion ------------------------------------
 
-use 'rhysd/clever-f.vim'
-g.clever_f_smart_case = 1
+-- use 'rhysd/clever-f.vim'
+-- g.clever_f_smart_case = 1
 
 -- use 'unblevable/quick-scope' -- guide for f/t
 -- g.qs_ignorecase = 1
@@ -42,6 +42,10 @@ use 'ggandor/leap.nvim', config: ->
   require'leap'.set_default_keymaps()
 nnoremap {'override'}, 's', => 
   require'leap'.leap { target_windows: { vim.fn.win_getid() } }
+use 'ggandor/leap-spooky.nvim', config: -> require'leap-spooky'.setup()
+use 'ggandor/flit.nvim', config: -> require'flit'.setup({
+  labeled_modes: "nv"
+  })
 
 
 -- ------------------------------ text objects ---------------------------------
@@ -51,7 +55,7 @@ use 'kana/vim-textobj-entire' -- e - entire
 use 'kana/vim-textobj-line' -- l - line
 use 'Julian/vim-textobj-variable-segment' -- v - segment
 use 'kana/vim-textobj-indent' -- i - indent block, I - same indent (wont select sub indent)
-use 'pianohacker/vim-textobj-indented-paragraph' -- r - paragraph that won't go less indent
+-- use 'pianohacker/vim-textobj-indented-paragraph' -- r - paragraph that won't go less indent
 -- use 'tkhren/vim-textobj-numeral' -- n - number (do you want gn - jump to number)
 use 'MRAAGH/vim-textobj-chunk' -- lines that contain {},(),[] block. Use to select functions.
 

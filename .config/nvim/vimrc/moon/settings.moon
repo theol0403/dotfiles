@@ -15,7 +15,6 @@ opt.shortmess\append 'a' -- abbreviate messages
 opt.splitbelow = true
 opt.splitright = true
 opt.hlsearch = true
-opt.clipboard += 'unnamedplus'
 
 -- highlightyank
 cmd [[au TextYankPost * silent! lua vim.highlight.on_yank{higroup='IncSearch', timeout=500}]]
@@ -35,8 +34,6 @@ nmap {'override'}, 'Y', 'y$'
 -- swap soft eol
 noremap '0', '^'
 noremap '^', '0'
--- Q repeats the last recorded macro
-nmap 'Q', '@@'
 -- save
 map '<C-S>', ':wall<CR><ESC>'
 imap '<C-S>', '<ESC>:wall<CR>'
