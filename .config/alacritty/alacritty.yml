@@ -46,7 +46,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
+    x: 0
     y: 0
 
   # Spread additional padding evenly around the terminal content.
@@ -61,7 +61,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
 
   # Background opacity
   #
@@ -93,11 +93,12 @@ window:
     # General application class
     #general: Alacritty
 
-  # GTK theme variant (Linux/BSD only)
+  # Decorations theme variant (Linux/BSD only)
   #
-  # Override the variant of the GTK theme. Commonly supported values are `dark`
-  # and `light`. Set this to `None` to use the default theme variant.
-  gtk_theme_variant: dark
+  # Override the variant of the GTK theme/Wayland client side decorations.
+  # Commonly supported values are `dark` and `light`. Set this to `None` to use
+  # the default theme variant.
+  decorations_theme_variant: dark
 
 #scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -179,40 +180,14 @@ font:
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
+# Colors (Tomorrow Night)
 colors:
+  # Default colors
   primary:
-    background: '0x1f1f28'
-    foreground: '0xdcd7ba'
-
-  normal:
-    black:   '0x090618'
-    red:     '0xc34043'
-    green:   '0x76946a'
-    yellow:  '0xc0a36e'
-    blue:    '0x7e9cd8'
-    magenta: '0x957fb8'
-    cyan:    '0x6a9589'
-    white:   '0xc8c093'
-
-  bright:
-    black:   '0x727169'
-    red:     '0xe82424'
-    green:   '0x98bb6c'
-    yellow:  '0xe6c384'
-    blue:    '0x7fb4ca'
-    magenta: '0x938aa9'
-    cyan:    '0x7aa89f'
-    white:   '0xdcd7ba'
-
-  selection:
-    background: '0x2d4f67'
-    foreground: '0xc8c093'
-
-  indexed_colors:
-    - { index: 16, color: '0xffa066' }
-    - { index: 17, color: '0xff5d62' }
+   background: '0x2d2a2e'
+   foreground: '0xfcfcfa'
 
     # Bright and dim foreground colors
     #
@@ -256,11 +231,7 @@ colors:
     #  foreground: '#ffffff'
     #  background: '#000000'
 
-    #bar:
-    #  background: '#c5c8c6'
-    #  foreground: '#1d1f21'
-
-  # Keyboard regex hints
+  # Keyboard hints
   #hints:
     # First character in the hint label
     #
@@ -288,6 +259,15 @@ colors:
   #  foreground: None
   #  background: None
 
+  # Footer bar
+  #
+  # Color used for the footer bar on the bottom, used by search regex input,
+  # hyperlink URI preview, etc.
+  #
+  #footer_bar:
+  #  background: '#c5c8c6'
+  #  foreground: '#1d1f21'
+
   # Selection colors
   #
   # Colors which should be used to draw the selection area.
@@ -299,15 +279,15 @@ colors:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  normal:
+    black:   '0x2d2a2e'
+    red:     '0xff6188'
+    green:   '0xa9dc76'
+    yellow:  '0xffd866'
+    blue:    '0xfc9867'
+    magenta: '0xab9df2'
+    cyan:    '0x78dce8'
+    white:   '0xfcfcfa'
 
   # Bright colors
   #bright:

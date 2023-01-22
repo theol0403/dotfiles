@@ -1,16 +1,6 @@
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     # tmux attach -t default || tmux new -s default
-#     tmux
-# fi
-
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
-alias oni2=~/Applications/Onivim2-x86_64.AppImage
-export PATH=$HOME/Downloads/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux/gcc-arm-none-eabi-9-2019-q4-major/bin/:$PATH
+export PATH=/home/theol/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/:$PATH
 export PATH=$PATH:~/Documents/github/flutter/bin/
-
-export TARGET=arm-none-eabi
-# export PREFIX=/home/theol/Downloads/theo-gcc-new
-export PATH=$PREFIX/bin/:$PATH
 
 zstyle ':znap:*' repos-dir ~/Documents/zshplugins
 source ~/Documents/github/zsh-snap/znap.zsh

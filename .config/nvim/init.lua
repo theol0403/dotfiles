@@ -6,7 +6,8 @@ packer.init()
 
 -- plugins
 packer.use 'wbthomason/packer.nvim'
-packer.use 'svermeulen/nvim-moonmaker'
 packer.use 'svermeulen/vimpeccable'
-packer.use '~/.config/nvim/vimrc'
+
+require('plugins')
+require('settings')
 

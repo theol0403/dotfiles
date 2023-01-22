@@ -51,15 +51,9 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 
-(package! scroll-on-jump
-  :recipe
-  (:host gitlab
-   :branch "test-workaround-pgtk"
-   :repo "ideasman42/emacs-scroll-on-jump"))
+(package! scroll-on-jump)
 
 (package! treemacs-all-the-icons)
-
-(package! magit-delta :recipe (:host github :repo "dandavison/magit-delta"))
 
 (package! evil-args)
 
@@ -83,30 +77,15 @@
 ;; (package! git-gutter :recipe (:host github :repo "theol0403/git-gutter"))
 ;; (package! git-gutter :recipe (:local-repo "~/Documents/github/git-gutter" :build (:not compile)))
 
-(package! rotate)
-
-(package! solaire-mode :disable t)
-
-(package!
- webkit :recipe (:host github :repo "akirakyle/emacs-webkit"))
-
-;; (package! keycast)
-;; (package! gif-screencast)
-;; (package! screenshot)
-
-;; (package! calctex :recipe (:host github :repo "johnbcoughlin/calctex"
-;;                            :files ("*.el" "calctex/*.el" "calctex-contrib/*.el" "org-calctex/*.el" "vendor")))
-(package! info-colors)
+;; (package! solaire-mode :disable t)
 
 (package! aas :recipe (:host github :repo "ymarco/auto-activating-snippets"))
 (package! laas :recipe (:local-repo "lisp/LaTeX-auto-activating-snippets"))
 
-(unpin! doom-themes)
-(package! doom-themes :recipe (:host github :repo "theol0403/emacs-doom-themes"))
+;; (unpin! doom-themes)
+;; (package! doom-themes :recipe (:host github :repo "theol0403/emacs-doom-themes"))
 
 (package! monokai-pro-theme)
-
-(package! vterm :recipe (:build (:not native-compile)))
 
 (package! evil-textobj-syntax)
 

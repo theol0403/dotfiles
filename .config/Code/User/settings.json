@@ -41,7 +41,7 @@
   ],
   "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
-  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/14.0.3/clangd_14.0.3/bin/clangd",
+  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/15.0.6/clangd_15.0.6/bin/clangd",
   "comment-divider.languagesMap": {
     "moonscript": ["--"]
   },
@@ -80,7 +80,7 @@
   },
   "editor.smoothScrolling": true,
   "editor.suggest.filterGraceful": false,
-  "editor.suggest.insertMode": "replace",
+  "editor.suggest.insertMode": "insert",
   "editor.suggest.showStatusBar": true,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
@@ -148,7 +148,6 @@
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.splitCwd": "workspaceRoot",
   "vscode-neovim.highlightGroups.unknownHighlight": "vim",
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.textDecorationsAtTop": true,
   "window.enableMenuBarMnemonics": false,
   "window.newWindowDimensions": "maximized",
@@ -224,7 +223,6 @@
   "nrf-connect.enableTelemetry": false,
   "nrf-connect.welcome.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
   "debug.autoExpandLazyVariables": true,
   "debug.openExplorerOnEnd": true,
   "explorer.excludeGitIgnore": true,
@@ -246,8 +244,6 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
   },
-  "nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.0.0}",
-  "nrf-connect.topdir": "\\home\\theol\\ncs",
   "vim.easymotion": true,
   "vim.foldfix": true,
   "vim.gdefault": true,
@@ -284,13 +280,22 @@
   "github.copilot.enable": {
     "*": true,
     "yaml": true,
-    "plaintext": false,
+    "plaintext": true,
     "markdown": true
   },
   "markdown.extension.tableFormatter.normalizeIndentation": true,
   "editor.scrollBeyondLastLine": false,
   "vscode-neovim.revealCursorScrollLine": true,
-  "vscode-neovim.logOutputToConsole": true,
+  // "vscode-neovim.logOutputToConsole": true,
   "vscode-neovim.neovimViewportHeightExtend": 0,
-  "vscode-neovim.logLevel": "debug"
+  "vscode-neovim.logOutputToConsole": true,
+  "vscode-neovim.logLevel": "debug",
+  "vscode-neovim.neovimExecutablePaths.linux": "nvim",
+  "ltex.additionalRules.enablePickyRules": true,
+  "ltex.completionEnabled": true,
+  "tabnine.experimentalAutoImports": true,
+  "tabnine.receiveBetaChannelUpdates": true,
+  "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
+  "editor.minimap.enabled": false
+  // "vscode-neovim.logLevel": "debug"
 }

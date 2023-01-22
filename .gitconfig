@@ -32,3 +32,8 @@
 	repo = /home/theol/Documents/zshplugins/zsh-history-substring-search
 	repo = /home/theol/Documents/zshplugins/zsh-toggle-command-prefix
 	repo = /home/theol/Documents/zshplugins/zsh-vi-mode
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -51,23 +51,6 @@
     "key": "ctrl+insert",
     "when": "neovim.mode != insert && editorTextFocus"
   },
-  // navigate parameter hints
-  {
-    "command": "showNextParameterHint",
-    "key": "tab",
-    "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible && !suggestWidgetVisible"
-  },
-  {
-    "command": "showPrevParameterHint",
-    "key": "shift+tab",
-    "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible && !suggestWidgetVisible"
-  },
-  // open quickfix
-  {
-    "command": "keyboard-quickfix.openQuickFix",
-    "key": "ctrl+.",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
   // nvim insert mode actions
   {
     "key": "ctrl+2", // insert last inserted and exit
