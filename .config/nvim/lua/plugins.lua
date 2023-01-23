@@ -28,6 +28,7 @@ local plugins = {
   'kylechui/nvim-surround',
 
   {'gbprod/substitute.nvim', opts = {
+
     on_substitute = function(event)
       require("yanky").init_ring("p", event.register, event.count, event.vmode:match("[vV�]"))
     end},
@@ -42,7 +43,7 @@ local plugins = {
       { "cxc", "<cmd>lua require('substitute.exchange').cancel()<cr>" },
     },
     dependencies = {
-      {'gbprod/yanky.nvim', keys={
+      {'gbprod/yanky.nvim', opts={}, keys={
         {mode = {"n","x"}, "p", "<Plug>(YankyPutAfter)"},
         {mode = {"n","x"}, "P", "<Plug>(YankyPutBefore)"},
         {mode = {"n","x"}, "gp", "<Plug>(YankyGPutAfter)"},
@@ -67,6 +68,7 @@ local plugins = {
   end},
 
   nvim 'folke/which-key.nvim', 
+  'EtiamNullam/deferred-clipboard.nvim',
 
   -- --------------------------------- motion ------------------------------------
 
