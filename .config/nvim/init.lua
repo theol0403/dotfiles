@@ -1,13 +1,16 @@
--- set up packer
-vim.cmd [[packadd packer.nvim]]
-local packer = require('packer')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-packer.init()
-
--- plugins
-packer.use 'wbthomason/packer.nvim'
-packer.use 'svermeulen/vimpeccable'
-
-require('plugins')
-require('settings')
+require'lua/settings'
+require("lazy").setup('plugins')
 
