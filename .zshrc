@@ -5,7 +5,7 @@ export PATH=$PATH:~/Documents/github/flutter/bin/
 zstyle ':znap:*' repos-dir ~/Documents/zshplugins
 source ~/Documents/github/zsh-snap/znap.zsh
 
-TERM=screen-256color
+# TERM=screen-256color
 HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HISTFILE=~/.histfile
