@@ -11,7 +11,7 @@ local plugins = {
 
   nvim("inkarkat/vim-CursorLineCurrentWindow"),
   "winston0410/cmd-parser.nvim",
-  "winston0410/range-highlight.nvim",
+  { "winston0410/range-highlight.nvim", config = true },
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
@@ -45,9 +45,9 @@ for i, plugin in ipairs(lazy) do
   table.insert(plugins, { plugin[1] or plugin, cond = is_nvim })
 end
 
-lazy = require("lazyvim.plugins.colorscheme")
+local lazy = require("lazyvim.plugins.lsp.init")
 for i, plugin in ipairs(lazy) do
-  table.insert(plugins, { plugin[1] or plugin, enabled = false })
+  table.insert(plugins, { plugin[1] or plugin, cond = is_nvim })
 end
 
 return plugins

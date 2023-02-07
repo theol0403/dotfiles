@@ -120,6 +120,7 @@ local plugins = {
       },
     },
   },
+
   -- disable lazyvim
   nvim("nvim-neo-tree/neo-tree.nvim"),
   nvim("nvim-telescope/telescope.nvim"),

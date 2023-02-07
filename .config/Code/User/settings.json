@@ -296,6 +296,9 @@
   "tabnine.experimentalAutoImports": true,
   "tabnine.receiveBetaChannelUpdates": true,
   "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "[python]": {
+    "editor.formatOnType": true
+  }
   // "vscode-neovim.logLevel": "debug"
 }
