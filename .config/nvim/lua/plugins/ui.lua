@@ -53,4 +53,9 @@ for i, plugin in ipairs(lazy) do
   table.insert(plugins, { plugin[1] or plugin, cond = is_nvim })
 end
 
+local lazy = require("lazyvim.plugins.colorscheme")
+for i, plugin in ipairs(lazy) do
+  table.insert(plugins, { plugin[1] or plugin, enabled = false })
+end
+
 return plugins

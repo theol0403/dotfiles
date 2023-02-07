@@ -15,15 +15,6 @@ local plugins = {
   -- motion
   {
     "ggandor/leap.nvim",
-    lazy = false,
-    keys = {
-      {
-        "s",
-        function()
-          require("leap").leap({ target_windows = { vim.fn.win_getid() } })
-        end,
-      },
-    },
     dependencies = {
       "ggandor/leap-spooky.nvim",
       { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },

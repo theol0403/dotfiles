@@ -9,12 +9,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", opts = { colorscheme = "monokaipro" } },
-    { import = "lazyvim.plugins.core" },
-    { import = "lazyvim.plugins.util" },
-    { import = "lazyvim.plugins.ui" },
-    { import = "lazyvim.plugins.treesitter" },
-    { import = "lazyvim.plugins.editor" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "monokaipro" } },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
