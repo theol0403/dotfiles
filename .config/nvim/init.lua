@@ -1,16 +1,29 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+-- helper aliases
+cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
+fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
+g = vim.g -- a table to access global variables
+opt = vim.opt -- to set options
+
+-- set up vscode-neovim helpers
+is_vscode = function()
+  return vim.g.vscode == 1
 end
-vim.opt.rtp:prepend(lazypath)
+firenvim = function()
+  return vim.g.started_by_firenvim == 1
+end
+is_nvim = function()
+  return (not is_vscode()) and (not firenvim())
+end
 
-require'settings'
-require("lazy").setup('plugins')
+-- simplify syntax for plugins incompatible with vscode-neovim
+nvim_only = function(plugin)
+  if type(plugin) == "string" then
+    plugin = { plugin }
+  end
+  plugin = vim.tbl_extend("keep", plugin, { cond = is_nvim })
+  return plugin
+end
+nvim = nvim_only
 
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
