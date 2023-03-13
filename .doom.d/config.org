@@ -144,7 +144,7 @@ This code is written to the =init.el= to select which modules to load. Written h
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company)             ; the ultimate code completion backend
+       (company +childframe +tng)             ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -400,6 +400,14 @@ This code is written to the =init.el= to select which modules to load. Written h
         lsp-lens-debounce-interval 0.3
         )
   (set-lsp-priority! 'clangd 2))
+
+(setq rustic-lsp-server 'rust-analyzer)
+
+(after! rustic
+  (setq lsp-rust-server 'rust-analyzer))
+
+(after! lsp-rust
+  (setq lsp-rust-server 'rust-analyzer))
 
 (use-package! tree-sitter
   :config

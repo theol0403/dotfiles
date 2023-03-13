@@ -123,6 +123,14 @@
         )
   (set-lsp-priority! 'clangd 2))
 
+(setq rustic-lsp-server 'rust-analyzer)
+
+(after! rustic
+  (setq lsp-rust-server 'rust-analyzer))
+
+(after! lsp-rust
+  (setq lsp-rust-server 'rust-analyzer))
+
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)

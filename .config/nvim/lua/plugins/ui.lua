@@ -1,5 +1,5 @@
 local plugins = {
-  nvim({
+  {
     "https://gitlab.com/theol0403/monokai-pro.nvim",
     lazy = false,
     priority = 1000,
@@ -7,16 +7,16 @@ local plugins = {
       g.monokaipro_transparent = false
       cmd([[colorscheme monokaipro]])
     end,
-  }),
+  },
 
-  nvim({
-    "tummetott/reticle.nvim",
-    config = true,
-    init = function()
-      vim.wo.cursorline = true
-      vim.wo.cursorcolumn = true
-    end,
-  }),
+  -- nvim({
+  --   "tummetott/reticle.nvim",
+  --   config = true,
+  --   init = function()
+  --     vim.wo.cursorline = true
+  --     vim.wo.cursorcolumn = true
+  --   end,
+  -- }),
   "winston0410/cmd-parser.nvim",
   { "winston0410/range-highlight.nvim", config = true },
   {
@@ -45,6 +45,30 @@ local plugins = {
       },
     },
   }),
+
+  nvim({
+    "rcarriga/nvim-notify",
+    keys = function(_, keys)
+      return {
+        { "<leader>un", desc = " Notifications" },
+        {
+          "<leader>und",
+          function()
+            require("notify").dismiss()
+          end,
+          desc = "Dismiss Notifications",
+        },
+        {
+          "<leader>unl",
+          function()
+            require("telescope").extensions.notify.notify()
+          end,
+          desc = "List Notifications",
+        },
+      }
+    end,
+  }),
+
   nvim("wakatime/vim-wakatime"),
 }
 

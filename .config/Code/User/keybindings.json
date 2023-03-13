@@ -1,17 +1,6 @@
 [
   // save all
   {
-    "args": "<C-S>",
-    "command": "vscode-neovim.send",
-    "key": "ctrl+s"
-  },
-  // which key
-  {
-    "command": "vspacecode.space",
-    "key": "space",
-    "when": "!inputFocus"
-  },
-  {
     "command": "vspacecode.space",
     "key": "space",
     "when": "editorTextFocus && !neovim.init"
