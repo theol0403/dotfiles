@@ -25,5 +25,21 @@ nvim_only = function(plugin)
 end
 nvim = nvim_only
 
+either = function(plugin)
+  if type(plugin) == "string" then
+    plugin = { plugin }
+  end
+  plugin = vim.tbl_extend("keep", plugin, { cond = nil })
+  return plugin
+end
+
+vscode_only = function(plugin)
+  if type(plugin) == "string" then
+    plugin = { plugin }
+  end
+  plugin = vim.tbl_extend("keep", plugin, { cond = is_vscode })
+  return plugin
+end
+
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")

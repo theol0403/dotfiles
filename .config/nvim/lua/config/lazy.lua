@@ -9,7 +9,13 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "monokaipro" } },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins.core", opts = { colorscheme = "monokai-pro" } },
+    { "https://gitlab.com/gabmus/nvpunk" },
+    { "NvChad/NvChad" },
+    { "AstroNvim/AstroNvim" },
+    { "CosmicNvim/CosmicNvim" },
+    { "loctvl842/nvim" },
+
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
@@ -22,9 +28,12 @@ require("lazy").setup({
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
+    cond = is_nvim,
+    keymaps = false,
+    autocmds = true,
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "monokaipro", "habamax" } },
+  install = { colorscheme = { "monokai-pro", "habamax" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
