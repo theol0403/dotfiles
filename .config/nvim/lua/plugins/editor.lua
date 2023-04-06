@@ -65,7 +65,7 @@ local plugins = {
 
   -- distro-provided editor
   { import = "lazyvim.plugins.editor" },
-  { import = "tvl.core.resources.editor" },
+  -- { import = "tvl.core.resources.editor" },
 
   -- motion
   either({
