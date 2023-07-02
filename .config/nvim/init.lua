@@ -20,7 +20,7 @@ nvim_only = function(plugin)
   if type(plugin) == "string" then
     plugin = { plugin }
   end
-  plugin = vim.tbl_extend("force", plugin, { cond = is_nvim })
+  plugin = vim.tbl_extend("force", plugin, { enabled = is_nvim })
   return plugin
 end
 nvim = nvim_only
@@ -29,7 +29,15 @@ either = function(plugin)
   if type(plugin) == "string" then
     plugin = { plugin }
   end
-  plugin = vim.tbl_extend("keep", plugin, { cond = true })
+  plugin = vim.tbl_extend("keep", plugin, { enabled = true })
+  return plugin
+end
+
+none = function(plugin)
+  if type(plugin) == "string" then
+    plugin = { plugin }
+  end
+  plugin = vim.tbl_extend("force", plugin, { enabled = false })
   return plugin
 end
 
@@ -37,7 +45,7 @@ vscode_only = function(plugin)
   if type(plugin) == "string" then
     plugin = { plugin }
   end
-  plugin = vim.tbl_extend("force", plugin, { cond = is_vscode })
+  plugin = vim.tbl_extend("force", plugin, { enabled = is_vscode })
   return plugin
 end
 

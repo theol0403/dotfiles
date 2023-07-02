@@ -10,130 +10,6 @@
 
 This is my doom emacs config. It uses literate programming to interweave code and text.
 
-* Setup
-#+begin_src emacs-lisp :tangle init.el
-;;; init.el -*- lexical-binding: t; -*-
-
-;; This file controls what Doom modules are enabled and what order they load
-;; in. Remember to run 'doom sync' after modifying it!
-
-;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
-;;      documentation. There you'll find a "Module Index" link where you'll find
-;;      a comprehensive list of Doom's modules and what flags they support.
-
-;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
-;;      'C-c c k' for non-vim users) to view its documentation. This works on
-;;      flags as well (those symbols that start with a plus).
-;;
-;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
-;;      directory (for easy access to its source code).
-#+end_src
-
-#+begin_src emacs-lisp :tangle packages.el
-;; -*- no-byte-compile: t; -*-
-;;; $DOOMDIR/packages.el
-
-;; To install a package with Doom you must declare them here and run 'doom sync'
-;; on the command line, then restart Emacs for the changes to take effect -- or
-;; use 'M-x doom/reload'.
-
-;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
-;;(package! some-package)
-
-;; To install a package directly from a remote git repo, you must specify a
-;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
-;; https://github.com/raxod502/straight.el#the-recipe-format
-;;(package! another-package
-;;  :recipe (:host github :repo "username/repo"))
-
-;; If the package you are trying to install does not contain a PACKAGENAME.el
-;; file, or is located in a subdirectory of the repo, you'll need to specify
-;; `:files' in the `:recipe':
-;;(package! this-package
-;;  :recipe (:host github :repo "username/repo"
-;;           :files ("some-file.el" "src/lisp/*.el")))
-
-;; If you'd like to disable a package included with Doom, you can do so here
-;; with the `:disable' property:
-;;(package! builtin-package :disable t)
-
-;; You can override the recipe of a built in package without having to specify
-;; all the properties for `:recipe'. These will inherit the rest of its recipe
-;; from Doom or MELPA/ELPA/Emacsmirror:
-;;(package! builtin-package :recipe (:nonrecursive t))
-;;(package! builtin-package-2 :recipe (:repo "myfork/package"))
-
-;; Specify a `:branch' to install a package from a particular branch or tag.
-;; This is required for some packages whose default branch isn't 'master' (which
-;; our package manager can't deal with; see raxod502/straight.el#279)
-;;(package! builtin-package :recipe (:branch "develop"))
-
-;; Use `:pin' to specify a particular commit to install.
-;;(package! builtin-package :pin "1a2b3c4d5e")
-
-;; Doom's packages are pinned to a specific commit and updated from release to
-;; release. The `unpin!' macro allows you to unpin single packages...
-;;(unpin! pinned-package)
-;; ...or multiple packages
-;;(unpin! pinned-package another-pinned-package)
-;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-;;(unpin! t)
-#+end_src
-
-#+begin_src emacs-lisp :tangle config.el
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
-;; (setq user-full-name "John Doe"
-;;      user-mail-address "john@doe.com")
-
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-one)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-;; (setq org-directory "~/org/")
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-;; (setq display-line-numbers-type t)
-
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
-#+end_src
-
 * General
 ** Doom modules
 
@@ -148,7 +24,7 @@ This code is written to the =init.el= to select which modules to load. Written h
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-       (vertico +icons)    ; the search engine of the future
+       (vertico +childframe +icons)    ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -173,7 +49,7 @@ This code is written to the =init.el= to select which modules to load. Written h
        vi-tilde-fringe     ; fringe tildes to mark beyond EOB
        window-select       ; visually switch windows
        workspaces          ; tab emulation, persistence & separate workspaces
-       ;;zen               ; distraction-free coding or writing
+       zen               ; distraction-free coding or writing
 
        :editor
        (evil +everywhere)  ; come to the dark side, we have cookies
@@ -227,6 +103,7 @@ This code is written to the =init.el= to select which modules to load. Written h
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
+       tree-sitter
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -331,17 +208,13 @@ This code is written to the =init.el= to select which modules to load. Written h
  auto-save-default t
  make-backup-files t
 
- history-length 200
-
- git-gutter:update-interval 2
- git-gutter:ask-p nil
+ history-length 2000
 
  +zen-text-scale 1
 
  org-directory "~/Documents/github/org-notes/"
  truncate-string-ellipsis "…"
  treemacs-width 36
- centaur-tabs-gray-out-icons nil
 
  yas-triggers-in-field t
 
@@ -351,6 +224,7 @@ This code is written to the =init.el= to select which modules to load. Written h
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(select-frame-set-input-focus (selected-frame)))
+(setq frame-resize-pixelwise t)
 #+end_src
 * Modes
 ** Other
@@ -371,8 +245,6 @@ This code is written to the =init.el= to select which modules to load. Written h
 *** LSP
 #+begin_src emacs-lisp :tangle packages.el
 (package! company-tabnine)
-(package! tree-sitter)
-(package! tree-sitter-langs)
 #+end_src
 #+begin_src emacs-lisp
 
@@ -409,17 +281,12 @@ This code is written to the =init.el= to select which modules to load. Written h
 (after! lsp-rust
   (setq lsp-rust-server 'rust-analyzer))
 
-(use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
 (after! company
   (setq
    company-idle-delay 0.01
    company-minimum-prefix-length 1
    company-show-numbers t
+   company-frontends '(company-tng-frontend company-box-frontend)
    company-backends '((company-tabnine :separate company-capf company-yasnippet))
    +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet)
    ;; +company-backend-alist '((org-mode company-tabnine company-capf)
@@ -456,31 +323,12 @@ This code is written to the =init.el= to select which modules to load. Written h
 ;;     lsp-enable-snippet t))
 
 (after! company-tabnine
-  (setq company-tabnine-max-num-results 3
+  (setq company-tabnine-max-num-results 5
         company-tabnine-always-trigger t))
 #+end_src
 
 #+RESULTS:
 
-*** Faces
-#+begin_src emacs-lisp
-;; (after! doom-themes
-;;   (custom-set-faces!
-;;     `(line-number :foreground ,(doom-color 'base4))
-;;     ;; `(line-number :foreground "#5b595c")
-;;     `(line-number-current-line :foreground "#c1c0c0")
-;;     `(hl-line :background "#373538")
-;;     `(treemacs-file-face :foreground ,(doom-color 'white))
-;;     `(org-block :background ,(doom-color 'bg))
-;;     `(org-block-begin-line :background ,(doom-color 'bg))
-;;     `(org-block-end-line :background ,(doom-color 'bg))
-;;     `(vertical-border :background "#221F22" :foreground "#221F22")
-;;     `(eldoc-box-body :background "#423f42")
-;;     `(font-lock-doc-face :foreground ,(doom-color 'grey))
-;;     `(lsp-face-semhl-parameter :slant italic :foreground ,(doom-color 'orange))
-;;     `(highlight-numbers-number :bold nil)
-;;     ))
-#+end_src
 *** Smooth Scroll
 #+begin_src emacs-lisp :tangle packages.el
 (package! scroll-on-jump)
@@ -688,7 +536,7 @@ This code is written to the =init.el= to select which modules to load. Written h
 
 (package! beacon :recipe (:host github :repo "Malabarba/beacon"))
 
-(package! good-scroll)
+;; (package! good-scroll)
 (package! cdlatex)
 (package! auctex)
 (package! corfu)

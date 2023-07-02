@@ -45,13 +45,13 @@ return {
   either({
     "kana/vim-textobj-user",
     dependencies = {
-      "kana/vim-textobj-entire", -- e - entire
-      "kana/vim-textobj-line", -- l - line
-      "Julian/vim-textobj-variable-segment", -- v - segment
-      "kana/vim-textobj-indent", -- i - indent block, I - same indent (wont select sub indent)
+      either("kana/vim-textobj-entire"), -- e - entire
+      either("kana/vim-textobj-line"), -- l - line
+      either("Julian/vim-textobj-variable-segment"), -- v - segment
+      either("kana/vim-textobj-indent"), -- i - indent block, I - same indent (wont select sub indent)
       -- 'pianohacker/vim-textobj-indented-paragraph' -- r - paragraph that won',t go less indent
       -- 'tkhren/vim-textobj-numeral', -- n - number (do you want gn - jump to number)
-      "MRAAGH/vim-textobj-chunk", -- lines that contain {},(),[] block. Use to select functions.
+      either("MRAAGH/vim-textobj-chunk"), -- lines that contain {},(),[] block. Use to select functions.
     },
   }),
 

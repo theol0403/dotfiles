@@ -26,14 +26,14 @@ local plugins = {
         },
         override = function(c)
           return {
-            ColorColumn = { bg = c.base.dimmed3 },
-            DashboardRecent = { fg = c.base.magenta },
-            DashboardProject = { fg = c.base.blue },
-            DashboardConfiguration = { fg = c.base.white },
-            DashboardSession = { fg = c.base.green },
-            DashboardLazy = { fg = c.base.cyan },
-            DashboardServer = { fg = c.base.yellow },
-            DashboardQuit = { fg = c.base.red },
+            colorcolumn = { bg = c.base.dimmed3 },
+            dashboardrecent = { fg = c.base.magenta },
+            dashboardproject = { fg = c.base.blue },
+            dashboardconfiguration = { fg = c.base.white },
+            dashboardsession = { fg = c.base.green },
+            dashboardlazy = { fg = c.base.cyan },
+            dashboardserver = { fg = c.base.yellow },
+            dashboardquit = { fg = c.base.red },
           }
         end,
       })
@@ -46,7 +46,7 @@ local plugins = {
     config = true,
     init = function()
       vim.wo.cursorline = true
-      vim.wo.cursorcolumn = true
+      vim.wo.cursorcolumn = false
     end,
   },
   either("winston0410/cmd-parser.nvim"),
@@ -54,7 +54,7 @@ local plugins = {
   either({
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      either("nvim-treesitter/nvim-treesitter-textobjects"),
     },
     opts = {
       highlight = {
@@ -97,7 +97,7 @@ local plugins = {
   -- { import = "nvpunk.plugins.tools.toggleterm" },
   -- { import = "nvpunk.plugins.interface.bqf" },
   { import = "lazyvim.plugins.ui" },
-  { import = "lazyvim.plugins.treesitter" },
+  is_nvim() and { import = "lazyvim.plugins.treesitter" } or nil,
   -- { import = "tvl.core.resources.tools" },
 
   {

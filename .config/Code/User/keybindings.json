@@ -47,24 +47,6 @@
   },
   // nvim insert mode actions
   {
-    "key": "ctrl+2", // insert last inserted and exit
-    "command": "vscode-neovim.send",
-    "args": "<c-@>",
-    "when": "editorTextFocus && neovim.mode == insert"
-  },
-  {
-    "key": "ctrl+e", // insert text from below
-    "command": "vscode-neovim.send",
-    "args": "<c-e>",
-    "when": "editorTextFocus && neovim.mode == insert"
-  },
-  {
-    "key": "ctrl+y", // insert text from above
-    "command": "vscode-neovim.send",
-    "args": "<c-y>",
-    "when": "editorTextFocus && neovim.mode == insert"
-  },
-  {
     "command": "editor.action.clipboardCopyAction",
     "key": "ctrl+c",
     "when": "neovim.mode == insert"
@@ -281,5 +263,10 @@
     "key": "ctrl+alt+p",
     "command": "-nrf-connect.flash",
     "when": "nrf-connect.application.activeImage && !nrf-connect.build.isTFM"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "-vscode-neovim.ctrl-y",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
   }
 ]

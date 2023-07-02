@@ -41,7 +41,7 @@
   ],
   "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
-  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/15.0.6/clangd_15.0.6/bin/clangd",
+  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
   "comment-divider.languagesMap": {
     "moonscript": ["--"]
   },
@@ -62,7 +62,6 @@
   "editor.gotoLocation.multipleReferences": "gotoAndPeek",
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
-  "editor.multiCursorModifier": "ctrlCmd",
   "editor.parameterHints.cycle": true,
   "editor.peekWidgetDefaultFocus": "editor",
   "editor.quickSuggestions": {
@@ -296,7 +295,17 @@
   "tabnine.receiveBetaChannelUpdates": true,
   "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
   "[python]": {
-    "editor.formatOnType": true
-  }
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.inlayHints.enabled": "off",
+  "editor.minimap.enabled": false,
+  "genieai.enableConversationHistory": true,
+  "rust-analyzer.completion.privateEditable.enable": true,
+  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+  "githubPullRequests.pullBranch": "never",
+  "terminal.integrated.env.linux": {},
+  "editor.multiCursorModifier": "ctrlCmd"
   // "vscode-neovim.logLevel": "debug"
 }
