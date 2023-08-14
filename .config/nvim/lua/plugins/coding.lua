@@ -1,9 +1,9 @@
 return {
   -- surround
-  either({ "kylechui/nvim-surround", config = true }),
+  { "kylechui/nvim-surround", config = true, vscode = true },
 
   --  exchange/replace
-  either({
+  {
     "gbprod/substitute.nvim",
     opts = {
       on_substitute = function(event)
@@ -21,7 +21,7 @@ return {
       { "cxc", "<cmd>lua require('substitute.exchange').cancel()<cr>" },
     },
     dependencies = {
-      either({
+      {
         "gbprod/yanky.nvim",
         opts = {
           system_clipboard = {
@@ -36,41 +36,85 @@ return {
           { mode = "n", "<c-n>", "<Plug>(YankyCycleForward)" },
           { mode = "n", "<c-p>", "<Plug>(YankyCycleBackward)" },
         },
-      }),
+        vscode = true,
+      },
     },
-  }),
+    vscode = true,
+  },
 
   -- better text-objects
-  either("PeterRincker/vim-argumentative"), -- <, shift argument, [, move argument, , - argument
-  either({
+  { "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
+  {
     "kana/vim-textobj-user",
     dependencies = {
-      either("kana/vim-textobj-entire"), -- e - entire
-      either("kana/vim-textobj-line"), -- l - line
-      either("Julian/vim-textobj-variable-segment"), -- v - segment
-      either("kana/vim-textobj-indent"), -- i - indent block, I - same indent (wont select sub indent)
+      { "kana/vim-textobj-entire", vscode = true }, -- e - entire
+      { "kana/vim-textobj-line", vscode = true }, -- l - line
+      { "Julian/vim-textobj-variable-segment", vscode = true }, -- v - segment
+      { "kana/vim-textobj-indent", vscode = true }, -- i - indent block, I - same indent (wont select sub indent, vscode = true}
       -- 'pianohacker/vim-textobj-indented-paragraph' -- r - paragraph that won',t go less indent
       -- 'tkhren/vim-textobj-numeral', -- n - number (do you want gn - jump to number)
-      either("MRAAGH/vim-textobj-chunk"), -- lines that contain {},(),[] block. Use to select functions.
+      { "MRAAGH/vim-textobj-chunk", vscode = true }, -- lines that contain {},(, vscode = true},[] block. Use to select functions.
     },
-  }),
+    vscode = true,
+  },
 
-  -- distro-provided coding
-  { import = "lazyvim.plugins.coding" },
-  either("JoosepAlviste/nvim-ts-context-commentstring"),
-  either("echasnovski/mini.comment"),
-  { "echasnovski/mini.surround", enabled = false },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     suggestion = { enabled = true, auto_trigger = true },
+  --     panel = { enabled = true },
+  --   },
+  -- },
 
-  either({
-    "echasnovski/mini.ai",
-    config = function()
-      if not is_nvim() then
-        return function(_, opts)
-          require("mini.ai").setup(opts)
-        end
-      else
-        return nil
-      end
+  -- Use <tab> for completion and snippets (supertab)
+  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
     end,
-  }),
+  },
+  -- then: setup supertab in cmp
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-emoji",
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+
+      local luasnip = require("luasnip")
+      local cmp = require("cmp")
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      })
+    end,
+  },
 }

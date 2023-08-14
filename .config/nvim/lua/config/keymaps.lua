@@ -41,8 +41,8 @@ noremap("^", "0")
 
 imap("<C-BS>", "<C-w>")
 
-imap("jk", "<Esc>")
-imap("kj", "<Esc>")
+-- imap("jk", "<Esc>")
+-- imap("kj", "<Esc>")
 
 nmap("<C-S>", ":wall<CR><ESC>")
 imap("<C-S>", "<ESC>:wall<CR>")
@@ -91,7 +91,7 @@ map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- -- ------------------------- neovim specific config ----------------------------
-if is_nvim() then
+if not vim.g.vscode then
   -- better up/down
   map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
   map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -139,11 +139,11 @@ if is_nvim() then
   map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- ------------------------- vscode specific config ----------------------------
-elseif is_vscode() then
-  nnoremap("gz", '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("."), line("."), 0)<CR>')
-  xnoremap("gz", '<Cmd>call VSCodeNotifyRange("git.revertSelectedRanges", line("v"), line("."), 0)<CR><ESC>')
+else
+  nnoremap("gz", '<Cmd>call VSCodeCall("git.revertSelectedRanges")<CR>')
+  xnoremap("gz", '<Cmd>call VSCodeCall("git.revertSelectedRanges")<CR><ESC>')
 
-  noremap("<leader>", '<Cmd>call VSCodeNotifyVisual("vspacecode.space", 1)<CR>')
+  noremap("\\", '<Cmd>call VSCodeNotify("vspacecode.space", 1)<CR>')
 
   -- nnoremap ('gt', '<Cmd>call VSCodeNotify("workbench.action.showAllEditors")<CR>')
   -- nnoremap ('gT', '<Cmd>call VSCodeNotify("workbench.action.showAllEditorsByMostRecentlyUsed")<CR>')

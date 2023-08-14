@@ -11,17 +11,26 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     {
       "LazyVim/LazyVim",
-      import = "lazyvim.plugins.core",
+      import = "lazyvim.plugins",
       opts = { colorscheme = "monokai-pro", defaults = { keymaps = false } },
     },
-    { "https://gitlab.com/gabmus/nvpunk" },
+    { import = "lazyvim.plugins.extras.vscode" },
+    --    { "https://gitlab.com/gabmus/nvpunk" },
     -- { "NvChad/NvChad" },
     -- { "AstroNvim/AstroNvim" },
     -- { "CosmicNvim/CosmicNvim" },
     -- { "loctvl842/nvim" },
 
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.lang.clangd" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.rust" },
+    { import = "lazyvim.plugins.extras.util.project" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -32,7 +41,6 @@ require("lazy").setup({
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
-    enabled = is_nvim,
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "monokai-pro", "habamax" } },

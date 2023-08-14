@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
 # export PATH=/home/theol/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/:$PATH
 # export PATH=/home/theol/Downloads/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/:$PATH
@@ -42,7 +40,7 @@ fi
 : ${key[Delete]:=$'\C-[[3~'}
 
 znap eval starship 'starship init zsh --print-full-init'
-znap prompt starship
+# znap prompt starship
 
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -52,22 +50,22 @@ znap source zdharma/fast-syntax-highlighting
 znap source zsh-users/zsh-completions
 znap source xPMo/zsh-toggle-command-prefix
 
-# zstyle ':autocomplete:*' min-input 4
-# # zstyle ':autocomplete:*' list-lines 6
-# # zstyle ':autocomplete:tab:*' insert-unambiguous yes
-# zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-# zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-# zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-# zstyle ':autocomplete:tab:*' widget-style menu-select
-# # zstyle ':autocomplete:tab:*' widget-style menu-complete
-# zstyle ':autocomplete:tab:*' fzf-completion yes
-# zstyle ':autocomplete:*:too-many-matches' message ''
-# znap source marlonrichert/zsh-autocomplete
-# bindkey -M menuselect ^D kill-whole-line
-# bindkey -M menuselect $key[Return] .accept-line
-# bindkey $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
-# # bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
-# # bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
+zstyle ':autocomplete:*' min-input 4
+# zstyle ':autocomplete:*' list-lines 6
+# zstyle ':autocomplete:tab:*' insert-unambiguous yes
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+zstyle ':autocomplete:tab:*' widget-style menu-select
+# zstyle ':autocomplete:tab:*' widget-style menu-complete
+zstyle ':autocomplete:tab:*' fzf-completion yes
+zstyle ':autocomplete:*:too-many-matches' message ''
+znap source marlonrichert/zsh-autocomplete
+bindkey -M menuselect ^D kill-whole-line
+bindkey -M menuselect $key[Return] .accept-line
+bindkey $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
+# bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
+# bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion match_prev_cmd history)
 # ZSH_AUTOSUGGEST_STRATEGY=(histdb_top completion match_prev_cmd history)
@@ -84,7 +82,7 @@ _zsh_autosuggest_strategy_atuin_top() {
 }
 
 znap eval atuin 'atuin init zsh'
-znap compdef _atuin 'atuin gen-completions --shell zsh'
+znap fpath _atuin 'atuin gen-completions --shell zsh'
 znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
 
@@ -104,8 +102,8 @@ bindkey -M vicmd 'j' history-substring-search-down
 VSCODE=code-insiders
 znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge,docker-compose}
 
-znap compdef _rustup  'rustup completions zsh'
-znap compdef _cargo   'rustup completions zsh cargo'
+znap fpath _rustup  'rustup completions zsh'
+znap fpath _cargo   'rustup completions zsh cargo'
 
 # znap source marlonrichert/zsh-edit
 # znap source marlonrichert/zsh-hist
@@ -143,6 +141,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

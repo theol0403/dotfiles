@@ -145,8 +145,6 @@
   "security.workspace.trust.enabled": false,
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.splitCwd": "workspaceRoot",
-  "vscode-neovim.highlightGroups.unknownHighlight": "vim",
-  "vscode-neovim.textDecorationsAtTop": true,
   "window.enableMenuBarMnemonics": false,
   "window.newWindowDimensions": "maximized",
   "window.title": "${activeEditorShort}${separator}${rootName}",
@@ -168,22 +166,6 @@
   "python.defaultInterpreterPath": "/bin/python",
   "editor.inlineSuggest.enabled": true,
   "editor.cursorBlinking": "solid",
-  "vscode-neovim.highlightGroups.highlights": {
-    "Directory": "vim",
-    "IncSearch": {
-      "backgroundColor": "theme.editor.findMatchBackground",
-      "borderColor": "theme.editor.findMatchBorder"
-    },
-    "Search": {
-      "backgroundColor": "theme.editor.findMatchHighlightBackground",
-      "borderColor": "theme.editor.findMatchHighlightBorder"
-    },
-    "Visual": {
-      "backgroundColor": "theme.editor.selectionBackground"
-    },
-    "Conceal": "vim",
-    "Substitute": "vim"
-  },
   "latex-workshop.latex.build.forceRecipeUsage": false,
   "settingsSync.ignoredExtensions": [
     "asvetliakov.vscode-neovim",
@@ -287,7 +269,6 @@
   // "vscode-neovim.logOutputToConsole": true,
   "vscode-neovim.neovimViewportHeightExtend": 0,
   "vscode-neovim.logOutputToConsole": true,
-  "vscode-neovim.logLevel": "debug",
   "vscode-neovim.neovimExecutablePaths.linux": "nvim",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.completionEnabled": true,
@@ -306,6 +287,20 @@
   "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
   "githubPullRequests.pullBranch": "never",
   "terminal.integrated.env.linux": {},
-  "editor.multiCursorModifier": "ctrlCmd"
+  "editor.multiCursorModifier": "ctrlCmd",
+  "Lua.hint.enable": true,
+  "Lua.workspace.library": ["/usr/share/nvim/runtime/"],
+  "Lua.diagnostics.globals": ["vim"],
+  "vscode-neovim.logLevel": "debug",
+  "workbench.editor.restoreViewState": false,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "terminal.integrated.scrollback": 20000,
+  "terminal.integrated.persistentSessionScrollback": 1000,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
   // "vscode-neovim.logLevel": "debug"
 }

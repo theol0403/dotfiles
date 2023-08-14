@@ -1,25 +1,9 @@
-[user]
-	name = Theo Lemay
-	email = theol0403@gmail.com
-[core]
-	eol = lf
-	excludesfile = /home/theol/.gitignore
-	autocrlf = false
-[pull]
-	ff = only
-[gc]
-	autoDetach = false
-[mergetool "smerge"]
-	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
-[merge]
-	tool = smerge
-[init]
-	defaultBranch = master
-[credential]
-	helper = store
-[color]
-	ui = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [maintenance]
 	repo = /home/theol/Documents/zshplugins/fast-syntax-highlighting
 	repo = /home/theol/Documents/zshplugins/ohmyzsh
@@ -32,8 +16,15 @@
 	repo = /home/theol/Documents/zshplugins/zsh-history-substring-search
 	repo = /home/theol/Documents/zshplugins/zsh-toggle-command-prefix
 	repo = /home/theol/Documents/zshplugins/zsh-vi-mode
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	repo = /home/theol/Documents/zshplugins/fast-syntax-highlighting/fast-syntax-highlighting
+	repo = /home/theol/Documents/zshplugins/jeffreytse/zsh-vi-mode
+	repo = /home/theol/Documents/zshplugins/ohmyzsh/ohmyzsh
+	repo = /home/theol/Documents/zshplugins/xPMo/zsh-toggle-command-prefix
+	repo = /home/theol/Documents/zshplugins/zdharma/fast-syntax-highlighting
+	repo = /home/theol/Documents/zshplugins/zsh-users/zsh-autosuggestions
+	repo = /home/theol/Documents/zshplugins/zsh-users/zsh-completions
+	repo = /home/theol/Documents/zshplugins/zsh-users/zsh-history-substring-search
+	repo = /home/theol/Documents/zshplugins/marlonrichert/zsh-autocomplete
+[user]
+	email = theol0403@gmail.com
+	name = Theo Lemay

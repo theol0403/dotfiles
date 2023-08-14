@@ -1,6 +1,5 @@
-local plugins = {
-  -- custom UI
-  either({
+return {
+  {
     "loctvl842/monokai-pro.nvim",
     lazy = false,
     branch = "master",
@@ -39,7 +38,12 @@ local plugins = {
       })
       monokai.load()
     end,
-  }),
+  },
+
+  {
+    "folke/noice.nvim",
+    enabled = false,
+  },
 
   {
     "tummetott/reticle.nvim",
@@ -49,19 +53,10 @@ local plugins = {
       vim.wo.cursorcolumn = false
     end,
   },
-  either("winston0410/cmd-parser.nvim"),
-  either({ "winston0410/range-highlight.nvim", config = true }),
-  either({
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      either("nvim-treesitter/nvim-treesitter-textobjects"),
-    },
-    opts = {
-      highlight = {
-        enable = is_nvim(),
-      },
-    },
-  }),
+  { "winston0410/cmd-parser.nvim", vscode = true },
+  { "winston0410/range-highlight.nvim", config = true, vscode = true },
+  -- { "myusuf3/numbers.vim", vscode = true },
+
   "wakatime/vim-wakatime",
 
   {
@@ -87,18 +82,14 @@ local plugins = {
     },
   },
 
-  -- distro-provided UI
-  -- { import = "nvpunk.plugins.interface.whichkey" },
-  -- -- { import = "nvpunk.plugins.interface.ufo" },
-  -- { import = "nvpunk.plugins.interface.navic" },
-  -- { import = "nvpunk.plugins.interface.highlight_colors" },
-  -- { import = "nvpunk.plugins.interface.gitsigns" },
-  -- { import = "nvpunk.plugins.interface.bufferline" },
-  -- { import = "nvpunk.plugins.tools.toggleterm" },
-  -- { import = "nvpunk.plugins.interface.bqf" },
-  { import = "lazyvim.plugins.ui" },
-  is_nvim() and { import = "lazyvim.plugins.treesitter" } or nil,
-  -- { import = "tvl.core.resources.tools" },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      plugins = {
+        registers = false,
+      },
+    },
+  },
 
   {
     "rcarriga/nvim-notify",
@@ -108,7 +99,7 @@ local plugins = {
         {
           "<leader>und",
           function()
-            require("notify").dismiss()
+            require("notify").dismiss({})
           end,
           desc = "Dismiss Notifications",
         },
@@ -140,5 +131,3 @@ local plugins = {
     },
   },
 }
-
-return plugins
