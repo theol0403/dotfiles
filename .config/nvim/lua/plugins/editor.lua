@@ -69,6 +69,9 @@ return {
   --       desc = "Remote Flash",
   --     },
   --   },
+  --   search = {
+  --     multi_window = true,
+  --   },
   --   vscode = true,
   -- },
 }

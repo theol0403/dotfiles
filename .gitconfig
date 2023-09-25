@@ -28,3 +28,5 @@
 [user]
 	email = theol0403@gmail.com
 	name = Theo Lemay
+[pull]
+	rebase = true

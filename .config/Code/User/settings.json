@@ -247,7 +247,7 @@
     }
   ],
   "task.quickOpen.skip": true,
-  "workbench.colorTheme": "Monokai Pro",
+  "workbench.colorTheme": "Tokyo Night",
   "dart.renameFilesWithClasses": "prompt",
   "dart.flutterHotReloadOnSave": "manualIfDirty",
   "dart.previewFlutterUiGuides": true,
@@ -277,7 +277,7 @@
   "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
   "[python]": {
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.python"
   },
   "editor.inlayHints.enabled": "off",
   "editor.minimap.enabled": false,
@@ -301,6 +301,7 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "diffEditor.ignoreTrimWhitespace": false
   // "vscode-neovim.logLevel": "debug"
 }

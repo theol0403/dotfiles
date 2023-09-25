@@ -1,9 +1,9 @@
 [
   // save all
   {
-    "args": "<C-S>",
     "command": "vscode-neovim.send",
-    "key": "ctrl+s"
+    "key": "ctrl+s",
+    "args": "<C-s>"
   },
   {
     "command": "vspacecode.space",
