@@ -1,4 +1,14 @@
 return {
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   -- {
   --   "loctvl842/monokai-pro.nvim",
   --   lazy = false,
@@ -39,11 +49,6 @@ return {
   --     monokai.load()
   --   end,
   -- },
-
-  {
-    "folke/noice.nvim",
-    enabled = false,
-  },
 
   {
     "tummetott/reticle.nvim",
@@ -89,29 +94,6 @@ return {
         registers = false,
       },
     },
-  },
-
-  {
-    "rcarriga/nvim-notify",
-    keys = function(_, keys)
-      return {
-        { "<leader>un", desc = " Notifications" },
-        {
-          "<leader>und",
-          function()
-            require("notify").dismiss({})
-          end,
-          desc = "Dismiss Notifications",
-        },
-        {
-          "<leader>unl",
-          function()
-            require("telescope").extensions.notify.notify()
-          end,
-          desc = "List Notifications",
-        },
-      }
-    end,
   },
 
   -- fix surround-nvim

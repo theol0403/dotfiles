@@ -25,8 +25,12 @@
 	repo = /home/theol/Documents/zshplugins/zsh-users/zsh-completions
 	repo = /home/theol/Documents/zshplugins/zsh-users/zsh-history-substring-search
 	repo = /home/theol/Documents/zshplugins/marlonrichert/zsh-autocomplete
+	repo = /home/theol/Documents/zshplugins/marlonrichert/zsh-edit
+	repo = /home/theol/Documents/zshplugins/marlonrichert/zsh-hist
 [user]
 	email = theol0403@gmail.com
 	name = Theo Lemay
 [pull]
 	rebase = true
+[credential]
+	helper = store

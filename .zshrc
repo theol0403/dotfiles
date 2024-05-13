@@ -1,7 +1,8 @@
 export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/:$PATH:~/.emacs.d/bin/:~/.npm-global/bin/
 # export PATH=/home/theol/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/:$PATH
 # export PATH=/home/theol/Downloads/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/:$PATH
-export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
+# export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
+export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
 
 zstyle ':znap:*' repos-dir ~/Documents/zshplugins
 source ~/Documents/github/zsh-snap/znap.zsh
@@ -40,7 +41,7 @@ fi
 : ${key[Delete]:=$'\C-[[3~'}
 
 znap eval starship 'starship init zsh --print-full-init'
-# znap prompt starship
+znap prompt 
 
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -64,8 +65,8 @@ znap source marlonrichert/zsh-autocomplete
 bindkey -M menuselect ^D kill-whole-line
 bindkey -M menuselect $key[Return] .accept-line
 bindkey $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
-# bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
-# bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
+bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
 ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion match_prev_cmd history)
 # ZSH_AUTOSUGGEST_STRATEGY=(histdb_top completion match_prev_cmd history)
@@ -76,13 +77,13 @@ bindkey '^ ' autosuggest-accept
 
 _zsh_autosuggest_strategy_atuin_top() {
     suggestion=$(atuin search --limit 1 --format "{command}" --search-mode prefix --cwd $PWD $1)
-    if [[ ! $suggestion = *[![:space:]]* ]]; then 
+    if [[ ! $suggestion = *[![:space:]]* ]]; then
       suggestion=$(atuin search --limit 1 --format "{command}" --search-mode prefix $1)
     fi
 }
 
 znap eval atuin 'atuin init zsh'
-znap fpath _atuin 'atuin gen-completions --shell zsh'
+# znap fpath _atuin 'atuin gen-completions --shell zsh'
 znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
 
@@ -100,14 +101,11 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
 VSCODE=code-insiders
-znap source ohmyzsh/ohmyzsh plugins/{vscode,tmux,colored-man-pages,sublime-merge,docker-compose}
+znap source ohmyzsh/ohmyzsh plugins/{git,vscode,tmux,colored-man-pages,sublime-merge}
 
-znap fpath _rustup  'rustup completions zsh'
-znap fpath _cargo   'rustup completions zsh cargo'
-
-# znap source marlonrichert/zsh-edit
-# znap source marlonrichert/zsh-hist
-# bindkey "^Z" undo
+znap source marlonrichert/zsh-edit
+znap source marlonrichert/zsh-hist
+bindkey "^Z" undo
 
 # bindings
 bindkey $key[Home] beginning-of-line
@@ -127,17 +125,6 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/theol/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/theol/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/theol/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/theol/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+
+
+PATH=~/.console-ninja/.bin:$PATH

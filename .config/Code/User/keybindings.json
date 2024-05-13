@@ -22,6 +22,12 @@
     "command": "vspacecode.space",
     "when": "sideBarFocus && !inputFocus && !whichkeyActive"
   },
+  {
+    "args": "<C-S-l>",
+    "command": "vscode-neovim.send",
+    "key": "ctrl+shift+l",
+    "when": "editorFocus && neovim.init && neovim.mode != insert"
+  }
   // navigate autocomplete
   // {
   //     "key": "tab",
@@ -50,12 +56,6 @@
     "command": "editor.action.clipboardCopyAction",
     "key": "ctrl+c",
     "when": "neovim.mode == insert"
-  },
-  // ctrl-k is more important to use with vscode
-  {
-    "command": "-vscode-neovim.send",
-    "key": "ctrl+k",
-    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
   },
   // copy stuff
   {
@@ -238,35 +238,4 @@
     "key": "ctrl+h",
     "when": "panelFocus"
   },
-  // {
-  //   "command": "vscode-neovim.compositeEscape1",
-  //   "key": "k",
-  //   "when": "neovim.mode == insert && editorTextFocus",
-  //   "args": "k"
-  // },
-  // {
-  //   "command": "vscode-neovim.compositeEscape2",
-  //   "key": "j",
-  //   "when": "neovim.mode == insert && editorTextFocus",
-  //   "args": "j"
-  // },
-  {
-    "key": "ctrl+alt+p",
-    "command": "nrf-connect.flashAll"
-  },
-  {
-    "key": "ctrl+alt+f",
-    "command": "nrf-connect.flash",
-    "when": "nrf-connect.application.activeImage && !nrf-connect.build.isTFM"
-  },
-  {
-    "key": "ctrl+alt+p",
-    "command": "-nrf-connect.flash",
-    "when": "nrf-connect.application.activeImage && !nrf-connect.build.isTFM"
-  },
-  {
-    "key": "ctrl+y",
-    "command": "-vscode-neovim.ctrl-y",
-    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-  }
 ]

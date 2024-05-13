@@ -1,5 +1,4 @@
 return {
-
   {
     "echasnovski/mini.nvim",
     config = function()
@@ -9,9 +8,9 @@ return {
   },
   { "tommcdo/vim-lion", vscode = true },
   { "tpope/vim-unimpaired", vscode = true },
-  -- stylua: ignore start
   {
     "monaqa/dial.nvim",
+    -- stylua: ignore start
     keys = {
       { mode = "n", "<C-a>", function() require("dial.map").inc_normal() end, },
       { mode = "n", "<C-x>", function() require("dial.map").dec_normal() end, },
@@ -20,58 +19,27 @@ return {
       { mode = "v", "g<C-a>", function() require("dial.map").inc_gvisual() end, },
       { mode = "v", "g<C-x>", function() require("dial.map").dec_gvisual() end, },
     },
+    -- stylua: ignore end
     vscode = true,
   },
-  -- stylua: ignore end
 
   { "max397574/better-escape.nvim", opts = { mapping = { "jk", "kj" } }, vscode = true },
 
-  -- {
-  --   "folke/flash.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     jump = {
-  --       autojump = true,
-  --       highlight = {
-  --         label = {
-  --           current = false,
-  --         },
-  --       },
-  --     },
-  --     modes = {
-  --       char = {
-  --         highlight = { backdrop = false },
-  --       },
-  --     },
-  --   },
-  --   keys = {
-  --     {
-  --       "s",
-  --       mode = { "n", "x", "o" },
-  --       function()
-  --         -- default options: exact mode, multi window, all directions, with a backdrop
-  --         require("flash").jump()
-  --       end,
-  --     },
-  --     {
-  --       "S",
-  --       mode = { "o", "x" },
-  --       function()
-  --         require("flash").treesitter()
-  --       end,
-  --     },
-  --     {
-  --       "r",
-  --       mode = "o",
-  --       function()
-  --         require("flash").remote()
-  --       end,
-  --       desc = "Remote Flash",
-  --     },
-  --   },
-  --   search = {
-  --     multi_window = true,
-  --   },
-  --   vscode = true,
-  -- },
+  { "toppair/reach.nvim", vscode = true, opts = { notifications = true } },
+
+  {
+    "vscode-neovim/vscode-multi-cursor.nvim",
+    event = "VeryLazy",
+    cond = not not vim.g.vscode,
+    vscode = true,
+    keys = {
+      {
+        mode = { "n", "x", "i" },
+        "<C-S-l>",
+        function()
+          require("vscode-multi-cursor").selectHighlights()
+        end,
+      },
+    },
+  },
 }

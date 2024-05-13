@@ -14,23 +14,10 @@ require("lazy").setup({
       import = "lazyvim.plugins",
       opts = { colorscheme = "tokyonight", defaults = { keymaps = false } },
     },
-    { import = "lazyvim.plugins.extras.vscode" },
-    --    { "https://gitlab.com/gabmus/nvpunk" },
-    -- { "NvChad/NvChad" },
-    -- { "AstroNvim/AstroNvim" },
-    -- { "CosmicNvim/CosmicNvim" },
-    -- { "loctvl842/nvim" },
-
     -- import any extras modules here
+    { import = "lazyvim.plugins.extras.vscode" },
     { import = "lazyvim.plugins.extras.editor.leap" },
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    { import = "lazyvim.plugins.extras.lang.clangd" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
-    { import = "lazyvim.plugins.extras.util.project" },
-
+    { import = "lazyvim.plugins.extras.coding.yanky" },
     -- import/override with your plugins
     { import = "plugins" },
   },

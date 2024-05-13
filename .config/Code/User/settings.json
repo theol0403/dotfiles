@@ -3,7 +3,7 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.intelliSenseEngine": "Disabled",
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -41,7 +41,7 @@
   ],
   "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
-  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
+  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
   "comment-divider.languagesMap": {
     "moonscript": ["--"]
   },
@@ -102,7 +102,6 @@
   "explorer.incrementalNaming": "smart",
   "extensions.autoUpdate": true,
   "git.autoStash": true,
-  "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.fetchOnPull": true,
@@ -205,7 +204,6 @@
   "extensions.ignoreRecommendations": true,
   "debug.autoExpandLazyVariables": true,
   "debug.openExplorerOnEnd": true,
-  "explorer.excludeGitIgnore": true,
   "remoteHub.experimental.useDiffMatchPatch": true,
   "latex-workshop.mathpreviewpanel.cursor.enabled": true,
   "nrf-terminal.terminalMode": "character",
@@ -222,7 +220,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
+    "editor.wordBasedSuggestions": "off"
   },
   "vim.easymotion": true,
   "vim.foldfix": true,
@@ -247,7 +245,7 @@
     }
   ],
   "task.quickOpen.skip": true,
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "Monokai Pro",
   "dart.renameFilesWithClasses": "prompt",
   "dart.flutterHotReloadOnSave": "manualIfDirty",
   "dart.previewFlutterUiGuides": true,
@@ -265,10 +263,8 @@
   },
   "markdown.extension.tableFormatter.normalizeIndentation": true,
   "editor.scrollBeyondLastLine": false,
-  "vscode-neovim.revealCursorScrollLine": true,
   // "vscode-neovim.logOutputToConsole": true,
   "vscode-neovim.neovimViewportHeightExtend": 0,
-  "vscode-neovim.logOutputToConsole": true,
   "vscode-neovim.neovimExecutablePaths.linux": "nvim",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.completionEnabled": true,
@@ -277,21 +273,16 @@
   "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
   "[python]": {
     "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "editor.inlayHints.enabled": "off",
   "editor.minimap.enabled": false,
   "genieai.enableConversationHistory": true,
-  "rust-analyzer.completion.privateEditable.enable": true,
-  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
-  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
   "githubPullRequests.pullBranch": "never",
   "terminal.integrated.env.linux": {},
   "editor.multiCursorModifier": "ctrlCmd",
   "Lua.hint.enable": true,
   "Lua.workspace.library": ["/usr/share/nvim/runtime/"],
   "Lua.diagnostics.globals": ["vim"],
-  "vscode-neovim.logLevel": "debug",
   "workbench.editor.restoreViewState": false,
   "typescript.inlayHints.parameterTypes.enabled": true,
   "terminal.integrated.scrollback": 20000,
@@ -302,6 +293,58 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "console-ninja.featureSet": "Community",
+  "vscode-neovim.ctrlKeysForNormalMode": [
+    "a",
+    "b",
+    "d",
+    "e",
+    "f",
+    "h",
+    "i",
+    "j",
+    "l",
+    "o",
+    "r",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    "/",
+    "]",
+    "right",
+    "left",
+    "up",
+    "down",
+    "backspace",
+    "delete"
+  ],
+  "debug.onTaskErrors": "debugAnyway",
+  "cmake.configureOnOpen": true,
+  "arduino.useArduinoCli": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "livePreview.previewDebounceDelay": 3000,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "rust-analyzer.imports.preferNoStd": true,
+  "git.openRepositoryInParentFolders": "always",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+    "jk": {
+      "command": "vscode-neovim.escape"
+    },
+    "kj": {
+      "command": "vscode-neovim.escape"
+    }
+  }
   // "vscode-neovim.logLevel": "debug"
 }

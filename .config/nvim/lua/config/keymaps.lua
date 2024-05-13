@@ -140,6 +140,7 @@ if not vim.g.vscode then
 
 -- ------------------------- vscode specific config ----------------------------
 else
+  vim.g.clipboard = vim.g.vscode_clipboard
   nnoremap("gz", '<Cmd>call VSCodeCall("git.revertSelectedRanges")<CR>')
   xnoremap("gz", '<Cmd>call VSCodeCall("git.revertSelectedRanges")<CR><ESC>')
 
