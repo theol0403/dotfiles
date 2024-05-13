@@ -1,0 +1,48 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.normal]
+black = "0x2d2a2e"
+blue = "0xfc9867"
+cyan = "0x78dce8"
+green = "0xa9dc76"
+magenta = "0xab9df2"
+red = "0xff6188"
+white = "0xfcfcfa"
+yellow = "0xffd866"
+
+[colors.primary]
+background = "0x2d2a2e"
+foreground = "0xfcfcfa"
+
+[cursor]
+style = "Beam"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "JetBrainsMonoNerdFont"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Insert"
+mods = "Shift"
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "tmux"
+
+[window]
+decorations = "full"
+decorations_theme_variant = "Dark"
+dynamic_padding = true
+opacity = 0.98
+
+[window.padding]
+x = 0
+y = 0

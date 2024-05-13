@@ -9,47 +9,46 @@ return {
       },
     },
   },
-  -- {
-  --   "loctvl842/monokai-pro.nvim",
-  --   lazy = false,
-  --   branch = "master",
-  --   priority = 1000,
-  --   config = function()
-  --     local monokai = require("monokai-pro")
-  --     monokai.setup({
-  --       transparent_background = false,
-  --       devicons = true,
-  --       filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-  --       inc_search = "background", -- underline | background
-  --       background_clear = {},
-  --       plugins = {
-  --         bufferline = {
-  --           underline_selected = true,
-  --           underline_visible = true,
-  --           bold = false,
-  --         },
-  --         indent_blankline = {
-  --           context_highlight = "pro", -- default | pro
-  --           context_start_underline = true,
-  --         },
-  --       },
-  --       override = function(c)
-  --         return {
-  --           colorcolumn = { bg = c.base.dimmed3 },
-  --           dashboardrecent = { fg = c.base.magenta },
-  --           dashboardproject = { fg = c.base.blue },
-  --           dashboardconfiguration = { fg = c.base.white },
-  --           dashboardsession = { fg = c.base.green },
-  --           dashboardlazy = { fg = c.base.cyan },
-  --           dashboardserver = { fg = c.base.yellow },
-  --           dashboardquit = { fg = c.base.red },
-  --         }
-  --       end,
-  --     })
-  --     monokai.load()
-  --   end,
-  -- },
-
+  {
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,
+    branch = "master",
+    priority = 1000,
+    config = function()
+      local monokai = require("monokai-pro")
+      monokai.setup({
+        transparent_background = false,
+        devicons = true,
+        filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+        inc_search = "background", -- underline | background
+        background_clear = {},
+        plugins = {
+          bufferline = {
+            underline_selected = true,
+            underline_visible = true,
+            bold = false,
+          },
+          indent_blankline = {
+            context_highlight = "pro", -- default | pro
+            context_start_underline = true,
+          },
+        },
+        override = function(c)
+          return {
+            colorcolumn = { bg = c.base.dimmed3 },
+            dashboardrecent = { fg = c.base.magenta },
+            dashboardproject = { fg = c.base.blue },
+            dashboardconfiguration = { fg = c.base.white },
+            dashboardsession = { fg = c.base.green },
+            dashboardlazy = { fg = c.base.cyan },
+            dashboardserver = { fg = c.base.yellow },
+            dashboardquit = { fg = c.base.red },
+          }
+        end,
+      })
+      monokai.load()
+    end,
+  },
   {
     "tummetott/reticle.nvim",
     config = true,
