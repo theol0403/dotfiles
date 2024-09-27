@@ -66,7 +66,7 @@ zstyle ':autocomplete:tab:*' fzf-completion yes
 zstyle ':autocomplete:*:too-many-matches' message ''
 znap source marlonrichert/zsh-autocomplete
 bindkey -M menuselect ^D kill-whole-line
-bindkey -M menuselect $key[Return] .accept-line
+# bindkey -M menuselect $key[Return] .accept-line
 bindkey $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
 bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
@@ -85,15 +85,27 @@ _zsh_autosuggest_strategy_atuin_top() {
     fi
 }
 
-znap eval atuin 'atuin init zsh'
+znap eval atuin 'atuin init zsh --disable-up-arrow'
 # znap fpath _atuin 'atuin gen-completions --shell zsh'
 znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
+znap eval zellij 'zellij setup --generate-auto-start zsh'
+
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
+alias fd='fdfind'
+alias cd='z'
 
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=yes
 HISTORY_SUBSTRING_SEARCH_FUZZY=yes
 znap source zsh-users/zsh-history-substring-search
 bindkey $key[Up] history-substring-search-up
+# TODO: fix why this wasn't working before
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 bindkey $key[Down] history-substring-search-down
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
@@ -106,8 +118,8 @@ bindkey -M vicmd 'j' history-substring-search-down
 VSCODE=code-insiders
 znap source ohmyzsh/ohmyzsh plugins/{git,vscode,tmux,colored-man-pages,sublime-merge}
 
-znap source marlonrichert/zsh-edit
-znap source marlonrichert/zsh-hist
+# znap source marlonrichert/zsh-edit
+# znap source marlonrichert/zsh-hist
 bindkey "^Z" undo
 
 # bindings
@@ -131,3 +143,9 @@ tm() {
 
 
 PATH=~/.console-ninja/.bin:$PATH
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export FPATH="/home/theol/Documents/github/eza/completions/zsh:$FPATH"
