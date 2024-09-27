@@ -1,32 +1,7 @@
 return {
-  {
-    "echasnovski/mini.nvim",
-    config = function()
-      require("mini.move").setup()
-    end,
-    vscode = true,
-  },
   { "tommcdo/vim-lion", vscode = true },
   { "tpope/vim-unimpaired", vscode = true },
-  {
-    "monaqa/dial.nvim",
-    -- stylua: ignore start
-    keys = {
-      { mode = "n", "<C-a>", function() require("dial.map").inc_normal() end, },
-      { mode = "n", "<C-x>", function() require("dial.map").dec_normal() end, },
-      { mode = "v", "<C-a>", function() require("dial.map").inc_visual() end, },
-      { mode = "v", "<C-x>", function() require("dial.map").dec_visual() end, },
-      { mode = "v", "g<C-a>", function() require("dial.map").inc_gvisual() end, },
-      { mode = "v", "g<C-x>", function() require("dial.map").dec_gvisual() end, },
-    },
-    -- stylua: ignore end
-    vscode = true,
-  },
-
-  { "max397574/better-escape.nvim", opts = { mapping = { "jk", "kj" } }, vscode = true },
-
-  { "toppair/reach.nvim", vscode = true, opts = { notifications = true } },
-
+  { "max397574/better-escape.nvim", opts = {}, vscode = true },
   {
     "vscode-neovim/vscode-multi-cursor.nvim",
     event = "VeryLazy",
@@ -41,5 +16,30 @@ return {
         end,
       },
     },
+  },
+  -- {
+  --   "folke/flash.nvim",
+  --   ---@type Flash.Config
+  --   opts = { highlight = { backdrop = false } },
+  -- },
+  {
+    "ggandor/leap.nvim",
+    enabled = true,
+    keys = {
+      { "s", mode = { "n", "x", "o" }, desc = "Leap" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
+    },
+    config = function(_, opts)
+      local leap = require("leap")
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      leap.add_default_mappings(true)
+      -- vim.keymap.del({ "x", "o" }, "x")
+      -- vim.keymap.del({ "x", "o" }, "X")
+      vim.keymap.set("n", "s", function()
+        require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
+      end)
+    end,
   },
 }

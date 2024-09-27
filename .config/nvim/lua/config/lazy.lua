@@ -12,7 +12,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = { colorscheme = "monokai-pro" },
+      opts = { colorscheme = "monokai-pro", defaults = { keymaps = false } },
     },
     -- import/override with your plugins
     { import = "plugins" },

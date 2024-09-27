@@ -1,11 +1,6 @@
 [
   // save all
   {
-    "command": "vscode-neovim.send",
-    "key": "ctrl+s",
-    "args": "<C-s>"
-  },
-  {
     "command": "vspacecode.space",
     "key": "space",
     "when": "editorTextFocus && !neovim.init"
@@ -27,7 +22,7 @@
     "command": "vscode-neovim.send",
     "key": "ctrl+shift+l",
     "when": "editorFocus && neovim.init && neovim.mode != insert"
-  }
+  },
   // navigate autocomplete
   // {
   //     "key": "tab",
@@ -237,5 +232,5 @@
     "command": "workbench.action.terminal.focusPreviousPane",
     "key": "ctrl+h",
     "when": "panelFocus"
-  },
+  }
 ]

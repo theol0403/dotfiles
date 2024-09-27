@@ -4,6 +4,9 @@ export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/
 # export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
 export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
 
+export DENO_INSTALL="/home/theol/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 zstyle ':znap:*' repos-dir ~/Documents/zshplugins
 source ~/Documents/github/zsh-snap/znap.zsh
 

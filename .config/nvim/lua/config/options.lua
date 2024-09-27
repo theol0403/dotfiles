@@ -6,6 +6,7 @@ vim.opt.whichwrap:append("<>hl[]") -- allow movement between end/start of line
 vim.opt.gdefault = true
 vim.opt.linebreak = true -- if text should be wrapped at certain characters
 vim.opt.clipboard = ""
+vim.opt.inccommand = "split"
 
 -- opt.fillchars = [[stl:─,stlnc:─,vert:│]]
 -- cmd [[hi StatusLineNC ctermbg=NONE guibg=NONE guifg=#696769]]

@@ -1,14 +1,5 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  { "folke/flash.nvim", enabled = true, vscode = true },
   {
     "loctvl842/monokai-pro.nvim",
     lazy = false,
@@ -57,12 +48,18 @@ return {
       vim.wo.cursorcolumn = false
     end,
   },
-  { "winston0410/cmd-parser.nvim", vscode = true },
-  { "winston0410/range-highlight.nvim", config = true, vscode = true },
   -- { "myusuf3/numbers.vim", vscode = true },
 
   "wakatime/vim-wakatime",
 
+  {
+    "folke/which-key.nvim",
+    opts = {
+      plugins = {
+        registers = false,
+      },
+    },
+  },
   {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",
@@ -82,32 +79,6 @@ return {
       },
       handlers = {
         gitsigns = true,
-      },
-    },
-  },
-
-  {
-    "folke/which-key.nvim",
-    opts = {
-      plugins = {
-        registers = false,
-      },
-    },
-  },
-
-  -- fix surround-nvim
-  {
-    "folke/noice.nvim",
-    opts = {
-      routes = {
-        {
-          filter = {
-            event = "msg_show",
-            kind = "echomsg",
-            find = "No textobject",
-          },
-          opts = { skip = true },
-        },
       },
     },
   },
