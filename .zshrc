@@ -91,7 +91,7 @@ znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
 znap eval zellij 'zellij setup --generate-auto-start zsh'
 
-alias ls='eza -lh --group-directories-first --icons'
+alias ls='eza -lh --icons --group-directories-first'
 alias lsa='ls -a'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
@@ -141,8 +141,17 @@ tm() {
 }
 
 
+tere() {
+    local result=$(command tere "$@")
+    [ -n "$result" ] && cd -- "$result"
+}
 
 PATH=~/.console-ninja/.bin:$PATH
+PATH=$PATH:"/mnt/c/Program Files/Neovide"
+
+neovide() {
+    $(command neovide.exe --wsl "$@")
+}
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

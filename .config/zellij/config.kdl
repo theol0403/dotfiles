@@ -154,7 +154,8 @@ keybinds clear-defaults=true {
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared {
-        bind "Alt n" { NewPane; }
+        bind "Alt v" { NewPane; }
+        bind "Alt n" { NewTab; SwitchToMode "Normal"; }
         bind "Alt w" { ToggleFloatingPanes; SwitchToMode "Locked"; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
@@ -164,6 +165,11 @@ keybinds clear-defaults=true {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
+        bind "Alt y" {
+            LaunchOrFocusPlugin "forgot" {
+                floating true
+            };
+        }
     }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
@@ -200,6 +206,7 @@ keybinds clear-defaults=true {
 
 plugins {
     tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
     strider location="zellij:strider"
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
@@ -211,55 +218,38 @@ plugins {
     }
     autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
         triggers "nvim|vim"  // Lock when any open these programs open. They are expected to unlock themselves when closed (e.g., using zellij.vim plugin).
-        watch_triggers "fzf|zoxide|atuin"  // Lock when any of these open and monitor until closed.
-        watch_interval "1.0"  // When monitoring, check every X seconds.
+        // watch_triggers "fzf|zoxide|atuin"  // Lock when any of these open and monitor until closed.
+        // watch_interval "1.0"  // When monitoring, check every X seconds.
     }
-    status-bar location="zellij:status-bar"
-    // status-bar location="https://github.com/dj95/zjstatus/releases/download/v0.14.1/zjstatus.wasm" {
-    //     format_left "{tabs}"
-    //     format_right  "#[fg=#89B4FA,bold]{session} | {mode} "
-    //     // format_center "{tabs}"
-    //     // format_right  "{command_git_branch} {datetime}"
-    //     // format_right  "{datetime}"
-    //     format_space  ""
-    //
-    //     border_enabled  "true"
-    //     border_char     "─"
-    //     border_format   "#[fg=#6C7086]{char}"
-    //     border_position "bottom"
-    //
-    //     hide_frame_for_single_pane "false"
-    //
-    //     mode_normal        "#[fg=green,bold]{name}"
-    //     mode_locked        "#[fg=orange,bold]{name}"
-    //
-    //     // formatting for inactive tabs
-    //     tab_normal              "#[fg=#6C7086] [{index}] {name} "
-    //     tab_normal_fullscreen   "#[fg=#6C7086] [{index}] {name} [] "
-    //     tab_normal_sync         "#[fg=#6C7086] [{index}] {name} <> "
-    //
-    //     // formatting for the current active tab
-    //     tab_active              "#[fg=#9399B2,bold] [{index}] {name} {floating_indicator}"
-    //     tab_active_fullscreen   "#[fg=#9399B2,bold] [{index}] {name} {fullscreen_indicator}"
-    //     tab_active_sync         "#[fg=#9399B2,bold] [{index}] {name} {sync_indicator}"
-    //
-    //     // separator between the tabs
-    //     tab_separator           "#[fg=#6C7086,bg=#181825] | "
-    //
-    //     // indicators
-    //     tab_sync_indicator       "<> "
-    //     tab_fullscreen_indicator "[] "
-    //     tab_floating_indicator   "⬚ "
-    //
-    //     // command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
-    //     // command_git_branch_format      "#[fg=blue] {stdout} "
-    //     // command_git_branch_interval    "10"
-    //     // command_git_branch_rendermode  "static"
-    //
-    //     // datetime        "#[fg=#6C7086,bold] {format} "
-    //     // datetime_format "%A, %d %b %Y %H:%M"
-    //     // datetime_timezone "America/Chicago"
-    // }
+    forgot location="https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {}
+//     status-bar location="https://github.com/dj95/zjstatus/releases/download/v0.14.1/zjstatus.wasm" {
+//         format_left   "{mode} #[fg=#89B4FA,bold]{session}"
+//         format_center "{tabs}"
+//         format_right  "{command_git_branch} {datetime}"
+//         format_space  ""
+//
+//         border_enabled  "true"
+//         border_char     "─"
+//         border_format   "#[fg=#6C7086]{char}"
+//         border_position "bottom"
+//
+//         hide_frame_for_single_pane "true"
+//
+//         mode_normal  "#[bg=blue] "
+//         mode_tmux    "#[bg=#ffc387] "
+//
+//         tab_normal   "#[fg=#6C7086] {name} "
+//         tab_active   "#[fg=#9399B2,bold,italic] {name} "
+//
+//         command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+//         command_git_branch_format      "#[fg=blue] {stdout} "
+//         command_git_branch_interval    "10"
+//         command_git_branch_rendermode  "static"
+//
+//         datetime        "#[fg=#6C7086,bold] {format} "
+//         datetime_format "%A, %d %b %Y %H:%M"
+//         datetime_timezone "America/Halifax"
+//     }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -275,7 +265,7 @@ plugins {
 //    - true
 //    - false (Default)
 //
-simplified_ui true
+// simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -347,7 +337,7 @@ theme "monokai_pro"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -419,7 +409,7 @@ theme "monokai_pro"
 // May need to be disabled for certain unsupported terminals
 // Default: true
 //
-// styled_underlines false
+styled_underlines false
 
 // Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
 // metadata info on this session)

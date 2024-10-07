@@ -35,10 +35,6 @@ local tmap = function(...) bind("t", ...) end
 local tnoremap = function(...) nobind("t", ...) end
 -- stylua: ignore end
 
--- swap soft eol
-noremap("0", "^")
-noremap("^", "0")
-
 -- save
 nmap("<C-S>", ":wall<CR><ESC>")
 imap("<C-S>", "<ESC>:wall<CR>")
