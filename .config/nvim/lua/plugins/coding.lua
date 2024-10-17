@@ -46,24 +46,59 @@ return {
 			keys[#keys + 1] = { "gR", vim.lsp.buf.references, desc = "References", nowait = true }
 		end,
 	},
+	{
+		"haya14busa/vim-asterisk",
+		keys = {
+			{ "*", mode = { "n", "x", "o" }, "<Plug>(asterisk-z*)" },
+			{ "#", mode = { "n", "x", "o" }, "<Plug>(asterisk-z#)" },
+			{ "g*", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz*)" },
+			{ "g#", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz#)" },
+		},
+	},
+	{
+		"chrisgrieser/nvim-spider",
+		keys = {
+			{
+				"e",
+				"<cmd>lua require('spider').motion('e')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"w",
+				"<cmd>lua require('spider').motion('w')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"b",
+				"<cmd>lua require('spider').motion('b')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"ge",
+				"<cmd>lua require('spider').motion('ge')<CR>",
+				mode = { "n", "o", "x" },
+			},
+		},
+	},
 	-- better text-objects
 	{ "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
 	{
-		"kana/vim-textobj-user",
-		dependencies = {
-			{ "kana/vim-textobj-entire", vscode = true }, -- e - entire
-			{ "kana/vim-textobj-line", vscode = true }, -- l - line
-			{ "Julian/vim-textobj-variable-segment", vscode = true }, -- v - segment
-			{ "kana/vim-textobj-indent", vscode = true }, -- i - indent block, I - same indent (wont select sub indent, vscode = true}
-			{ "pianohacker/vim-textobj-indented-paragraph", vscode = true }, -- r - paragraph that won',t go less indent
-			-- 'tkhren/vim-textobj-numeral', -- n - number (do you want gn - jump to number)
-			{ "MRAAGH/vim-textobj-chunk", vscode = true }, -- lines that contain {},(, vscode = true},[] block. Use to select functions.
+		"echasnovski/mini.ai",
+		event = "VeryLazy",
+		opts = {
+			custom_textobjects = {
+				v = { -- Word with case
+					{ "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
+					"^().*()$",
+				},
+			},
 		},
-		vscode = true,
 	},
 	-- Use <tab> for completion and snippets (supertab)
 	{
 		"hrsh7th/nvim-cmp",
+		url = "https://github.com/benlubas/nvim-cmp",
+		branch = "up_to_date",
 		---@param opts cmp.ConfigSchema
 		opts = function(_, opts)
 			local has_words_before = function()
@@ -73,7 +108,18 @@ return {
 					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 
+			opts.formatting.fields = { "num", "abbr", "kind", "menu" }
+			opts.formatting.number_options = {
+				start_index = 1,
+				end_index = 9,
+			}
+
 			local cmp = require("cmp")
+
+			opts.preselect = cmp.PreselectMode.None
+			opts.completion = {
+				completeopt = "menu,menuone,noinsert,noselect",
+			}
 
 			opts.mapping = vim.tbl_extend("force", opts.mapping, {
 				["<Tab>"] = cmp.mapping(function(fallback)
@@ -101,6 +147,17 @@ return {
 						fallback()
 					end
 				end, { "i", "s" }),
+				["<CR>"] = cmp.mapping({
+					i = function(fallback)
+						if cmp.visible() and cmp.get_active_entry() then
+							cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+						else
+							fallback()
+						end
+					end,
+					s = cmp.mapping.confirm({ select = true }),
+					c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+				}),
 			})
 		end,
 	},

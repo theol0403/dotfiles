@@ -85,10 +85,10 @@ return {
 	-- 		},
 	-- 	},
 	-- },
-	{
-		"lewis6991/satellite.nvim",
-		opts = {},
-	},
+	-- {
+	-- 	"lewis6991/satellite.nvim",
+	-- 	opts = {},
+	-- },
 	-- {
 	-- 	"petertriho/nvim-scrollbar",
 	-- 	event = "BufReadPost",

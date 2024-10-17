@@ -39,6 +39,10 @@ local tnoremap = function(...) nobind("t", ...) end
 nmap("<C-S>", ":wall<CR><ESC>")
 imap("<C-S>", "<ESC>:wall<CR>")
 
+--- swap soft eol
+noremap("0", "^")
+noremap("^", "0")
+
 nmap("<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 nmap("<leader>fa", "<cmd>wall<cr>", { desc = "Save all files" })
 

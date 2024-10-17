@@ -122,6 +122,7 @@ keybinds clear-defaults=true {
     session {
         bind "Alt o" { SwitchToMode "Normal"; }
         bind "d" { Detach; }
+        bind "q" { Quit; }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
@@ -160,7 +161,6 @@ keybinds clear-defaults=true {
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
         bind "Alt d" { CloseFocus; SwitchToMode "Normal"; }
-        bind "Alt q" { Quit; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
@@ -316,7 +316,7 @@ plugins {
 themes {
     monokai_pro {
         fg "#fcfcfa"
-        bg "#2d2a2e"
+        bg "#19181a"
         black "#221f22"
         red "#ff6188"
         green "#a9dc76"
@@ -337,7 +337,7 @@ theme "monokai_pro"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "compact"
+// default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal

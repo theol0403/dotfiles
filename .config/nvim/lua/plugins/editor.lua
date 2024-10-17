@@ -16,40 +16,6 @@ return {
 			},
 		},
 	},
-	{
-		"haya14busa/vim-asterisk",
-		keys = {
-			{ "*", mode = { "n", "x", "o" }, "<Plug>(asterisk-z*)" },
-			{ "#", mode = { "n", "x", "o" }, "<Plug>(asterisk-z#)" },
-			{ "g*", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz*)" },
-			{ "g#", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz#)" },
-		},
-	},
-	{
-		"chrisgrieser/nvim-spider",
-		keys = {
-			{
-				"e",
-				"<cmd>lua require('spider').motion('e')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"w",
-				"<cmd>lua require('spider').motion('w')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"b",
-				"<cmd>lua require('spider').motion('b')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"ge",
-				"<cmd>lua require('spider').motion('ge')<CR>",
-				mode = { "n", "o", "x" },
-			},
-		},
-	},
 	-- {
 	--   "folke/flash.nvim",
 	--   ---@type Flash.Config
@@ -88,7 +54,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>.",
+				"<leader><space>",
 				function()
 					require("telescope").extensions.smart_open.smart_open()
 				end,
@@ -100,6 +66,8 @@ return {
 		"nvim-telescope/telescope.nvim",
 		keys = {
 			{ "<leader>,", false },
+			{ "<leader><space>", false },
+			{ "<leader>.", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
 		},
 	},
 	{
@@ -113,6 +81,10 @@ return {
 				desc = "Open Snipe buffer menu",
 			},
 		},
+		opts = {},
+	},
+	{
+		"voxelprismatic/rabbit.nvim",
 		opts = {},
 	},
 	---@type LazySpec
