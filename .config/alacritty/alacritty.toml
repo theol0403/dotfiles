@@ -35,7 +35,7 @@ mods = "Shift"
 save_to_clipboard = false
 
 [shell]
-program = "tmux"
+program = "zellij"
 
 [window]
 decorations = "full"

@@ -89,7 +89,7 @@ znap eval atuin 'atuin init zsh --disable-up-arrow'
 # znap fpath _atuin 'atuin gen-completions --shell zsh'
 znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
-znap eval zellij 'zellij setup --generate-auto-start zsh'
+# znap eval zellij 'zellij setup --generate-auto-start zsh'
 
 alias ls='eza -lh --icons --group-directories-first'
 alias lsa='ls -a'
@@ -146,7 +146,7 @@ tere() {
     [ -n "$result" ] && cd -- "$result"
 }
 
-PATH=~/.console-ninja/.bin:$PATH
+
 PATH=$PATH:"/mnt/c/Program Files/Neovide"
 
 neovide() {

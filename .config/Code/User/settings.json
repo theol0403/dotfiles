@@ -3,7 +3,7 @@
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.intelliSenseEngine": "Disabled",
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "background.filepath": "/home/theol/Downloads/848687.png",
   "background.opacity": 0.96,
@@ -41,7 +41,6 @@
   ],
   "clangd.checkUpdates": true,
   "clangd.onConfigChanged": "restart",
-  "clangd.path": "/home/theol/.config/Code - Insiders/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd",
   "comment-divider.languagesMap": {
     "moonscript": ["--"]
   },
@@ -153,7 +152,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.list.automaticKeyboardNavigation": false,
   "workbench.list.smoothScrolling": true,
   "workbench.preferredDarkColorTheme": "Monokai Pro",
@@ -175,7 +173,9 @@
     "nordic-semiconductor.nrf-connect-extension-pack",
     "marus25.cortex-debug",
     "blinkshellinc.blink-fs",
-    "vscodevim.vim"
+    "vscodevim.vim",
+    "wakatime.vscode-wakatime",
+    "github.copilot"
   ],
   "settingsSync.keybindingsPerPlatform": false,
   "codesnap.showWindowControls": false,
@@ -191,17 +191,18 @@
     "switch:command",
     "push:command"
   ],
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\student\\scoop\\apps\\neovim-nightly\\current\\bin\\nvim.exe",
-  "nrf-connect.enableTelemetry": false,
-  "nrf-connect.welcome.showOnStartup": false,
   "extensions.ignoreRecommendations": true,
   "debug.openExplorerOnEnd": true,
+  "explorer.excludeGitIgnore": true,
   "remoteHub.experimental.useDiffMatchPatch": true,
   "latex-workshop.mathpreviewpanel.cursor.enabled": true,
-  "nrf-terminal.terminalMode": "character",
   "workbench.editor.limit.excludeDirty": true,
   "workbench.editor.limit.value": 15,
   "workbench.editor.revealIfOpen": true,
@@ -240,10 +241,6 @@
     }
   ],
   "task.quickOpen.skip": true,
-  "workbench.colorTheme": "Monokai Pro",
-  "dart.renameFilesWithClasses": "prompt",
-  "dart.flutterHotReloadOnSave": "manualIfDirty",
-  "dart.previewFlutterUiGuides": true,
   // "window.commandCenter": true,
   "terminal.integrated.shellIntegration.enabled": true,
   "markdown.experimental.validate.enabled": true,
@@ -258,107 +255,27 @@
   },
   "markdown.extension.tableFormatter.normalizeIndentation": true,
   "editor.scrollBeyondLastLine": false,
+  "vscode-neovim.revealCursorScrollLine": true,
+  "vscode-neovim.logOutputToConsole": true,
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.completionEnabled": true,
-  "tabnine.experimentalAutoImports": true,
-  "tabnine.receiveBetaChannelUpdates": true,
-  "quantConnect.lean.init": "/home/theol/Documents/github/queens-university/QUANTT/qc",
   "[python]": {
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.formatOnType": true
   },
-  "editor.minimap.enabled": false,
-  "genieai.enableConversationHistory": true,
-  "githubPullRequests.pullBranch": "never",
-  "terminal.integrated.env.linux": {},
-  "editor.multiCursorModifier": "ctrlCmd",
-  "Lua.hint.enable": true,
-  "Lua.workspace.library": ["/usr/share/nvim/runtime/"],
-  "Lua.diagnostics.globals": ["vim"],
-  "workbench.editor.restoreViewState": false,
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "terminal.integrated.scrollback": 20000,
-  "terminal.integrated.persistentSessionScrollback": 1000,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "workbench.colorTheme": "Monokai Pro",
+  "settingsSync.ignoredSettings": ["editor.fontSize"],
+  "telemetry.telemetryLevel": "off",
+  "gitlens.telemetry.enabled": false,
+  "vscode-neovim.useWSL": true,
+  "gitlab.duoCodeSuggestions.enabled": false,
+  "atlascode.bitbucket.enabled": false,
+  "workbench.editor.tabSizing": "shrink",
+  "cody.commandCodeLenses": false,
+  "cody.experimental.commitMessage": true,
+  "latex-workshop.formatting.latex": "latexindent",
+  "yaml.schemas": {
+    "file:///home/theol/.vscode-insiders/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "diffEditor.ignoreTrimWhitespace": false,
-  "console-ninja.featureSet": "Community",
-  "vscode-neovim.ctrlKeysForNormalMode": [
-    "a",
-    "b",
-    "d",
-    "e",
-    "f",
-    "h",
-    "i",
-    "j",
-    "l",
-    "o",
-    "r",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    "/",
-    "]",
-    "right",
-    "left",
-    "up",
-    "down",
-    "backspace",
-    "delete",
-    "s"
-  ],
-  "debug.onTaskErrors": "debugAnyway",
-  "cmake.configureOnOpen": true,
-  "arduino.useArduinoCli": true,
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
-  "livePreview.previewDebounceDelay": 3000,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "rust-analyzer.imports.preferNoStd": true,
-  "git.openRepositoryInParentFolders": "always",
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "vscode-neovim.compositeKeys": {
-    "jj": {
-      "command": "vscode-neovim.escape"
-    },
-    "jk": {
-      "command": "vscode-neovim.escape"
-    },
-    "kj": {
-      "command": "vscode-neovim.escape"
-    }
-  },
-  "latex-workshop.latex.clean.subfolder.enabled": true,
-  "diffEditor.renderSideBySide": false,
-  "vscode-neovim.logOutputToConsole": true,
-  "vscode-neovim.logLevel": "debug",
-  "github.copilot.editor.enableAutoCompletions": true,
-  "vscode-neovim.ctrlKeysForInsertMode": [
-    "a",
-    "c",
-    "d",
-    "h",
-    "j",
-    "m",
-    "o",
-    "r",
-    "t",
-    "u",
-    "w",
-    "s"
-  ],
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  }
+  "editor.inlineSuggest.suppressSuggestions": true
+  // "vscode-neovim.logLevel": "debug"
 }
