@@ -59,6 +59,8 @@ vmap(
 
 -- ------------------------- vscode specific config ----------------------------
 if vim.g.vscode then
+	local vscode = require("vscode")
+
 	-- vim.cmd("set clipboard+=unnamedplus")
 	vim.g.clipboard = vim.g.vscode_clipboard
 	vim.notify = require("vscode-neovim").notify
@@ -75,4 +77,16 @@ if vim.g.vscode then
 	-- nnoremap ('[c', '<Cmd>call VSCodeNotify("workbench.action.editor.previousChange")<CR>')
 	-- nnoremap (']e', '<Cmd>call VSCodeNotify("editor.action.marker.next")<CR>')
 	-- nnoremap ('[e', '<Cmd>call VSCodeNotify("editor.action.marker.prev")<CR>')
+
+	vim.keymap.set({ "n", "x", "i" }, "<C-d>", function()
+		vscode.with_insert(function()
+			vscode.action("editor.action.addSelectionToNextFindMatch")
+		end)
+	end)
+
+	vim.keymap.set({ "n", "x", "i" }, "<C-S-L>", function()
+		vscode.with_insert(function()
+			vscode.action("editor.action.selectHighlights")
+		end)
+	end)
 end

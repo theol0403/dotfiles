@@ -1,46 +1,84 @@
 return {
-	{ "tommcdo/vim-lion", vscode = true },
-	{ "tpope/vim-unimpaired", vscode = true },
+	{ "tommcdo/vim-lion", vscode = true }, --- allign to separator using gl
+	-- fix surround-nvim errors
 	{
-		"vscode-neovim/vscode-multi-cursor.nvim",
-		event = "VeryLazy",
-		cond = not not vim.g.vscode,
-		vscode = true,
-		keys = {
-			{
-				mode = { "n", "x", "i" },
-				"<C-S-l>",
-				function()
-					require("vscode-multi-cursor").selectHighlights()
-				end,
+		"folke/noice.nvim",
+		opts = {
+			routes = {
+				{
+					filter = {
+						event = "msg_show",
+						kind = "echomsg",
+						find = "No textobject",
+					},
+					opts = { skip = true },
+				},
 			},
 		},
 	},
-	-- {
-	--   "folke/flash.nvim",
-	--   ---@type Flash.Config
-	--   opts = { highlight = { backdrop = false } },
-	-- },
+	-- surround
 	{
-		"ggandor/leap.nvim",
-		enabled = true,
-		keys = {
-			{ "s", mode = { "n", "x", "o" }, desc = "Leap" },
-			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
+		"kylechui/nvim-surround",
+		config = {
+			keymaps = {
+				insert = "<C-g>z",
+				insert_line = "<C-g>Z",
+				normal = "gz",
+				normal_line = "gZ", -- adding caps makes it surround top and bottom
+				normal_cur = "gzz",
+				normal_cur_line = "gZZ", -- adding caps makes it surround top and bottom
+				visual = "gz",
+				visual_line = "gZ",
+				delete = "gzd",
+				change = "gzc",
+			},
+			aliases = {
+				["a"] = ">",
+				["b"] = ")",
+				["B"] = "}",
+				["r"] = "]",
+				["q"] = { '"', "'", "`" },
+				["z"] = { "}", "]", ")", ">", '"', "'", "`" },
+			},
 		},
-		config = function(_, opts)
-			local leap = require("leap")
-			for k, v in pairs(opts) do
-				leap.opts[k] = v
-			end
-			leap.add_default_mappings(true)
-			-- vim.keymap.del({ "x", "o" }, "x")
-			-- vim.keymap.del({ "x", "o" }, "X")
-			vim.keymap.set("n", "s", function()
-				require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
-			end)
-		end,
+		vscode = true,
 	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		vscode = true,
+		---@type Flash.Config
+		-- opts = { highlight = { backdrop = false } },
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+	},
+	-- {
+	-- 	"ggandor/leap.nvim",
+	-- 	enabled = true,
+	-- 	keys = {
+	-- 		{ "s", mode = { "n", "x", "o" }, desc = "Leap" },
+	-- 		{ "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		local leap = require("leap")
+	-- 		for k, v in pairs(opts) do
+	-- 			leap.opts[k] = v
+	-- 		end
+	-- 		leap.add_default_mappings(true)
+	-- 		-- vim.keymap.del({ "x", "o" }, "x")
+	-- 		-- vim.keymap.del({ "x", "o" }, "X")
+	-- 		vim.keymap.set("n", "s", function()
+	-- 			require("leap").leap({ target_windows = { vim.api.nvim_get_current_win() } })
+	-- 		end)
+	-- 	end,
+	-- },
+	-- replace <space><space> file finder with smart open, and move old behavior to <leader>.
 	{
 		"danielfalk/smart-open.nvim",
 		branch = "0.2.x",
@@ -65,7 +103,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		keys = {
-			{ "<leader>,", false },
+			-- { "<leader>,", false },
 			{ "<leader><space>", false },
 			{ "<leader>.", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
 		},
@@ -83,11 +121,7 @@ return {
 		},
 		opts = {},
 	},
-	{
-		"voxelprismatic/rabbit.nvim",
-		opts = {},
-	},
-	---@type LazySpec
+	-- best tui file manager
 	{
 		"mikavilpas/yazi.nvim",
 		event = "VeryLazy",

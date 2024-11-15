@@ -1,6 +1,4 @@
 return {
-	-- surround
-	{ "kylechui/nvim-surround", config = true, vscode = true },
 	-- fix surround-nvim
 	{
 		"folke/noice.nvim",
@@ -17,7 +15,6 @@ return {
 			},
 		},
 	},
-
 	--  exchange/replace
 	{
 		"gbprod/substitute.nvim",
@@ -36,6 +33,7 @@ return {
 		-- stylua: ignore end
 		vscode = true,
 	},
+	-- move default gr to gR
 	{
 		"neovim/nvim-lspconfig",
 		opts = function()
@@ -46,6 +44,7 @@ return {
 			keys[#keys + 1] = { "gR", vim.lsp.buf.references, desc = "References", nowait = true }
 		end,
 	},
+	-- * doesn't advance to the next match, to better support cgn
 	{
 		"haya14busa/vim-asterisk",
 		keys = {
@@ -55,6 +54,7 @@ return {
 			{ "g#", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz#)" },
 		},
 	},
+	-- better subword motions
 	{
 		"chrisgrieser/nvim-spider",
 		keys = {
@@ -80,14 +80,14 @@ return {
 			},
 		},
 	},
-	-- better text-objects
+	-- text-objects
 	{ "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
 	{
 		"echasnovski/mini.ai",
 		event = "VeryLazy",
 		opts = {
 			custom_textobjects = {
-				v = { -- Word with case
+				v = { -- subword with case
 					{ "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
 					"^().*()$",
 				},
@@ -97,8 +97,8 @@ return {
 	-- Use <tab> for completion and snippets (supertab)
 	{
 		"hrsh7th/nvim-cmp",
-		url = "https://github.com/benlubas/nvim-cmp",
-		branch = "up_to_date",
+		url = "https://github.com/theol0403/magazine.nvim",
+		branch = "main",
 		---@param opts cmp.ConfigSchema
 		opts = function(_, opts)
 			local has_words_before = function()
@@ -123,13 +123,12 @@ return {
 
 			opts.mapping = vim.tbl_extend("force", opts.mapping, {
 				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						-- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
-						cmp.select_next_item()
-					elseif vim.snippet.active({ direction = 1 }) then
+					if vim.snippet.active({ direction = 1 }) then
 						vim.schedule(function()
 							vim.snippet.jump(1)
 						end)
+					elseif cmp.visible() then
+						cmp.select_next_item()
 					elseif has_words_before() then
 						cmp.complete()
 					else
@@ -137,12 +136,12 @@ return {
 					end
 				end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif vim.snippet.active({ direction = -1 }) then
+					if vim.snippet.active({ direction = -1 }) then
 						vim.schedule(function()
 							vim.snippet.jump(-1)
 						end)
+					elseif cmp.visible() then
+						cmp.select_prev_item()
 					else
 						fallback()
 					end
@@ -159,6 +158,21 @@ return {
 					c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 				}),
 			})
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		url = "https://github.com/theol0403/magazine.nvim",
+		optional = true,
+		dependencies = { "supermaven-nvim" },
+		opts = function(_, opts)
+			if vim.g.ai_cmp then
+				table.insert(opts.sources, 1, {
+					name = "supermaven",
+					group_index = 1,
+					priority = 100,
+				})
+			end
 		end,
 	},
 }

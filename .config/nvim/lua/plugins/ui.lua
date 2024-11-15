@@ -1,4 +1,5 @@
 return {
+	-- zellij nav
 	{
 		"https://github.com/fresh2dev/zellij.vim.git",
 		lazy = false,
@@ -17,12 +18,14 @@ return {
 	},
 	{
 		"akinsho/bufferline.nvim",
-		keys = {
-			{ "<leader>,", "<Cmd>BufferLinePick<CR>", desc = "Pick buffer" },
-		},
+		-- keys = {
+		-- 	{ "<leader>,", "<Cmd>BufferLinePick<CR>", desc = "Pick buffer" },
+		-- },
 		opts = { options = { always_show_bufferline = true } },
 	},
+	-- scope buffers to tabs
 	{ "tiagovla/scope.nvim", opts = {} },
+	-- theme
 	{
 		"loctvl842/monokai-pro.nvim",
 		lazy = false,
@@ -63,6 +66,7 @@ return {
 			monokai.load()
 		end,
 	},
+	-- make cursor line and column respond to current window
 	{
 		"tummetott/reticle.nvim",
 		config = true,
@@ -76,7 +80,21 @@ return {
 		"dinhhuy258/git.nvim",
 		opts = {},
 	},
-
+	-- good search and replace (comparable to default gruq-far)
+	{
+		"chrisgrieser/nvim-rip-substitute",
+		cmd = "RipSubstitute",
+		keys = {
+			{
+				"<leader>rs",
+				function()
+					require("rip-substitute").sub()
+				end,
+				mode = { "n", "x" },
+				desc = " rip substitute",
+			},
+		},
+	},
 	-- {
 	-- 	"folke/which-key.nvim",
 	-- 	opts = {
@@ -89,100 +107,25 @@ return {
 	-- 	"lewis6991/satellite.nvim",
 	-- 	opts = {},
 	-- },
-	-- {
-	-- 	"petertriho/nvim-scrollbar",
-	-- 	event = "BufReadPost",
-	-- 	opts = {
-	-- 		set_highlights = false,
-	-- 		excluded_filetypes = {
-	-- 			"prompt",
-	-- 			"TelescopePrompt",
-	-- 			"noice",
-	-- 			"neo-tree",
-	-- 			"dashboard",
-	-- 			"alpha",
-	-- 			"lazy",
-	-- 			"mason",
-	-- 			"DressingInput",
-	-- 			"",
-	-- 		},
-	-- 		handlers = {
-	-- 			gitsigns = true,
-	-- 		},
-	-- 	},
-	-- },
-	---@module "neominimap.config.meta"
 	{
-		"Isrothy/neominimap.nvim",
-		version = "v3.*.*",
-		enabled = true,
-		lazy = false, -- NOTE: NO NEED to Lazy load
-		-- Optional
-		keys = {
-			-- Global Minimap Controls
-			{ "<leader>nm", "<cmd>Neominimap toggle<cr>", desc = "Toggle global minimap" },
-			{ "<leader>no", "<cmd>Neominimap on<cr>", desc = "Enable global minimap" },
-			{ "<leader>nc", "<cmd>Neominimap off<cr>", desc = "Disable global minimap" },
-			{ "<leader>nr", "<cmd>Neominimap refresh<cr>", desc = "Refresh global minimap" },
-
-			-- Window-Specific Minimap Controls
-			{ "<leader>nwt", "<cmd>Neominimap winToggle<cr>", desc = "Toggle minimap for current window" },
-			{ "<leader>nwr", "<cmd>Neominimap winRefresh<cr>", desc = "Refresh minimap for current window" },
-			{ "<leader>nwo", "<cmd>Neominimap winOn<cr>", desc = "Enable minimap for current window" },
-			{ "<leader>nwc", "<cmd>Neominimap winOff<cr>", desc = "Disable minimap for current window" },
-
-			-- Tab-Specific Minimap Controls
-			{ "<leader>ntt", "<cmd>Neominimap tabToggle<cr>", desc = "Toggle minimap for current tab" },
-			{ "<leader>ntr", "<cmd>Neominimap tabRefresh<cr>", desc = "Refresh minimap for current tab" },
-			{ "<leader>nto", "<cmd>Neominimap tabOn<cr>", desc = "Enable minimap for current tab" },
-			{ "<leader>ntc", "<cmd>Neominimap tabOff<cr>", desc = "Disable minimap for current tab" },
-
-			-- Buffer-Specific Minimap Controls
-			{ "<leader>nbt", "<cmd>Neominimap bufToggle<cr>", desc = "Toggle minimap for current buffer" },
-			{ "<leader>nbr", "<cmd>Neominimap bufRefresh<cr>", desc = "Refresh minimap for current buffer" },
-			{ "<leader>nbo", "<cmd>Neominimap bufOn<cr>", desc = "Enable minimap for current buffer" },
-			{ "<leader>nbc", "<cmd>Neominimap bufOff<cr>", desc = "Disable minimap for current buffer" },
-
-			---Focus Controls
-			{ "<leader>nf", "<cmd>Neominimap focus<cr>", desc = "Focus on minimap" },
-			{ "<leader>nu", "<cmd>Neominimap unfocus<cr>", desc = "Unfocus minimap" },
-			{ "<leader>ns", "<cmd>Neominimap toggleFocus<cr>", desc = "Switch focus on minimap" },
-		},
-		init = function()
-			-- The following options are recommended when layout == "float"
-			vim.opt.wrap = false
-			vim.opt.sidescrolloff = 36 -- Set a large value
-
-			--- Put your configuration here
-			---@type Neominimap.UserConfig
-			vim.g.neominimap = {
-				auto_enable = false,
-				exclude_filetypes = {
-					"prompt",
-					"TelescopePrompt",
-					"noice",
-					"neo-tree",
-					"dashboard",
-					"alpha",
-					"lazy",
-					"mason",
-					"DressingInput",
-					"help",
-				},
-			}
-		end,
-	},
-	{
-		"chrisgrieser/nvim-rip-substitute",
-		cmd = "RipSubstitute",
-		keys = {
-			{
-				"<leader>rs",
-				function()
-					require("rip-substitute").sub()
-				end,
-				mode = { "n", "x" },
-				desc = " rip substitute",
+		"petertriho/nvim-scrollbar",
+		event = "BufReadPost",
+		opts = {
+			set_highlights = false,
+			excluded_filetypes = {
+				"prompt",
+				"TelescopePrompt",
+				"noice",
+				"neo-tree",
+				"dashboard",
+				"alpha",
+				"lazy",
+				"mason",
+				"DressingInput",
+				"",
+			},
+			handlers = {
+				gitsigns = true,
 			},
 		},
 	},
