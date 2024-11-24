@@ -16,13 +16,6 @@ return {
 			{ "<A-k>", "<cmd>ZellijNavigateUp!<cr>" },
 		},
 	},
-	{
-		"akinsho/bufferline.nvim",
-		-- keys = {
-		-- 	{ "<leader>,", "<Cmd>BufferLinePick<CR>", desc = "Pick buffer" },
-		-- },
-		opts = { options = { always_show_bufferline = true } },
-	},
 	-- scope buffers to tabs
 	{ "tiagovla/scope.nvim", opts = {} },
 	-- theme

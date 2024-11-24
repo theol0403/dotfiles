@@ -79,35 +79,35 @@ return {
 	-- 	end,
 	-- },
 	-- replace <space><space> file finder with smart open, and move old behavior to <leader>.
-	{
-		"danielfalk/smart-open.nvim",
-		branch = "0.2.x",
-		config = function()
-			require("telescope").load_extension("smart_open")
-		end,
-		dependencies = {
-			"kkharji/sqlite.lua",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "nvim-telescope/telescope-fzy-native.nvim" },
-		},
-		keys = {
-			{
-				"<leader><space>",
-				function()
-					require("telescope").extensions.smart_open.smart_open()
-				end,
-				desc = "Smart open",
-			},
-		},
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		keys = {
-			-- { "<leader>,", false },
-			{ "<leader><space>", false },
-			{ "<leader>.", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
-		},
-	},
+	-- {
+	-- 	"danielfalk/smart-open.nvim",
+	-- 	branch = "0.2.x",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("smart_open")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"kkharji/sqlite.lua",
+	-- 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	-- 		{ "nvim-telescope/telescope-fzy-native.nvim" },
+	-- 	},
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader><space>",
+	-- 			function()
+	-- 				require("telescope").extensions.smart_open.smart_open()
+	-- 			end,
+	-- 			desc = "Smart open",
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	keys = {
+	-- 		-- { "<leader>,", false },
+	-- 		{ "<leader><space>", false },
+	-- 		{ "<leader>.", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+	-- 	},
+	-- },
 	{
 		"leath-dub/snipe.nvim",
 		keys = {

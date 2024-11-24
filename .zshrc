@@ -3,6 +3,7 @@ export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/
 # export PATH=/home/theol/Downloads/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/:$PATH
 # export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
 export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
+. "$HOME/.atuin/bin/env"
 
 export DENO_INSTALL="/home/theol/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
@@ -91,9 +92,10 @@ znap eval zoxide 'zoxide init zsh'
 # znap eval beet 'beet completion'
 # znap eval zellij 'zellij setup --generate-auto-start zsh'
 
-alias ls='eza -lh --icons --group-directories-first'
+# -l for long
+alias ls='eza -h --icons --group-directories-first'
 alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
+alias lt='eza --tree --level=2 --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias fd='fdfind'
@@ -153,8 +155,5 @@ neovide() {
     $(command neovide.exe --wsl "$@")
 }
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export FPATH="/home/theol/Documents/github/eza/completions/zsh:$FPATH"
+
