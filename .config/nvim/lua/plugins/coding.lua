@@ -94,6 +94,39 @@ return {
 			},
 		},
 	},
+	{
+		"RRethy/nvim-treesitter-textsubjects",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				textsubjects = {
+					enable = true,
+					keymaps = {
+						["."] = "textsubjects-smart",
+						["<CR>"] = "textsubjects-container-outer",
+						["i<CR>"] = {
+							"textsubjects-container-inner",
+							desc = "Select inside containers (classes, functions, etc.)",
+						},
+					},
+				},
+			})
+		end,
+	},
+	-- comment generation
+	{
+		"danymat/neogen",
+		keys = {
+			{
+				"<leader>cc",
+				function()
+					require("neogen").generate({})
+				end,
+				desc = "Neogen Comment",
+			},
+		},
+		opts = { snippet_engine = "nvim" },
+	},
 	-- Use <tab> for completion and snippets (supertab)
 	{
 		"hrsh7th/nvim-cmp",
