@@ -53,6 +53,7 @@ return {
 			{ "g*", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz*)" },
 			{ "g#", mode = { "n", "x", "o" }, "<Plug>(asterisk-gz#)" },
 		},
+		vscode = true,
 	},
 	-- better subword motions
 	{
@@ -79,6 +80,7 @@ return {
 				mode = { "n", "o", "x" },
 			},
 		},
+		vscode = true,
 	},
 	-- text-objects
 	{ "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
@@ -97,13 +99,14 @@ return {
 	{
 		"RRethy/nvim-treesitter-textsubjects",
 		event = "VeryLazy",
+		vscode = true,
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				textsubjects = {
 					enable = true,
 					keymaps = {
-						["."] = "textsubjects-smart",
-						["<CR>"] = "textsubjects-container-outer",
+						["<CR>"] = "textsubjects-smart",
+						["a<CR>"] = { "textsubjects-container-outer", desc = "Select around container" },
 						["i<CR>"] = {
 							"textsubjects-container-inner",
 							desc = "Select inside containers (classes, functions, etc.)",
@@ -112,10 +115,26 @@ return {
 				},
 			})
 		end,
+		keys = {
+			{
+				"<CR>",
+				function()
+					require("nvim-treesitter.textsubjects").select(
+						"textsubjects-smart",
+						false,
+						vim.fn.getpos("."),
+						vim.fn.getpos(".")
+					)
+				end,
+				desc = "Text Subjects",
+				mode = "n",
+			},
+		},
 	},
 	-- comment generation
 	{
 		"danymat/neogen",
+		vscode = true,
 		keys = {
 			{
 				"<leader>cc",
@@ -127,85 +146,101 @@ return {
 		},
 		opts = { snippet_engine = "nvim" },
 	},
-	-- Use <tab> for completion and snippets (supertab)
 	{
-		"hrsh7th/nvim-cmp",
-		url = "https://github.com/theol0403/magazine.nvim",
-		branch = "main",
-		---@param opts cmp.ConfigSchema
-		opts = function(_, opts)
-			local has_words_before = function()
-				unpack = unpack or table.unpack
-				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
-
-			opts.formatting.fields = { "num", "abbr", "kind", "menu" }
-			opts.formatting.number_options = {
-				start_index = 1,
-				end_index = 9,
-			}
-
-			local cmp = require("cmp")
-
-			opts.preselect = cmp.PreselectMode.None
-			opts.completion = {
-				completeopt = "menu,menuone,noinsert,noselect",
-			}
-
-			opts.mapping = vim.tbl_extend("force", opts.mapping, {
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if vim.snippet.active({ direction = 1 }) then
-						vim.schedule(function()
-							vim.snippet.jump(1)
-						end)
-					elseif cmp.visible() then
-						cmp.select_next_item()
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if vim.snippet.active({ direction = -1 }) then
-						vim.schedule(function()
-							vim.snippet.jump(-1)
-						end)
-					elseif cmp.visible() then
-						cmp.select_prev_item()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<CR>"] = cmp.mapping({
-					i = function(fallback)
-						if cmp.visible() and cmp.get_active_entry() then
-							cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-						else
-							fallback()
-						end
-					end,
-					s = cmp.mapping.confirm({ select = true }),
-					c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-				}),
-			})
+		"johmsalas/text-case.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("textcase").setup({})
+			require("telescope").load_extension("textcase")
 		end,
+		keys = {
+			"ga", -- Default invocation prefix
+			{ "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+		},
+		cmd = {
+			-- NOTE: The Subs command name can be customized via the option "substitude_command_name"
+			"Subs",
+			"TextCaseOpenTelescope",
+			"TextCaseOpenTelescopeQuickChange",
+			"TextCaseOpenTelescopeLSPChange",
+			"TextCaseStartReplacingCommand",
+		},
+		lazy = false,
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		url = "https://github.com/theol0403/magazine.nvim",
-		optional = true,
-		dependencies = { "supermaven-nvim" },
-		opts = function(_, opts)
-			if vim.g.ai_cmp then
-				table.insert(opts.sources, 1, {
-					name = "supermaven",
-					group_index = 1,
-					priority = 100,
-				})
-			end
-		end,
+		"saghen/blink.cmp",
+		opts = {
+			keymap = {
+				preset = "enter",
+				["<C-L>"] = {
+					LazyVim.cmp.map({ "ai_accept" }),
+					"fallback",
+				},
+				["<Tab>"] = {
+					function(cmp)
+						if cmp.snippet_active() then
+							return false
+						else
+							return cmp.select_next()
+						end
+					end,
+					"snippet_forward",
+					"fallback",
+				},
+				["<S-Tab>"] = {
+					"snippet_backward",
+					"select_prev",
+					"fallback",
+				},
+				["<C-y>"] = { "select_and_accept" },
+			},
+			sources = {
+				-- compat = { "supermaven" },
+				completion = {
+					enabled_providers = {
+						"lsp",
+						"path",
+						"snippets",
+						"buffer",
+						"ripgrep",
+					},
+				},
+				providers = {
+					ripgrep = {
+						module = "blink-ripgrep",
+						name = "Ripgrep",
+					},
+				},
+			},
+			completion = {
+				menu = {
+					draw = {
+						columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
+						components = {
+							item_idx = {
+								text = function(ctx)
+									return tostring(ctx.idx)
+								end,
+							},
+						},
+					},
+				},
+				list = {
+					selection = "auto_insert",
+				},
+			},
+		},
+		dependencies = {
+			{
+				"saghen/blink.compat",
+				"mikavilpas/blink-ripgrep.nvim",
+			},
+			{
+				"supermaven-nvim",
+				opts = {
+					-- disable_inline_completion = true,
+				},
+			},
+		},
 	},
 }

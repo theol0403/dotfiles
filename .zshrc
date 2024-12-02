@@ -71,6 +71,12 @@ bindkey -M menuselect ^D kill-whole-line
 bindkey $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
 bindkey $key[Tab] menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect $key[Tab] menu-complete "$terminfo[kcbt]" reverse-menu-complete
+# bindkey -M menuselect              '^I'         menu-complete
+# bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+zstyle ':completion:*' completer _complete _complete:-fuzzy _correct _approximate _ignored
+
 
 ZSH_AUTOSUGGEST_STRATEGY=(atuin_top completion match_prev_cmd history)
 # ZSH_AUTOSUGGEST_STRATEGY=(histdb_top completion match_prev_cmd history)

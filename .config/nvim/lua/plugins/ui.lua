@@ -73,21 +73,6 @@ return {
 		"dinhhuy258/git.nvim",
 		opts = {},
 	},
-	-- good search and replace (comparable to default gruq-far)
-	{
-		"chrisgrieser/nvim-rip-substitute",
-		cmd = "RipSubstitute",
-		keys = {
-			{
-				"<leader>rs",
-				function()
-					require("rip-substitute").sub()
-				end,
-				mode = { "n", "x" },
-				desc = " rip substitute",
-			},
-		},
-	},
 	-- {
 	-- 	"folke/which-key.nvim",
 	-- 	opts = {
@@ -95,10 +80,6 @@ return {
 	-- 			registers = false,
 	-- 		},
 	-- 	},
-	-- },
-	-- {
-	-- 	"lewis6991/satellite.nvim",
-	-- 	opts = {},
 	-- },
 	{
 		"petertriho/nvim-scrollbar",
@@ -121,5 +102,17 @@ return {
 				gitsigns = true,
 			},
 		},
+	},
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {
+			legacy_computing_symbols_support = true,
+			normal_bg = "#373438",
+			distance_stop_animating = 0.5,
+		},
+	},
+	{
+		"karb94/neoscroll.nvim",
+		opts = {},
 	},
 }
