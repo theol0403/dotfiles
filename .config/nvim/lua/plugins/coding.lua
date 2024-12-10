@@ -202,7 +202,7 @@ return {
 						"path",
 						"snippets",
 						"buffer",
-						"ripgrep",
+						-- "ripgrep",
 					},
 				},
 				providers = {
@@ -238,7 +238,7 @@ return {
 			{
 				"supermaven-nvim",
 				opts = {
-					-- disable_inline_completion = true,
+					disable_inline_completion = false,
 				},
 			},
 		},

@@ -3,7 +3,8 @@ export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/
 # export PATH=/home/theol/Downloads/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/:$PATH
 # export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
 export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
-. "$HOME/.atuin/bin/env"
+
+# . "$HOME/.atuin/bin/env"
 
 export DENO_INSTALL="/home/theol/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
@@ -163,3 +164,6 @@ neovide() {
 
 export FPATH="/home/theol/Documents/github/eza/completions/zsh:$FPATH"
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

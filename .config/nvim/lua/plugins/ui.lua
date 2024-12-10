@@ -108,7 +108,7 @@ return {
 		opts = {
 			legacy_computing_symbols_support = true,
 			normal_bg = "#373438",
-			distance_stop_animating = 0.5,
+			-- distance_stop_animating = 0.5,
 		},
 	},
 	{
