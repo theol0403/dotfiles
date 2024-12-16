@@ -131,44 +131,21 @@ return {
 			},
 		},
 	},
-	-- comment generation
 	{
-		"danymat/neogen",
-		vscode = true,
+		"aaronik/treewalker.nvim",
+		opts = {
+			highlight = true, -- default is false
+		},
 		keys = {
-			{
-				"<leader>cc",
-				function()
-					require("neogen").generate({})
-				end,
-				desc = "Neogen Comment",
-			},
+			{ "<C-j>", "<cmd>Treewalker Down<CR>", mode = "n" },
+			{ "<C-k>", "<cmd>Treewalker Up<CR>", mode = "n" },
+			{ "<C-h>", "<cmd>Treewalker Left<CR>", mode = "n" },
+			{ "<C-l>", "<cmd>Treewalker Right<CR>", mode = "n" },
 		},
-		opts = { snippet_engine = "nvim" },
-	},
-	{
-		"johmsalas/text-case.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("textcase").setup({})
-			require("telescope").load_extension("textcase")
-		end,
-		keys = {
-			"ga", -- Default invocation prefix
-			{ "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
-		},
-		cmd = {
-			-- NOTE: The Subs command name can be customized via the option "substitude_command_name"
-			"Subs",
-			"TextCaseOpenTelescope",
-			"TextCaseOpenTelescopeQuickChange",
-			"TextCaseOpenTelescopeLSPChange",
-			"TextCaseStartReplacingCommand",
-		},
-		lazy = false,
 	},
 	{
 		"saghen/blink.cmp",
+		version = "*",
 		opts = {
 			keymap = {
 				preset = "enter",
@@ -195,15 +172,12 @@ return {
 				["<C-y>"] = { "select_and_accept" },
 			},
 			sources = {
-				-- compat = { "supermaven" },
-				completion = {
-					enabled_providers = {
-						"lsp",
-						"path",
-						"snippets",
-						"buffer",
-						-- "ripgrep",
-					},
+				default = {
+					"lsp",
+					"path",
+					"snippets",
+					"buffer",
+					"ripgrep",
 				},
 				providers = {
 					ripgrep = {

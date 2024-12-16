@@ -8,6 +8,7 @@ return {
       \ if &buftype == '' |
       \ call system('zellij action rename-tab "' . fnamemodify(getcwd(), ':t') . '"') |
       \ endif]])
+			vim.g.zellij_navigator_no_default_mappings = 1
 		end,
 		keys = {
 			{ "<A-h>", "<cmd>ZellijNavigateLeft!<cr>" },
@@ -110,9 +111,5 @@ return {
 			normal_bg = "#373438",
 			-- distance_stop_animating = 0.5,
 		},
-	},
-	{
-		"karb94/neoscroll.nvim",
-		opts = {},
 	},
 }
