@@ -112,4 +112,14 @@ return {
 			-- distance_stop_animating = 0.5,
 		},
 	},
+	{
+		"snacks.nvim",
+		opts = {
+			scroll = { enabled = false },
+		},
+	},
+	{
+		"karb94/neoscroll.nvim",
+		opts = {},
+	},
 }

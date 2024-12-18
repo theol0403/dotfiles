@@ -41,7 +41,13 @@ return {
 			-- disable a keymap
 			keys[#keys + 1] = { "gr", false }
 			-- add a keymap
-			keys[#keys + 1] = { "gR", vim.lsp.buf.references, desc = "References", nowait = true }
+			-- keys[#keys + 1] = { "gR", vim.lsp.buf.references, desc = "References", nowait = true }
+			keys[#keys + 1] = {
+				"gR",
+				"<cmd>FzfLua lsp_references      jump_to_single_result=true ignore_current_line=true<cr>",
+				desc = "References",
+				nowait = true,
+			}
 		end,
 	},
 	-- * doesn't advance to the next match, to better support cgn
@@ -171,21 +177,21 @@ return {
 				},
 				["<C-y>"] = { "select_and_accept" },
 			},
-			sources = {
-				default = {
-					"lsp",
-					"path",
-					"snippets",
-					"buffer",
-					"ripgrep",
-				},
-				providers = {
-					ripgrep = {
-						module = "blink-ripgrep",
-						name = "Ripgrep",
-					},
-				},
-			},
+			-- sources = {
+			-- 	default = {
+			-- 		"lsp",
+			-- 		"path",
+			-- 		"snippets",
+			-- 		"buffer",
+			-- 		"ripgrep",
+			-- 	},
+			-- 	providers = {
+			-- 		ripgrep = {
+			-- 			module = "blink-ripgrep",
+			-- 			name = "Ripgrep",
+			-- 		},
+			-- 	},
+			-- },
 			completion = {
 				menu = {
 					draw = {
@@ -205,10 +211,9 @@ return {
 			},
 		},
 		dependencies = {
-			{
-				"saghen/blink.compat",
-				"mikavilpas/blink-ripgrep.nvim",
-			},
+			-- {
+			-- 	"mikavilpas/blink-ripgrep.nvim",
+			-- },
 			{
 				"supermaven-nvim",
 				opts = {
