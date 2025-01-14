@@ -89,16 +89,6 @@ return {
     },
   },
   {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      chunk = {
-        enable = true,
-        delay = 0,
-      },
-    },
-  },
-  {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",
     opts = {
@@ -128,7 +118,7 @@ return {
       -- distance_stop_animating = 0.5,
     },
   },
-    {
+  {
     "snacks.nvim",
     opts = {
       scroll = { enabled = false },

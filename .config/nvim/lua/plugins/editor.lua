@@ -61,7 +61,7 @@ return {
   -- 	end,
   -- },
   { "junegunn/fzf", build = "./install --bin" },
-  { "xiyaowong/fast-cursor-move.nvim", vscode = true },
+  -- { "xiyaowong/fast-cursor-move.nvim", vscode = true },
   -- <leader>. to open frecency finder
   {
     "danielfalk/smart-open.nvim",
