@@ -4,6 +4,8 @@ export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/
 # export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
 export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
 
+# source ~/.venv/bin/activate
+
 # . "$HOME/.atuin/bin/env"
 
 export DENO_INSTALL="/home/theol/.deno"
@@ -125,7 +127,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
 VSCODE=code-insiders
-znap source ohmyzsh/ohmyzsh plugins/{git,vscode,tmux,colored-man-pages,sublime-merge}
+znap source ohmyzsh/ohmyzsh plugins/{git,tmux,colored-man-pages,sublime-merge}
 
 # znap source marlonrichert/zsh-edit
 # znap source marlonrichert/zsh-hist
@@ -167,3 +169,6 @@ export FPATH="/home/theol/Documents/github/eza/completions/zsh:$FPATH"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# eval $(ssh-agent)
+# ssh-add 2>&1 > /dev/null
