@@ -67,31 +67,39 @@ return {
 		vscode = true,
 	},
 	-- better subword motions
+	-- {
+	-- 	"chrisgrieser/nvim-spider",
+	-- 	keys = {
+	-- 		{
+	-- 			"e",
+	-- 			"<cmd>lua require('spider').motion('e')<CR>",
+	-- 			mode = { "n", "o", "x" },
+	-- 		},
+	-- 		{
+	-- 			"w",
+	-- 			"<cmd>lua require('spider').motion('w')<CR>",
+	-- 			mode = { "n", "o", "x" },
+	-- 		},
+	-- 		{
+	-- 			"b",
+	-- 			"<cmd>lua require('spider').motion('b')<CR>",
+	-- 			mode = { "n", "o", "x" },
+	-- 		},
+	-- 		{
+	-- 			"ge",
+	-- 			"<cmd>lua require('spider').motion('ge')<CR>",
+	-- 			mode = { "n", "o", "x" },
+	-- 		},
+	-- 	},
+	-- 	vscode = true,
+	-- },
 	{
-		"chrisgrieser/nvim-spider",
-		keys = {
-			{
-				"e",
-				"<cmd>lua require('spider').motion('e')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"w",
-				"<cmd>lua require('spider').motion('w')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"b",
-				"<cmd>lua require('spider').motion('b')<CR>",
-				mode = { "n", "o", "x" },
-			},
-			{
-				"ge",
-				"<cmd>lua require('spider').motion('ge')<CR>",
-				mode = { "n", "o", "x" },
-			},
+		"luiscassih/AniMotion.nvim",
+		event = "VeryLazy",
+		config = {
+			color = { bg = "#5b595c" },
+			mode = "animotion",
 		},
-		vscode = true,
 	},
 	-- text-objects
 	{ "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
@@ -204,18 +212,18 @@ return {
 				},
 			},
 			completion = {
-				-- menu = {
-				-- 	draw = {
-				-- 		columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
-				-- 		components = {
-				-- 			item_idx = {
-				-- 				text = function(ctx)
-				-- 					return tostring(ctx.idx)
-				-- 				end,
-				-- 			},
-				-- 		},
-				-- 	},
-				-- },
+				menu = {
+					draw = {
+						columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
+						components = {
+							item_idx = {
+								text = function(ctx)
+									return tostring(ctx.idx)
+								end,
+							},
+						},
+					},
+				},
 				list = {
 					selection = { preselect = false, auto_insert = true },
 				},
