@@ -4,7 +4,7 @@ export PATH=~/.npm-global/bin:$HOME/Applications/:$HOME/.cargo/bin:~/.local/bin/
 # export PATH=/home/theol/Downloads/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin/:$PATH
 export PATH=/home/theol/Downloads/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi/bin/:$PATH
 
-# source ~/.venv/bin/activate
+source ~/.venv/bin/activate
 
 # . "$HOME/.atuin/bin/env"
 
@@ -50,13 +50,18 @@ fi
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt 
 
-ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-ZVM_INIT_MODE=sourcing
-znap source jeffreytse/zsh-vi-mode
+# bindkey -v
+#
+# ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
+# ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# ZVM_INIT_MODE=sourcing
+# ZVM_KEYTIMEOUT=0
+# ZVM_ESCAPE_KEYTIMEOUT=0
+# ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# znap source jeffreytse/zsh-vi-mode
 znap source zdharma/fast-syntax-highlighting
 znap source zsh-users/zsh-completions
-znap source xPMo/zsh-toggle-command-prefix
+# znap source xPMo/zsh-toggle-command-prefix
 
 zstyle ':autocomplete:*' min-input 4
 # zstyle ':autocomplete:*' list-lines 6
@@ -126,20 +131,21 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # znap source ohmyzsh/ohmyzsh lib/{cli,clipboard,compfix,correction,diagnostics,directories,functions,git,grep,history,misc,nvm,prompt_info_functions,spectrum,termsupport}
-VSCODE=code-insiders
-znap source ohmyzsh/ohmyzsh plugins/{git,tmux,colored-man-pages,sublime-merge}
+# VSCODE=code-insiders
+# znap source ohmyzsh/ohmyzsh plugins/{git,tmux,colored-man-pages,sublime-merge}
 
 # znap source marlonrichert/zsh-edit
 # znap source marlonrichert/zsh-hist
-bindkey "^Z" undo
+# bindkey "^Z" undo
 
 # bindings
-bindkey $key[Home] beginning-of-line
-bindkey $key[End] end-of-line
-bindkey -M vicmd $key[Home] beginning-of-line
-bindkey -M vicmd $key[End] end-of-line
+# bindkey $key[Home] beginning-of-line
+# bindkey $key[End] end-of-line
+# bindkey -M vicmd $key[Home] beginning-of-line
+# bindkey -M vicmd $key[End] end-of-line
 bindkey '^H' backward-kill-word
-bindkey $key[Delete] delete-char
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
 
 setopt autocd
 

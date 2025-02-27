@@ -60,7 +60,19 @@ return {
 	-- 		end)
 	-- 	end,
 	-- },
-	{ "junegunn/fzf", build = "./install --bin" },
+	{
+		"MagicDuck/grug-far.nvim",
+		keys = {
+			{
+				"<leader>sf", -- find in local file
+				function()
+					require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+				end,
+				mode = { "n", "v" },
+				desc = "Search and Replace (current file)",
+			},
+		},
+	},
 	-- { "xiyaowong/fast-cursor-move.nvim", vscode = true },
 	-- best tui file manager
 	{
