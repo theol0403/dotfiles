@@ -50,6 +50,8 @@ vmap(
 -- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+vim.cmd([[nnoremap <silent> - <Cmd>Neotree<CR>]])
+
 -- ------------------------- vscode specific config ----------------------------
 if vim.g.vscode then
 	local vscode = require("vscode")
@@ -82,6 +84,8 @@ if vim.g.vscode then
 			vscode.action("editor.action.selectHighlights")
 		end)
 	end)
+
+	vim.cmd([[nnoremap <silent> - <Cmd>lua require('vscode-neovim').call('workbench.files.action.showActiveFileInExplorer')<CR>]])
 end
 
 if vim.g.neovide then

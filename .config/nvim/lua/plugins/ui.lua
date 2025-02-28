@@ -234,10 +234,10 @@ return {
 				"<leader><space>",
 				function()
 					Snacks.picker.smart({
-						multi = {
-							"files",
-							"buffers",
-						},
+						-- multi = {
+						-- 	"files",
+						-- 	"buffers",
+						-- },
 					})
 				end,
 				desc = "Smart Find Files",
@@ -248,10 +248,12 @@ return {
 		"folke/snacks.nvim",
 		opts = function(_, opts)
 			table.insert(opts.dashboard.preset.keys, 4, {
-				icon = " ",
+				icon = " ",
 				key = "z",
 				desc = "Zoxide",
-				action = ":lua Snacks.picker.zoxide()",
+				action = function()
+					Snacks.picker.zoxide()
+				end,
 			})
 		end,
 	},
