@@ -97,7 +97,7 @@ return {
 		"luiscassih/AniMotion.nvim",
 		event = "VeryLazy",
 		config = {
-			color = { bg = "#5b595c" },
+			-- color = { bg = "#5b595c" },
 			mode = "animotion",
 		},
 	},

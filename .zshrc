@@ -178,3 +178,5 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # eval $(ssh-agent)
 # ssh-add 2>&1 > /dev/null
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
