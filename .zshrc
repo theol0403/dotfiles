@@ -50,7 +50,7 @@ fi
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt 
 
-# bindkey -v
+bindkey -v
 #
 # ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 # ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -180,3 +180,12 @@ export NVM_DIR="$HOME/.config/nvm"
 # ssh-add 2>&1 > /dev/null
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+          # Adding wsl-open as a browser for Bash for Windows
+          if [[ $(uname -r) =~ (m|M)icrosoft ]]; then
+            if [[ -z $BROWSER ]]; then
+              export BROWSER=wsl-open
+            else
+              export BROWSER=$BROWSER:wsl-open
+            fi
+          fi
