@@ -67,40 +67,41 @@ return {
 		vscode = true,
 	},
 	-- better subword motions
-	-- {
-	-- 	"chrisgrieser/nvim-spider",
-	-- 	keys = {
-	-- 		{
-	-- 			"e",
-	-- 			"<cmd>lua require('spider').motion('e')<CR>",
-	-- 			mode = { "n", "o", "x" },
-	-- 		},
-	-- 		{
-	-- 			"w",
-	-- 			"<cmd>lua require('spider').motion('w')<CR>",
-	-- 			mode = { "n", "o", "x" },
-	-- 		},
-	-- 		{
-	-- 			"b",
-	-- 			"<cmd>lua require('spider').motion('b')<CR>",
-	-- 			mode = { "n", "o", "x" },
-	-- 		},
-	-- 		{
-	-- 			"ge",
-	-- 			"<cmd>lua require('spider').motion('ge')<CR>",
-	-- 			mode = { "n", "o", "x" },
-	-- 		},
-	-- 	},
-	-- 	vscode = true,
-	-- },
 	{
-		"luiscassih/AniMotion.nvim",
-		event = "VeryLazy",
-		config = {
-			-- color = { bg = "#5b595c" },
-			mode = "animotion",
+		"chrisgrieser/nvim-spider",
+		keys = {
+			{
+				"e",
+				"<cmd>lua require('spider').motion('e')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"w",
+				"<cmd>lua require('spider').motion('w')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"b",
+				"<cmd>lua require('spider').motion('b')<CR>",
+				mode = { "n", "o", "x" },
+			},
+			{
+				"ge",
+				"<cmd>lua require('spider').motion('ge')<CR>",
+				mode = { "n", "o", "x" },
+			},
 		},
 	},
+	-- 	vscode = true,
+	-- },
+	-- {
+	-- 	"luiscassih/AniMotion.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = {
+	-- 		-- color = { bg = "#5b595c" },
+	-- 		mode = "animotion",
+	-- 	},
+	-- },
 	-- text-objects
 	{ "PeterRincker/vim-argumentative", vscode = true }, -- <, shift argument, [, move argument, , - argument
 	{
@@ -226,6 +227,9 @@ return {
 				},
 				list = {
 					selection = { preselect = false, auto_insert = true },
+				},
+				accept = {
+					dot_repeat = false,
 				},
 			},
 		},

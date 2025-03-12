@@ -63,6 +63,8 @@ return {
 					},
 				},
 				override = function(c)
+					vim.cmd([[hi @lsp.type.comment.c guifg=NONE]]) -- just for now
+					vim.cmd([[hi @lsp.type.comment.cpp guifg=NONE]]) -- just for now
 					local hp = require("monokai-pro.color_helper")
 					local common_fg = hp.lighten(c.sideBar.foreground, 30)
 					return {
@@ -162,6 +164,14 @@ return {
 			styles = {
 				lazygit = {
 					wo = { winhighlight = "NormalFloat:Normal" },
+				},
+			},
+			lazygit = {
+				os = {
+					edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})',
+					editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
+					editAtLineAndWait = "nvim +{{line}} {{filename}}",
+					openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})',
 				},
 			},
 		},
