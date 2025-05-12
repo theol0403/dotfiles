@@ -149,3 +149,8 @@ bindkey -M vicmd $key[Down] history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+alias start-bb-server="bbctl run --param 'bluebubbles_url=http://localhost:1234' --param 'bluebubbles_password=ruffruff11' --param 'imessage_platform=bluebubbles' sh-imessage"
+
+# Added by Windsurf
+export PATH="/Users/theol/.codeium/windsurf/bin:$PATH"
