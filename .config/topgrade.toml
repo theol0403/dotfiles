@@ -63,7 +63,7 @@ enable_pipupgrade = true
 
 # Custom commands
 [commands]
-"ZSH" = "zsh -c \"source /home/theol/.zshrc && znap status && znap pull\""
+"ZSH" = "zsh -c \"source /Users/theol/.zshrc && znap status && znap pull\""
 #"Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 
 [brew]
