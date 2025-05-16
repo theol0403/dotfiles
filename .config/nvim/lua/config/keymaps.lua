@@ -85,8 +85,24 @@ if vim.g.vscode then
 		end)
 	end)
 
-	vim.cmd([[nnoremap <silent> - <Cmd>lua require('vscode-neovim').call('workbench.files.action.showActiveFileInExplorer')<CR>]])
+	vim.cmd(
+		[[nnoremap <silent> - <Cmd>lua require('vscode-neovim').call('workbench.files.action.showActiveFileInExplorer')<CR>]]
+	)
 end
+
+-- terminal copy/paste
+vim.keymap.set("v", "<C-S-c>", '"+y') -- Copy visual mode
+vim.keymap.set("n", "<C-S-c>", '"+yy') -- Copy normal mode
+vim.keymap.set({ "n", "v" }, "<C-S-v>", '"+P') -- Paste
+vim.keymap.set("c", "<C-S-v>", "<C-R>+") -- Paste command mode
+vim.keymap.set("i", "<C-S-v>", "<C-R><C-O>+") -- Paste insert mode
+
+-- macos copy/paste
+vim.keymap.set("v", "<D-c>", '"+y') -- Copy visual mode
+vim.keymap.set("n", "<D-c>", '"+yy') -- Copy normal mode
+vim.keymap.set({ "n", "v" }, "<D-v>", '"+P') -- Paste
+vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+vim.keymap.set("i", "<D-v>", "<C-R><C-O>+") -- Paste insert mode
 
 if vim.g.neovide then
 	vim.keymap.set({ "n", "v" }, "<A-h>", "<C-w>h")
@@ -94,9 +110,7 @@ if vim.g.neovide then
 	vim.keymap.set({ "n", "v" }, "<A-j>", "<C-w>j")
 	vim.keymap.set({ "n", "v" }, "<A-k>", "<C-w>k")
 
-	vim.keymap.set("v", "<C-S-c>", '"+y') -- Copy
-	vim.keymap.set("n", "<C-S-v>", '"+P') -- Paste normal mode
-	vim.keymap.set("v", "<C-S-v>", '"+P') -- Paste visual mode
-	vim.keymap.set("c", "<C-S-v>", "<C-R>+") -- Paste command mode
-	vim.keymap.set("i", "<C-S-v>", "<C-R><C-O>+") -- Paste insert mode
+	vim.keymap.set("n", "<D-n>", function()
+		vim.fn.jobstart("cd ~ && neovide --fork")
+	end, { silent = true })
 end
