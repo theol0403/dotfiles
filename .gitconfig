@@ -15,9 +15,20 @@
 	repo = /home/tlemay/Documents/zshplugins/zsh-users/zsh-history-substring-search
 	repo = /home/tlemay/Documents/Tesla/firmware-scalar/src
 	repo = /home/tlemay/Documents/Tesla/firmware-scalar
+	repo = /Users/theol/Documents/zshplugins/zdharma/fast-syntax-highlighting
+	repo = /Users/theol/Documents/zshplugins/marlonrichert/zsh-autocomplete
+	repo = /Users/theol/Documents/zshplugins/zsh-users/zsh-autosuggestions
+	repo = /Users/theol/Documents/zshplugins/zsh-users/zsh-completions
+	repo = /Users/theol/Documents/zshplugins/zsh-users/zsh-history-substring-search
 [scalar]
 	repo = /home/tlemay/Documents/Tesla/firmware-scalar/src
 	repo = /home/tlemay/Documents/Tesla/firmware-scalar
 [user]
 	name = Theo Lemay
 	email = tlemay@tesla.com
+
+[include]
+    path = ~/.gitconfig-personal
+
+[includeIf "gitdir:/Users/theol/work/"]
+    path = ~/.gitconfig-work
