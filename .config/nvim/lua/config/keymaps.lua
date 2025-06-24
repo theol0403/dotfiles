@@ -68,10 +68,10 @@ if vim.g.vscode then
 	-- nnoremap ('gT', '<Cmd>call VSCodeNotify("workbench.action.showAllEditorsByMostRecentlyUsed")<CR>')
 	nnoremap("go", '<Cmd>call VSCodeNotify("workbench.action.quickOpen")<CR>')
 
-	-- nnoremap (']c', '<Cmd>call VSCodeNotify("workbench.action.editor.nextChange")<CR>')
-	-- nnoremap ('[c', '<Cmd>call VSCodeNotify("workbench.action.editor.previousChange")<CR>')
-	-- nnoremap (']e', '<Cmd>call VSCodeNotify("editor.action.marker.next")<CR>')
-	-- nnoremap ('[e', '<Cmd>call VSCodeNotify("editor.action.marker.prev")<CR>')
+	nnoremap("]h", '<Cmd>call VSCodeNotify("workbench.action.editor.nextChange")<CR>')
+	nnoremap("[h", '<Cmd>call VSCodeNotify("workbench.action.editor.previousChange")<CR>')
+	nnoremap("]e", '<Cmd>call VSCodeNotify("editor.action.marker.next")<CR>')
+	nnoremap("[e", '<Cmd>call VSCodeNotify("editor.action.marker.prev")<CR>')
 
 	vim.keymap.set({ "n", "x", "i" }, "<C-d>", function()
 		vscode.with_insert(function()
@@ -88,6 +88,11 @@ if vim.g.vscode then
 	vim.cmd(
 		[[nnoremap <silent> - <Cmd>lua require('vscode-neovim').call('workbench.files.action.showActiveFileInExplorer')<CR>]]
 	)
+
+	vim.cmd([[map <leader>w <c-w>]])
+
+	vim.cmd([[unmap u]])
+	vim.cmd([[unmap <C-r>]])
 end
 
 -- terminal copy/paste

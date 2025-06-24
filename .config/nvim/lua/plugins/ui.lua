@@ -19,7 +19,7 @@ return {
 		},
 	},
 	-- scope buffers to tabs
-	{ "tiagovla/scope.nvim", opts = {} },
+	-- { "tiagovla/scope.nvim", opts = {} },
 	{
 		"akinsho/bufferline.nvim",
 		opts = {
@@ -81,6 +81,7 @@ return {
 						-- DiagnosticUnderlineInfo = { undercurl = false, underline = true },
 						-- DiagnosticUnderlineHint = { undercurl = false, underline = true },
 						-- DiagnosticUnnecessary = { undercurl = false, underline = true },
+						DiagnosticUnnecessary = { link = "Comment" },
 						SnacksPicker = { bg = c.editor.background, fg = common_fg },
 						SnacksPickerBorder = { bg = c.editor.background, fg = c.tab.unfocusedActiveBorder },
 						SnacksPickerTree = { fg = c.editorLineNumber.foreground },
@@ -103,21 +104,16 @@ return {
 		"dinhhuy258/git.nvim",
 		opts = {},
 	},
-	-- {
-	-- 	"folke/which-key.nvim",
-	-- 	opts = {
-	-- 		plugins = {
-	-- 			registers = false,
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"folke/which-key.nvim",
 		opts = {
+			-- 		plugins = {
+			-- 			registers = false,
+			-- 		},
 			preset = "classic",
 		},
 	},
-	{ "lewis6991/satellite.nvim", dependencies = { "lewis6991/gitsigns.nvim", enabled = true } },
+	-- { "lewis6991/satellite.nvim", dependencies = { "lewis6991/gitsigns.nvim", enabled = true } },
 	-- {
 	-- 	"petertriho/nvim-scrollbar",
 	-- 	event = "BufReadPost",
@@ -165,6 +161,9 @@ return {
 				lazygit = {
 					wo = { winhighlight = "NormalFloat:Normal" },
 				},
+				zen = {
+					width = 200,
+				},
 			},
 			lazygit = {
 				os = {
@@ -172,6 +171,12 @@ return {
 					editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
 					editAtLineAndWait = "nvim +{{line}} {{filename}}",
 					openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})',
+				},
+			},
+			zen = {
+				show = {
+					statusline = true,
+					tabline = true,
 				},
 			},
 		},

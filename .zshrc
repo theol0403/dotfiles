@@ -5,6 +5,8 @@ PATH=$PATH:"/mnt/c/Program Files/Neovide"
 
 export FPATH="/home/theol/Documents/github/eza/completions/zsh:$FPATH"
 
+. $HOME/export-esp.sh
+
 # Cross-Platform Tools (Windows/WSL)
 if [[ $(uname -r) =~ (m|M)icrosoft ]]; then
   # Add Windows paths if in WSL, e.g., C:/Program Files/
@@ -60,9 +62,6 @@ fi
 zstyle ':znap:*' repos-dir ~/Documents/zshplugins
 source ~/Documents/github/zsh-snap/znap.zsh
 
-znap eval atuin 'atuin init zsh --disable-up-arrow'
-# znap fpath _atuin 'atuin gen-completions --shell zsh'
-
 znap eval zoxide 'zoxide init zsh'
 alias cd='z'
 
@@ -91,6 +90,9 @@ bindkey '^[[1;5D' emacs-backward-word
 if [[ "$TERM_PROGRAM" == "WarpTerminal"* ]]; then
   return
 fi
+
+znap eval atuin 'atuin init zsh --disable-up-arrow'
+# znap fpath _atuin 'atuin gen-completions --shell zsh'
 
 znap eval starship 'starship init zsh --print-full-init'
 znap prompt 
@@ -154,3 +156,27 @@ alias start-bb-server="bbctl run --param 'bluebubbles_url=http://localhost:1234'
 
 # Added by Windsurf
 export PATH="/Users/theol/.codeium/windsurf/bin:$PATH"
+
+# Load SSH agent configuration
+source /Users/theol/.ssh/ssh-agent-config
+export PATH="/Users/theol/.pixi/bin:$PATH"
+### Source Rust Related Path: (auto-installed by )
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.pixi/bin:$PATH"
+eval "$(pixi completion --shell bash)"
+### [END of sourcing rust related path]
+### Source Rust Related Path: (auto-installed by `install-rust-zsh.sh`)
+
+# Added by Windsurf
+export PATH="/Users/theol/.codeium/windsurf/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/theol/.codeium/windsurf/bin:$PATH"
+
+. "$HOME/.local/share/../bin/env"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add .zfunc to FPATH for autocompletion
+export FPATH="$HOME/.zfunc:$FPATH"
+

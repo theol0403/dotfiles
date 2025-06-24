@@ -15,6 +15,7 @@ vim.g.neovide_remember_window_size = true
 
 vim.opt.guicursor:append("t:ver25")
 
--- vim.g.lazyvim_blink_main = true
-
+vim.g.lazyvim_blink_main = true
 vim.g.ai_cmp = false
+
+-- vim.g.lazyvim_rust_diagnostics = "bacon-ls"

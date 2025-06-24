@@ -16,3 +16,8 @@
 [user]
 	email = theol0403@gmail.com
 	name = Theo Lemay
+[mergetool "smerge"]
+	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = smerge
